@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wisdom M. Johnson — School &amp; College Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { size: letter; margin: 0.55in 0.65in; }
+
+    body {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 10pt;
+      color: #111;
+      background: #e8e8e8;
+      line-height: 1.38;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 30px auto;
+      background: white;
+      padding: 0.55in 0.65in;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.16);
+    }
+
+    /*  HEADER  */
+    .header {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-size: 22pt;
+      font-weight: 900;
+      color: #111;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .header .label {
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .header .contact {
+      font-size: 9pt;
+      color: #444;
+      margin-top: 5px;
+    }
+
+    /* Gold rule under header */
+    .rule {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #f59e0b 20%, #1e3a8a 50%, #f59e0b 80%, transparent);
+      margin: 10px 0 16px;
+    }
+
+    /*  STATS BOX  */
+    .stats-box {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .stat-cell {
+      text-align: center;
+      padding: 9px 4px;
+      border-right: 1px solid #d1d5db;
+    }
+
+    .stat-cell:last-child { border-right: none; }
+
+    .stat-cell:nth-child(odd) { background: #f9fafb; }
+
+    .stat-cell .val {
+      font-size: 14pt;
+      font-weight: 900;
+      color: #1e3a8a;
+      line-height: 1;
+    }
+
+    .stat-cell .lbl {
+      font-size: 7.5pt;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 3px;
+    }
+
+    /*  SECTION  */
+    .section { margin-bottom: 13px; }
+
+    .section-title {
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #1e3a8a;
+      background: #eff6ff;
+      padding: 3px 8px;
+      margin-bottom: 8px;
+      border-left: 3px solid #1e3a8a;
+    }
+
+    /*  ENTRY  */
+    .entry { margin-bottom: 8px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .entry-head .title { font-weight: 700; font-size: 10pt; }
+    .entry-head .date { font-size: 8.5pt; color: #666; white-space: nowrap; margin-left: 10px; }
+    .entry-sub { font-size: 8.5pt; color: #555; font-style: italic; margin-bottom: 3px; }
+    .entry ul { margin-left: 14px; }
+    .entry ul li { font-size: 8.5pt; margin-bottom: 2px; line-height: 1.4; }
+
+    /*  ACTIVITY TABLE  */
+    .act-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+    .act-table th {
+      text-align: left; font-size: 7.5pt; text-transform: uppercase;
+      letter-spacing: 0.07em; color: #6b7280;
+      padding: 4px 8px; background: #f9fafb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .act-table td {
+      padding: 5px 8px;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 9pt;
+    }
+    .act-table tr:last-child td { border-bottom: none; }
+    .act-table .name { font-weight: 600; }
+
+    /*  HONORS TAGS  */
+    .honors-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+    .honor-tag {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 3px;
+      padding: 2px 9px;
+    }
+
+    /*  SKILLS TWO COL  */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 24px; }
+    .skill-item { font-size: 8.5pt; padding: 2px 0; border-bottom: 1px solid #f3f4f6; }
+
+    /* print */
+    .print-btn {
+      position: fixed; bottom: 24px; right: 24px;
+      background: #1e3a8a; color: white; border: none;
+      padding: 11px 22px; border-radius: 4px; font-size: 13px;
+      cursor: pointer; box-shadow: 0 4px 14px rgba(30,58,138,0.4);
+      letter-spacing: 0.05em;
+    }
+    .print-btn:hover { background: #2d4fa3; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; padding: 0; }
+      .print-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>Wisdom M. Johnson</h1>
+    <div class="label">College Application Resume</div>
+    <div class="contact">
+      (910) 835-6020 &nbsp;&nbsp;|&nbsp;&nbsp; wisemoson@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; 332 W Summerchase Dr, Fayetteville, NC 28311
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="stats-box">
+    <div class="stat-cell"><div class="val">4.000</div><div class="lbl">Wtd. GPA</div></div>
+    <div class="stat-cell"><div class="val">3.760</div><div class="lbl">Uwtd. GPA</div></div>
+    <div class="stat-cell"><div class="val">51 / 342</div><div class="lbl">Class Rank</div></div>
+    <div class="stat-cell"><div class="val">21</div><div class="lbl">ACT Composite</div></div>
+    <div class="stat-cell"><div class="val">25</div><div class="lbl">ACT Math</div></div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="title">Pine Forest High School — Fayetteville, NC</span>
+        <span class="date">Jun 2026 | School Code: 260408 | CEEB: 341317</span>
+      </div>
+      <div class="entry-sub">Academy of Information Technology (AOIT) | Course of Study: UNC Minimum Requirements — completed (25 credits)</div>
+      <ul>
+        <li>CTE Concentrator: Adobe Academy (Visual Design) &amp; Entrepreneurship I &amp; II (grades: 100, 99)</li>
+        <li>Honors/AP: AP Precalculus, Chemistry Honors, English IV Honors, Economics/Finance Honors, Math 3 Honors</li>
+      </ul>
+    </div>
+    <div class="entry" style="margin-top:7px">
+      <div class="entry-head">
+        <span class="title">Fayetteville Technical Community College — Dual Enrollment</span>
+        <span class="date">2025–2026</span>
+      </div>
+      <div class="entry-sub">Earning college IT credits while completing high school senior year</div>
+      <ul>
+        <li>CTI-110, CTS-120, CTS-220, NET-110 (Networking), NOS-110 (OS &amp; Security), SEC-110 (Cybersecurity)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HONORS -->
+  <div class="section">
+    <div class="section-title">Honors &amp; Awards</div>
+    <div class="honors-wrap">
+      <span class="honor-tag">4.0 Weighted GPA — 3 Consecutive Years</span>
+      <span class="honor-tag">A-B Honor Roll — All 4 Years</span>
+      <span class="honor-tag">NTHS Secretary</span>
+      <span class="honor-tag">National Honor Society Member</span>
+      <span class="honor-tag">CompTIA IT Fundamentals: 99 / 100</span>
+      <span class="honor-tag">NC Countdown to College Fee Waiver</span>
+      <span class="honor-tag">Common App Fee Waiver</span>
+      <span class="honor-tag">TRIO Upward Bound Scholar (3 yrs)</span>
+      <span class="honor-tag">Entrepreneurship I: 100 / 100</span>
+    </div>
+  </div>
+
+  <!-- ACTIVITIES -->
+  <div class="section">
+    <div class="section-title">Extracurricular Activities &amp; Leadership</div>
+    <table class="act-table">
+      <thead>
+        <tr>
+          <th style="width:42%">Activity / Organization</th>
+          <th style="width:20%">Role</th>
+          <th style="width:14%">Years</th>
+          <th style="width:14%">Hrs/Week</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="name">National Technical Honor Society (NTHS)</td><td>Secretary</td><td>3</td><td>2</td></tr>
+        <tr><td class="name">National Honor Society (NHS)</td><td>Member</td><td>2</td><td>2</td></tr>
+        <tr><td class="name">Future Business Leaders of America (FBLA)</td><td>Member</td><td>2</td><td>2</td></tr>
+        <tr><td class="name">TRIO Upward Bound Program</td><td>Scholar</td><td>3</td><td>5</td></tr>
+        <tr><td class="name">Student Voices Club</td><td>Member</td><td>1</td><td>1</td></tr>
+        <tr><td class="name">Varsity Tennis</td><td>Player</td><td>2</td><td>8</td></tr>
+        <tr><td class="name">Piano — Fayetteville School of Music</td><td>Student / Recitalist</td><td>4</td><td>8</td></tr>
+        <tr><td class="name">Ninjutsu Martial Arts</td><td>Brown Belt</td><td>3</td><td>3</td></tr>
+        <tr><td class="name">Boxing Training</td><td>Athlete</td><td>1</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SERVICE -->
+  <div class="section">
+    <div class="section-title">Community Service</div>
+    <table class="act-table">
+      <thead>
+        <tr>
+          <th style="width:42%">Organization</th>
+          <th>Role</th>
+          <th>Duration</th>
+          <th>Total Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="name">St. Matthews Church</td><td>Childcare Volunteer</td><td>5 years (2020–present)</td><td>~780 hrs</td></tr>
+        <tr><td class="name">North Regional Library</td><td>Volunteer</td><td>1 year</td><td>50+ hrs</td></tr>
+        <tr><td class="name">100 Black Men of Fayetteville</td><td>Youth Participant</td><td>Ongoing</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WORK -->
+  <div class="section">
+    <div class="section-title">Work Experience &amp; Programs</div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="title">WisdomLayers — Founder &amp; Web Developer</span>
+        <span class="date">Jun 2025–Present | 10 hrs/week</span>
+      </div>
+      <ul><li>Founded web development business; builds and delivers custom websites for real clients, full project lifecycle</li></ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="title">Code Forward — Coding Instructor</span>
+        <span class="date">Summer 2024 | 9 hrs/week</span>
+      </div>
+      <ul><li>Instructed 15+ students in web development fundamentals; developed curriculum and mentored beginners</li></ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="title">Spark Labs District C — Entrepreneurship Program</span>
+        <span class="date">2024–2025 | 3 hrs/week</span>
+      </div>
+      <ul><li>30+ hours collaborating with real businesses on strategy, pitching, and professional development</li></ul>
+    </div>
+  </div>
+
+  <!-- SKILLS + COLLEGE PLANS side by side -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="section" style="margin-bottom:0">
+      <div class="section-title">Technical Skills &amp; Coursework</div>
+      <div class="skills-grid">
+        <span class="skill-item">HTML / CSS / JavaScript</span>
+        <span class="skill-item">Python Programming</span>
+        <span class="skill-item">Adobe Visual Design I &amp; II</span>
+        <span class="skill-item">CompTIA IT Fundamentals</span>
+        <span class="skill-item">IT Networking (FTCC)</span>
+        <span class="skill-item">Cybersecurity (FTCC SEC-110)</span>
+        <span class="skill-item">Entrepreneurship I &amp; II</span>
+        <span class="skill-item">AP Precalculus (in progress)</span>
+      </div>
+    </div>
+    <div class="section" style="margin-bottom:0">
+      <div class="section-title">College Plans</div>
+      <p style="font-size:9pt;line-height:1.7">
+        <strong>North Carolina A&amp;T State University</strong><br>
+        Mechanical Engineering | Fall 2026<br>
+        First-generation college student<br>
+        TRIO Upward Bound participant | NC resident
+      </p>
+    </div>
+  </div>
+
+</div>
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

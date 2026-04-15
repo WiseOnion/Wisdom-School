@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wisdom M. Johnson — General Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { size: letter; margin: 0; }
+
+    body {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 10pt;
+      color: #1a1a1a;
+      background: #e8e8e8;
+      line-height: 1.4;
+    }
+
+    .page {
+      max-width: 8.5in;
+      min-height: 11in;
+      margin: 30px auto;
+      background: white;
+      display: grid;
+      grid-template-columns: 2.2in 1fr;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+
+    /*  LEFT SIDEBAR  */
+    .sidebar {
+      background: #1e3a8a;
+      color: white;
+      padding: 32px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .sidebar-name {
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 18px;
+    }
+
+    .sidebar-name h1 {
+      font-size: 14pt;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+      color: white;
+    }
+
+    .sidebar-name .role {
+      font-size: 8.5pt;
+      color: #fcd34d;
+      font-weight: 600;
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .sidebar-section h3 {
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fcd34d;
+      font-weight: 700;
+      margin-bottom: 8px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .contact-item {
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+
+    .skill-bar-wrap { margin-bottom: 7px; }
+    .skill-bar-label { font-size: 8pt; color: rgba(255,255,255,0.9); margin-bottom: 3px; }
+    .skill-bar-track { height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; }
+    .skill-bar-fill { height: 100%; background: #fcd34d; border-radius: 2px; }
+
+    .honor-item {
+      font-size: 8pt;
+      color: rgba(255,255,255,0.85);
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      line-height: 1.4;
+    }
+    .honor-item:last-child { border-bottom: none; }
+
+    .service-item {
+      font-size: 8pt;
+      color: rgba(255,255,255,0.85);
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      line-height: 1.4;
+    }
+    .service-item span { display: block; color: rgba(255,255,255,0.5); font-size: 7.5pt; }
+    .service-item:last-child { border-bottom: none; }
+
+    /*  RIGHT MAIN  */
+    .main {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .main-section h2 {
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #1e3a8a;
+      font-weight: 700;
+      padding-bottom: 3px;
+      border-bottom: 2px solid #1e3a8a;
+      margin-bottom: 10px;
+    }
+
+    .entry { margin-bottom: 10px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .entry-head .title { font-weight: 700; font-size: 10pt; }
+    .entry-head .date { font-size: 8.5pt; color: #666; white-space: nowrap; margin-left: 10px; }
+    .entry-sub { font-size: 8.5pt; color: #555; font-style: italic; margin-bottom: 4px; }
+
+    .entry ul { margin-left: 14px; }
+    .entry ul li { font-size: 8.5pt; margin-bottom: 2px; line-height: 1.45; }
+
+    .summary-text {
+      font-size: 9pt;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* print */
+    .print-btn {
+      position: fixed; bottom: 24px; right: 24px;
+      background: #1e3a8a; color: white; border: none;
+      padding: 11px 22px; border-radius: 50px; font-size: 13px;
+      cursor: pointer; box-shadow: 0 4px 14px rgba(30,58,138,0.4);
+    }
+    .print-btn:hover { background: #2d4fa3; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; min-height: 0; }
+      .print-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="sidebar-name">
+      <h1>WISDOM<br>M. JOHNSON</h1>
+      <div class="role">Web Developer &amp; Engineer</div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Contact</h3>
+      <div class="contact-item">(910) 835-6020</div>
+      <div class="contact-item">wisemoson@gmail.com</div>
+      <div class="contact-item">332 W Summerchase Dr<br>Fayetteville, NC 28311</div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Technical Skills</h3>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">HTML / CSS / JavaScript</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Python Programming</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Adobe Visual Design</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">IT Networking (FTCC)</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Cybersecurity (FTCC)</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%"></div></div>
+      </div>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">Google Workspace / Office</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Honors</h3>
+      <div class="honor-item">4.0 Weighted GPA</div>
+      <div class="honor-item">Class Rank 51 / 342</div>
+      <div class="honor-item">NTHS Secretary</div>
+      <div class="honor-item">National Honor Society</div>
+      <div class="honor-item">A-B Honor Roll, All 4 Years</div>
+      <div class="honor-item">TRIO Upward Bound Scholar</div>
+      <div class="honor-item">ACT Math: 25 / 36</div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Community Service</h3>
+      <div class="service-item">
+        St. Matthews Church — Childcare
+        <span>5 years, 2020–Present</span>
+      </div>
+      <div class="service-item">
+        North Regional Library — Volunteer
+        <span>50+ hours, 2024–2025</span>
+      </div>
+      <div class="service-item">
+        100 Black Men of Fayetteville
+        <span>Youth mentorship</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT MAIN -->
+  <div class="main">
+
+    <div class="main-section">
+      <h2>Profile</h2>
+      <p class="summary-text">
+        High school senior (4.0 weighted GPA, Rank 51/342) at Pine Forest's Academy of Information Technology. Founder of WisdomLayers, a web development business with real paying clients. Coding camp instructor for 15+ students. Dual-enrolled at FTCC in networking and cybersecurity. Incoming Mechanical Engineering student at North Carolina A&T State University.
+      </p>
+    </div>
+
+    <div class="main-section">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="title">Pine Forest High School</span>
+          <span class="date">Fayetteville, NC | Jun 2026</span>
+        </div>
+        <div class="entry-sub">Academy of Information Technology | Weighted GPA: 4.000 | Rank: 51 / 342</div>
+        <ul>
+          <li>Honors/AP: AP Precalculus, Chemistry Honors, English IV Honors, Economics/Finance Honors, Math 3 Honors</li>
+          <li>CTE Concentrator: Adobe Academy (Visual Design) &amp; Entrepreneurship I &amp; II</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="title">Fayetteville Technical Community College — Dual Enrollment</span>
+          <span class="date">2025–2026</span>
+        </div>
+        <ul>
+          <li>CTI-110, CTS-120, CTS-220, NET-110, NOS-110, SEC-110 — IT, networking, and cybersecurity coursework</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-section">
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="title">WisdomLayers — Founder &amp; Web Developer</span>
+          <span class="date">Jun 2025 – Present</span>
+        </div>
+        <div class="entry-sub">Self-Employed | Fayetteville, NC</div>
+        <ul>
+          <li>Founded and operate a client-facing web development business; custom sites from intake to delivery</li>
+          <li>Handle full project lifecycle: design, development (HTML/CSS/JS), client communication, and billing</li>
+          <li>Built client base through quality work and referrals; ~10 hrs/week alongside school</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="title">Code Forward — Coding Camp Instructor</span>
+          <span class="date">Summer 2024</span>
+        </div>
+        <ul>
+          <li>Led sessions for 15+ students, teaching HTML, CSS, and programming fundamentals</li>
+          <li>Developed curriculum and mentored beginners through building their first real projects</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="title">Spark Labs District C — Entrepreneurship Program</span>
+          <span class="date">2024–2025</span>
+        </div>
+        <ul>
+          <li>30+ hours working alongside real businesses (ApSeed, Kaplan); strategy, pitching, professional skills</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-section">
+      <h2>Leadership &amp; Activities</h2>
+      <div class="entry">
+        <ul>
+          <li><strong>NTHS Secretary</strong> (3 yrs) — Manages agendas, minutes, and member communications for National Technical Honor Society</li>
+          <li><strong>National Honor Society</strong> (2 yrs) | <strong>FBLA</strong> (2 yrs) | <strong>Student Voices Club</strong> (1 yr)</li>
+          <li><strong>TRIO Upward Bound</strong> (3 yrs) — Federal first-generation college readiness program</li>
+          <li><strong>Varsity Tennis</strong> (2 yrs) | <strong>Piano, Fayetteville School of Music</strong> (4 yrs, bi-annual recitals)</li>
+          <li><strong>Ninjutsu — Brown Belt</strong> (3 yrs) | <strong>Boxing</strong> (1 yr)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

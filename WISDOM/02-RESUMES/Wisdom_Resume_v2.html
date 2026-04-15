@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom M. Johnson - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #000;
+            background: white;
+            font-size: 11pt;
+        }
+        
+        .resume-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #1e3a8a;
+        }
+        
+        .header h1 {
+            font-size: 24pt;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #1e3a8a;
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            font-size: 10pt;
+            color: #333;
+        }
+        
+        .content {
+            margin: 0;
+        }
+        
+        .section {
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #1e3a8a;
+            border-bottom: 1.5pt solid #1e3a8a;
+            padding-bottom: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .profile-text {
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #000;
+            text-align: justify;
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        
+        .school-name {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #000;
+        }
+        
+        .date {
+            font-size: 10pt;
+            color: #333;
+            font-style: italic;
+        }
+        
+        .location {
+            font-size: 10pt;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        
+        .education-details {
+            margin-left: 15px;
+            margin-top: 6px;
+            font-size: 10pt;
+        }
+        
+        .education-details div {
+            margin-bottom: 3px;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .experience-item {
+            margin-bottom: 14px;
+            page-break-inside: avoid;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        
+        .job-title {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #000;
+        }
+        
+        .company-name {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 4px;
+        }
+        
+        ul {
+            margin-left: 18px;
+            margin-top: 4px;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-bottom: 4px;
+            font-size: 10pt;
+            line-height: 1.4;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            margin-top: 8px;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 6px 10px;
+            font-size: 10pt;
+            border: 1pt solid #1e3a8a;
+            border-radius: 3px;
+        }
+        
+        .accomplishments-list {
+            list-style: disc;
+            margin-left: 18px;
+        }
+        
+        .accomplishments-list li {
+            margin-bottom: 4px;
+            font-size: 10pt;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .resume-container {
+                max-width: 100%;
+            }
+            
+            .print-button {
+                display: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .experience-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1>WISDOM M. JOHNSON</h1>
+            <div class="contact-info">
+                910.835.6020 | wisemoson@gmail.com | 332 W Summerchase Dr, Fayetteville, NC 28311
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Profile</h2>
+                <p class="profile-text">
+                    Driven high school Senior and entrepreneur with a 4.0 GPA, combining academic excellence with hands-on business experience. Founder of WisdomLayers, a web development business creating professional websites for companies. Pursuing an Engineering/Information Technology degree from your prestige University.
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-header">
+                    <span class="school-name">Pine Forest High School</span>
+                    <span class="date">Expected Graduation: June 2026</span>
+                </div>
+                <div class="location">Fayetteville, NC</div>
+                <div class="education-details">
+                    <div><span class="label">Program:</span> Academy of Information Technology (AOIT)</div>
+                    <div><span class="label">GPA:</span> 4.0</div>
+                    <div><span class="label">Classification:</span> Senior</div>
+                    <div><span class="label">Athletics:</span> Varsity Men's Tennis</div>
+                    <div><span class="label">Coursework:</span> Honors and Advanced Placement (AP) courses</div>
+                    <div><span class="label">Organizations:</span> National Technical Honor Society (NTHS) - Secretary, National Honor Society (NHS), Future Business Leaders of America (FBLA)</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Entrepreneurial Experience</h2>
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Founder & Web Developer</span>
+                        <span class="date">June 2025 - Present</span>
+                    </div>
+                    <div class="company-name">WisdomLayers | Online Web Development Business</div>
+                    <ul>
+                        <li>Founded and operate WisdomLayers, a web development business specializing in creating professional websites for companies and organizations</li>
+                        <li>Manage full project lifecycle from client consultation and requirements gathering to design, development, deployment, and ongoing maintenance</li>
+                        <li>Utilize modern web technologies including HTML, CSS, JavaScript, and responsive design principles to deliver mobile-friendly, user-centric websites</li>
+                        <li>Handle business operations including client communications, project management, invoicing, and marketing to grow customer base</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Work Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Camp Leader/Instructor</span>
+                        <span class="date">Summer 2024</span>
+                    </div>
+                    <div class="company-name">Code Forward | Summer Tech Camp</div>
+                    <ul>
+                        <li>Taught rising 9th graders coding and computer skills during month-long summer camp</li>
+                        <li>Led hands-on activities and supervised technical projects</li>
+                        <li>Developed lesson plans and mentored students in programming fundamentals</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Experience & Activities</h2>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Program Participant</span>
+                        <span class="date">June 2023 - Present</span>
+                    </div>
+                    <div class="company-name">Department of Education Trio/Upward Bound Program | UNC Fayetteville State University</div>
+                    <ul>
+                        <li>Participate in advanced college preparatory curriculum emphasizing STEM-related fields and entrepreneurial training</li>
+                        <li>Visit multiple campus sites to investigate academic programs and interview admissions counselors for post-secondary planning</li>
+                        <li>Engage in leadership development and academic enrichment activities</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Volunteer (50+ hours)</span>
+                        <span class="date">August 2023 - December 2023</span>
+                    </div>
+                    <div class="company-name">North Regional Public Library System | Fayetteville, NC</div>
+                    <ul>
+                        <li>Volunteered weekly at North Regional Library location supporting library operations</li>
+                        <li>Cataloged new and returned media materials into library inventory system</li>
+                        <li>Assisted library visitors with resource location and technology support</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Childcare Volunteer</span>
+                        <span class="date">2020 - Present</span>
+                    </div>
+                    <div class="company-name">St. Matthews Church</div>
+                    <ul>
+                        <li>Provide care for children during services</li>
+                        <li>Lead activities, supervise play, and support early childhood faith lessons</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Student Musician</span>
+                        <span class="date">2020 - Present</span>
+                    </div>
+                    <div class="company-name">Fayetteville School of Music</div>
+                    <ul>
+                        <li>Four years of training in piano theory and music reading</li>
+                        <li>Collaborate with other students to prepare for bi-annual recitals</li>
+                        <li>Develop discipline, time management, and performance skills</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Technical Programs & Camps</h2>
+                <ul>
+                    <li><strong>Spark Labs District C:</strong> 30+ hours working with businesses to solve real-world problems; gained hands-on experience with team collaboration in virtual and online environments</li>
+                    <li><strong>Campbell University - Academy for Emerging Scholars (June 2023):</strong> Participated in Microbiology & Molecular Biology Lab with data analysis; engaged in rocket design and VR labs with coding exposure</li>
+                    <li><strong>Emory University - Coding and AI Academy (June 2022):</strong> Learned to interact with physical world through advanced sensor suites; utilized industry-standard autonomous driving methods; created computer algorithms</li>
+                    <li><strong>FTCC Dual Enrollment:</strong> Taking college-level courses while in high school</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Technical Skills & Certifications</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Adobe Professional Certification</div>
+                    <div class="skill-item">Python Programming</div>
+                    <div class="skill-item">Web Development (HTML, CSS, JavaScript)</div>
+                    <div class="skill-item">Google Workspace (Docs, Sheets, Slides)</div>
+                    <div class="skill-item">Canva Design</div>
+                    <div class="skill-item">CPR Certified</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Accomplishments & Recognition</h2>
+                <ul class="accomplishments-list">
+                    <li>Maintained 4.0 GPA and A-B Honor Roll throughout middle school and high school</li>
+                    <li>Active member of National Technical Honor Society (NTHS) for 2+ years - Secretary</li>
+                    <li>Member of National Honor Society (NHS)</li>
+                    <li>Completed two online business courses</li>
+                    <li>Active member of Student Voices club, working to improve school environment and culture</li>
+                    <li>Ninjutsu Martial Arts: Brown Belt Level</li>
+                    <li>Boxing training: 1+ year</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="window.print()">Download PDF</button>
+</body>
+</html>

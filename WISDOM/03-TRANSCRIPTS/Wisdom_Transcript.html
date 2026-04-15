@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unofficial Transcript — Wisdom M. Johnson</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { size: letter; margin: 0.65in 0.75in; }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 10pt;
+      color: #111;
+      background: #e8e8e8;
+      line-height: 1.5;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 30px auto;
+      background: white;
+      padding: 0.65in 0.75in;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+
+    /* ── PRINT BUTTON ── */
+    .print-btn {
+      position: fixed; bottom: 24px; right: 24px;
+      background: #1a3a6b; color: white; border: none;
+      padding: 11px 22px; border-radius: 50px; font-size: 13px;
+      cursor: pointer; box-shadow: 0 4px 14px rgba(26,58,107,0.4);
+      font-family: 'Arial', sans-serif;
+    }
+    .print-btn:hover { background: #24509a; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; padding: 0; }
+      .print-btn { display: none; }
+    }
+
+    /* ── UNOFFICIAL BANNER ── */
+    .unofficial-banner {
+      text-align: center;
+      color: #b00;
+      font-family: 'Arial', sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border: 2px solid #b00;
+      padding: 6px 0;
+      margin-bottom: 18px;
+    }
+
+    /* ── SCHOOL HEADER ── */
+    .school-header {
+      text-align: center;
+      border-bottom: 3px double #1a3a6b;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    .school-header .district {
+      font-family: 'Arial', sans-serif;
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .school-header .school-name {
+      font-size: 18pt;
+      font-weight: bold;
+      color: #1a3a6b;
+      letter-spacing: 0.5px;
+    }
+    .school-header .school-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 8.5pt;
+      color: #444;
+      margin-top: 4px;
+      line-height: 1.7;
+    }
+    .school-header .doc-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1a3a6b;
+      margin-top: 10px;
+      border-top: 1px solid #ccc;
+      padding-top: 8px;
+    }
+
+    /* ── TWO-COLUMN STUDENT INFO ── */
+    .student-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid #bbb;
+      margin-bottom: 16px;
+    }
+    .info-cell {
+      padding: 5px 10px;
+      border-bottom: 1px solid #ddd;
+      font-family: 'Arial', sans-serif;
+      font-size: 9pt;
+    }
+    .info-cell:nth-child(odd) { border-right: 1px solid #ddd; }
+    .info-cell .label {
+      font-weight: 700;
+      color: #1a3a6b;
+      display: inline-block;
+      min-width: 130px;
+    }
+
+    /* ── GPA SUMMARY BOX ── */
+    .gpa-summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 2px solid #1a3a6b;
+      margin-bottom: 18px;
+      background: #f4f7fb;
+    }
+    .gpa-cell {
+      text-align: center;
+      padding: 8px 6px;
+      border-right: 1px solid #c0cfe8;
+      font-family: 'Arial', sans-serif;
+    }
+    .gpa-cell:last-child { border-right: none; }
+    .gpa-cell .gpa-label {
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #555;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .gpa-cell .gpa-value {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #1a3a6b;
+      display: block;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      background: #1a3a6b;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      margin-top: 14px;
+      margin-bottom: 0;
+    }
+
+    /* ── COURSE TABLES ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Arial', sans-serif;
+      font-size: 9pt;
+      margin-bottom: 4px;
+    }
+    thead tr {
+      background: #e8eef7;
+    }
+    th {
+      padding: 4px 8px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a3a6b;
+      border-bottom: 1px solid #bbb;
+      border-right: 1px solid #ddd;
+    }
+    th:last-child { border-right: none; }
+    td {
+      padding: 4px 8px;
+      border-bottom: 1px solid #eee;
+      border-right: 1px solid #eee;
+      color: #222;
+    }
+    td:last-child { border-right: none; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #fafbfd; }
+
+    .grade-highlight { font-weight: 700; }
+    .grade-100 { color: #1a6b2a; }
+    .grade-90 { color: #2a5a1a; }
+    .grade-80 { color: #333; }
+
+    .year-summary {
+      font-family: 'Arial', sans-serif;
+      font-size: 8.5pt;
+      color: #444;
+      padding: 4px 8px 10px 8px;
+      border: 1px solid #ddd;
+      border-top: none;
+      background: #fafbfd;
+    }
+    .year-summary strong { color: #1a3a6b; }
+
+    /* ── IN PROGRESS TABLE ── */
+    .in-progress td:last-child {
+      color: #b06000;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* ── CREDIT SUMMARY ── */
+    .credit-table th { background: #e8eef7; }
+    .credit-total td { font-weight: 700; background: #e8eef7; color: #1a3a6b; }
+
+    /* ── FOOTER ── */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+      border-top: 2px solid #1a3a6b;
+      padding-top: 12px;
+    }
+    .footer-block {
+      font-family: 'Arial', sans-serif;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.7;
+    }
+    .footer-block .footer-label {
+      font-weight: 700;
+      color: #1a3a6b;
+      display: block;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 7.5pt;
+    }
+    .sig-line {
+      margin-top: 28px;
+      border-top: 1px solid #555;
+      width: 200px;
+      font-size: 8pt;
+      color: #555;
+      padding-top: 3px;
+      font-family: 'Arial', sans-serif;
+    }
+    .final-notice {
+      text-align: center;
+      margin-top: 18px;
+      font-family: 'Arial', sans-serif;
+      font-size: 8pt;
+      color: #b00;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<div class="page">
+
+  <!-- UNOFFICIAL BANNER -->
+  <div class="unofficial-banner">Unofficial Transcript</div>
+
+  <!-- SCHOOL HEADER -->
+  <div class="school-header">
+    <div class="district">Cumberland County Schools</div>
+    <div class="school-name">Pine Forest High School</div>
+    <div class="school-sub">
+      525 Andrews Road &nbsp;&bull;&nbsp; Fayetteville, NC 28311<br>
+      Tel: (910) 488-2384 &nbsp;&bull;&nbsp; Fax: (910) 488-0790<br>
+      School Code: 260408 &nbsp;&bull;&nbsp; CEEB Code: 341317 &nbsp;&bull;&nbsp; Accreditation: SA
+    </div>
+    <div class="doc-title">Student Academic Record</div>
+  </div>
+
+  <!-- STUDENT INFO -->
+  <div class="student-info">
+    <div class="info-cell"><span class="label">Student Name:</span> Johnson, Wisdom Morsit</div>
+    <div class="info-cell"><span class="label">Student ID:</span> 12705155</div>
+    <div class="info-cell"><span class="label">Date of Birth:</span> December 4, 2007</div>
+    <div class="info-cell"><span class="label">Sex:</span> Male</div>
+    <div class="info-cell"><span class="label">Current Grade:</span> 12</div>
+    <div class="info-cell"><span class="label">Expected Graduation:</span> June 2026</div>
+    <div class="info-cell"><span class="label">Address:</span> 332 W Summerchase Dr, Fayetteville, NC 28311</div>
+    <div class="info-cell"><span class="label">Course of Study:</span> UNC Minimum Requirement</div>
+  </div>
+
+  <!-- GPA SUMMARY -->
+  <div class="gpa-summary">
+    <div class="gpa-cell">
+      <span class="gpa-label">Cumulative GPA (Weighted)</span>
+      <span class="gpa-value">4.000</span>
+    </div>
+    <div class="gpa-cell">
+      <span class="gpa-label">Cumulative GPA (Unweighted)</span>
+      <span class="gpa-value">3.760</span>
+    </div>
+    <div class="gpa-cell">
+      <span class="gpa-label">Class Rank</span>
+      <span class="gpa-value">51 / 342</span>
+    </div>
+    <div class="gpa-cell">
+      <span class="gpa-label">Total Credits Earned</span>
+      <span class="gpa-value">25.000</span>
+    </div>
+  </div>
+
+  <!-- GRADE 9 -->
+  <div class="section-header">2022&ndash;2023 &mdash; Grade 9</div>
+  <table>
+    <thead><tr><th style="width:60%">Course</th><th>Mark</th><th>Weight</th><th>Credit</th></tr></thead>
+    <tbody>
+      <tr><td>American History</td><td class="grade-highlight grade-90">90</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Business Essentials</td><td class="grade-highlight grade-90">93</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Earth/Environmental Science Honors</td><td class="grade-highlight grade-90">92</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>English I</td><td class="grade-highlight grade-80">86</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Entrepreneurship I</td><td class="grade-highlight grade-100">100</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Health and Physical Education 9&ndash;12</td><td class="grade-highlight grade-90">95</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>NC Math 1 Honors</td><td class="grade-highlight grade-80">84</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Visual Arts (Beginning)</td><td class="grade-highlight grade-90">92</td><td>1.0000</td><td>1</td></tr>
+    </tbody>
+  </table>
+  <div class="year-summary"><strong>Year GPA:</strong> 3.875 (Weighted) &nbsp;|&nbsp; 3.750 (Unweighted) &nbsp;|&nbsp; <strong>Credits Earned:</strong> 8.000</div>
+
+  <!-- GRADE 10 -->
+  <div class="section-header">2023&ndash;2024 &mdash; Grade 10</div>
+  <table>
+    <thead><tr><th style="width:60%">Course</th><th>Mark</th><th>Weight</th><th>Credit</th></tr></thead>
+    <tbody>
+      <tr><td>Adobe Visual Design I</td><td class="grade-highlight grade-100">100</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>AP Psychology</td><td class="grade-highlight grade-80">85</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Biology Honors</td><td class="grade-highlight grade-80">86</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>CompTIA IT Fundamentals</td><td class="grade-highlight grade-90">99</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>English II Honors</td><td class="grade-highlight grade-90">90</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Entrepreneurship II</td><td class="grade-highlight grade-90">99</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>NC Math 2 Honors</td><td class="grade-highlight grade-80">88</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>World History</td><td class="grade-highlight grade-90">93</td><td>1.0000</td><td>1</td></tr>
+    </tbody>
+  </table>
+  <div class="year-summary"><strong>Year GPA:</strong> 4.000 (Weighted) &nbsp;|&nbsp; 3.625 (Unweighted) &nbsp;|&nbsp; <strong>Credits Earned:</strong> 8.000</div>
+
+  <!-- GRADE 11 -->
+  <div class="section-header">2024&ndash;2025 &mdash; Grade 11</div>
+  <table>
+    <thead><tr><th style="width:60%">Course</th><th>Mark</th><th>Weight</th><th>Credit</th></tr></thead>
+    <tbody>
+      <tr><td>Adobe Visual Design II</td><td class="grade-highlight grade-90">92</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Chemistry Honors</td><td class="grade-highlight grade-90">95</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Economics and Personal Finance Honors</td><td class="grade-highlight grade-90">94</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>English III Honors</td><td class="grade-highlight grade-90">90</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Foundations &amp; Principles of US &amp; NC: Civics</td><td class="grade-highlight grade-90">94</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>NC Math 3 Honors</td><td class="grade-highlight grade-90">94</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Python Programming I</td><td class="grade-highlight grade-90">91</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Spanish I</td><td class="grade-highlight grade-90">97</td><td>1.0000</td><td>1</td></tr>
+      <tr><td>Spanish II</td><td class="grade-highlight grade-90">97</td><td>1.0000</td><td>1</td></tr>
+    </tbody>
+  </table>
+  <div class="year-summary"><strong>Year GPA:</strong> 4.111 (Weighted) &nbsp;|&nbsp; 3.889 (Unweighted) &nbsp;|&nbsp; <strong>Credits Earned:</strong> 9.000</div>
+
+  <!-- GRADE 12 -->
+  <div class="section-header">2025&ndash;2026 &mdash; Grade 12 (In Progress)</div>
+  <table class="in-progress">
+    <thead><tr><th style="width:75%">Course</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>AP Precalculus</td><td>In Progress</td></tr>
+      <tr><td>CTI-110: Web, Programming &amp; Database Foundations</td><td>In Progress</td></tr>
+      <tr><td>CTS-120: Hardware/Software Support</td><td>In Progress</td></tr>
+      <tr><td>CTS-220: Advanced Hardware/Software Support</td><td>In Progress</td></tr>
+      <tr><td>English IV Honors</td><td>In Progress</td></tr>
+      <tr><td>NET-110: Networking Concepts</td><td>In Progress</td></tr>
+      <tr><td>NOS-110: Operating System Concepts</td><td>In Progress</td></tr>
+      <tr><td>SEC-110: Security Concepts</td><td>In Progress</td></tr>
+    </tbody>
+  </table>
+  <div class="year-summary" style="margin-bottom:14px;">Dual Enrollment courses taken at Fayetteville Technical Community College (FTCC)</div>
+
+  <!-- STANDARDIZED TESTS -->
+  <div class="section-header">Standardized Test Scores</div>
+  <table>
+    <thead><tr><th style="width:60%">Assessment</th><th>Score</th><th>Date</th></tr></thead>
+    <tbody>
+      <tr><td>Biology EOC</td><td>253</td><td>June 2024</td></tr>
+      <tr><td>English II EOC</td><td>558</td><td>June 2024</td></tr>
+      <tr><td>NC Math 1 EOC</td><td>558</td><td>January 2023</td></tr>
+      <tr><td>NC Math 3 EOC</td><td>564</td><td>January 2025</td></tr>
+    </tbody>
+  </table>
+  <div class="year-summary" style="margin-bottom:14px;">Note: Best scores displayed.</div>
+
+  <!-- CREDIT SUMMARY -->
+  <div class="section-header">Credit Summary</div>
+  <table class="credit-table">
+    <thead><tr><th>Subject Area</th><th>Attempted</th><th>Earned</th><th>Required</th><th>Remaining</th></tr></thead>
+    <tbody>
+      <tr><td>English Language Arts</td><td>3.000</td><td>3.000</td><td>4.000</td><td>1.000</td></tr>
+      <tr><td>Mathematics</td><td>4.000</td><td>3.000</td><td>4.000</td><td>1.000</td></tr>
+      <tr><td>Science</td><td>3.000</td><td>3.000</td><td>3.000</td><td>0.000</td></tr>
+      <tr><td>Social Studies</td><td>5.000</td><td>4.000</td><td>4.000</td><td>0.000</td></tr>
+      <tr><td>Electives / CTE / Other</td><td>10.000</td><td>11.000</td><td>6.000</td><td>0.000</td></tr>
+      <tr><td>Health &amp; Physical Education</td><td>1.000</td><td>1.000</td><td>1.000</td><td>0.000</td></tr>
+      <tr class="credit-total"><td>Total</td><td>25.000</td><td>25.000</td><td>22.000</td><td>2.000</td></tr>
+    </tbody>
+  </table>
+  <div class="year-summary" style="margin-bottom:14px;"><strong>Curriculum Program:</strong> 2021 NC Future-Ready Core Graduation Requirements</div>
+
+  <!-- CTE PROGRAMS -->
+  <div class="section-header">CTE Concentrator Programs</div>
+  <div class="year-summary" style="padding: 8px 10px; margin-bottom: 0;">
+    <strong>Adobe Academy (ADAC / AAVC):</strong> Concentrator &nbsp;&bull;&nbsp;
+    <strong>Entrepreneurship (ENTRE / BMA):</strong> Concentrator
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-grid">
+    <div class="footer-block">
+      <span class="footer-label">Grading Scale</span>
+      90&ndash;100 = A (4.0) &nbsp;&bull;&nbsp; 80&ndash;89 = B (3.0)<br>
+      70&ndash;79 = C (2.0) &nbsp;&bull;&nbsp; 60&ndash;69 = D (1.0) &nbsp;&bull;&nbsp; &le;59 = F (0.0)<br><br>
+      <span class="footer-label">Note</span>
+      Only high school level courses count toward GPA. Middle school courses taken for high school credit count toward graduation credits only.
+    </div>
+    <div class="footer-block">
+      <span class="footer-label">Record Details</span>
+      Generated: September 23, 2025<br>
+      Principal: Juelle McDonald<br><br>
+      <div class="sig-line">Principal Signature / School Seal</div>
+    </div>
+  </div>
+
+  <div class="final-notice">
+    THIS IS NOT AN OFFICIAL TRANSCRIPT &nbsp;&bull;&nbsp;
+    Official transcripts must bear the school seal and authorized signature
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wisdom M. Johnson — Job Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { size: letter; margin: 0.6in 0.7in; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 10.5pt;
+      color: #1a1a1a;
+      background: #e4e4e4;
+      line-height: 1.45;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 30px auto;
+      background: white;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+
+    /* Full-width dark header */
+    .header {
+      background: #111827;
+      color: white;
+      padding: 28px 40px;
+    }
+
+    .header h1 {
+      font-size: 24pt;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-family: 'Calibri', 'Arial', sans-serif;
+      color: white;
+    }
+
+    .header-meta {
+      display: flex;
+      gap: 28px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .header-meta span {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 9pt;
+      color: #9ca3af;
+    }
+
+    .header-meta .sep { color: #4b5563; }
+
+    /* Gold accent bar */
+    .accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 60%, transparent 100%);
+    }
+
+    /* Body padding */
+    .body { padding: 28px 40px 36px; }
+
+    /* Objective banner */
+    .objective {
+      background: #f9fafb;
+      border-left: 4px solid #111827;
+      padding: 12px 16px;
+      font-size: 9.5pt;
+      line-height: 1.6;
+      color: #374151;
+      margin-bottom: 22px;
+      font-family: 'Calibri', 'Arial', sans-serif;
+    }
+
+    /* Section */
+    .section { margin-bottom: 20px; }
+
+    .section-title {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #6b7280;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .entry { margin-bottom: 14px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .entry-company {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #111827;
+      font-family: 'Calibri', 'Arial', sans-serif;
+    }
+
+    .entry-date {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 8.5pt;
+      color: #9ca3af;
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+
+    .entry-role {
+      font-size: 9.5pt;
+      font-style: italic;
+      color: #4b5563;
+      font-family: 'Calibri', 'Arial', sans-serif;
+      margin-bottom: 5px;
+    }
+
+    .entry ul {
+      margin-left: 16px;
+      font-family: 'Calibri', 'Arial', sans-serif;
+    }
+
+    .entry ul li {
+      font-size: 9.5pt;
+      margin-bottom: 3px;
+      color: #374151;
+    }
+
+    /* Two-column for bottom sections */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 9.5pt;
+      color: #374151;
+      padding: 3px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .skill-row:last-child { border-bottom: none; }
+
+    .skill-dot {
+      width: 6px; height: 6px;
+      background: #f59e0b;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .edu-line {
+      font-family: 'Calibri', 'Arial', sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.6;
+    }
+
+    /* print */
+    .print-btn {
+      position: fixed; bottom: 24px; right: 24px;
+      background: #111827; color: white; border: none;
+      padding: 11px 22px; border-radius: 6px; font-size: 13px;
+      font-family: 'Calibri', sans-serif;
+      cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      letter-spacing: 0.05em;
+    }
+    .print-btn:hover { background: #1f2937; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+      .print-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>WISDOM M. JOHNSON</h1>
+    <div class="header-meta">
+      <span>(910) 835-6020</span>
+      <span class="sep">|</span>
+      <span>wisemoson@gmail.com</span>
+      <span class="sep">|</span>
+      <span>Fayetteville, NC 28311</span>
+    </div>
+  </div>
+  <div class="accent-bar"></div>
+
+  <div class="body">
+
+    <div class="objective">
+      Dependable and driven high school senior with proven experience running a real web development business, leading a coding camp, and volunteering consistently for 5+ years. Seeking part-time or internship work where reliability, technical ability, and communication skills make an immediate impact. Available now. Self-directed and accountable.
+    </div>
+
+    <div class="section">
+      <div class="section-title">Work Experience</div>
+
+      <div class="entry">
+        <div class="entry-top">
+          <span class="entry-company">WisdomLayers</span>
+          <span class="entry-date">June 2025 – Present</span>
+        </div>
+        <div class="entry-role">Founder &amp; Web Developer — Self-Employed, Fayetteville, NC</div>
+        <ul>
+          <li>Operate a solo web development business with paying clients — manage every step from first call to final delivery</li>
+          <li>Set project scopes, build to spec, and meet deadlines without oversight</li>
+          <li>Handle all business operations: scheduling, client communication, invoicing, and follow-up</li>
+          <li>Grew client base through quality work and direct referrals; ~10 hrs/week alongside a full school schedule</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-top">
+          <span class="entry-company">Code Forward</span>
+          <span class="entry-date">Summer 2024</span>
+        </div>
+        <div class="entry-role">Coding Camp Instructor — Fayetteville, NC</div>
+        <ul>
+          <li>Instructed groups of 15+ students in HTML, CSS, and programming — adapted lessons to different skill levels</li>
+          <li>Managed the room independently, maintained structure, and gave individual feedback to each student</li>
+          <li>Earned trust of program leadership to run sessions without co-supervision by end of camp</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-top">
+          <span class="entry-company">Spark Labs District C</span>
+          <span class="entry-date">2024–2025</span>
+        </div>
+        <div class="entry-role">Business Program Participant — Fayetteville, NC</div>
+        <ul>
+          <li>Collaborated with real business clients (ApSeed, Kaplan) on 30+ hours of strategy and professional projects</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Volunteer Experience</div>
+
+      <div class="entry">
+        <div class="entry-top">
+          <span class="entry-company">St. Matthews Church</span>
+          <span class="entry-date">2020 – Present (5 years)</span>
+        </div>
+        <div class="entry-role">Childcare Volunteer — Weekly service and events</div>
+        <ul>
+          <li>Entrusted with supervising young children every week for five years — no gaps, no excuses</li>
+          <li>Long-term consistency here is a direct reflection of my character and reliability</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-top">
+          <span class="entry-company">North Regional Library</span>
+          <span class="entry-date">2024–2025</span>
+        </div>
+        <div class="entry-role">Volunteer — 50+ hours</div>
+        <ul>
+          <li>Assisted patrons, organized materials, and supported programs with minimal supervision</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Skills</div>
+        <div class="skill-row"><div class="skill-dot"></div> Web development (HTML / CSS / JavaScript)</div>
+        <div class="skill-row"><div class="skill-dot"></div> Client communication &amp; expectations management</div>
+        <div class="skill-row"><div class="skill-dot"></div> Time management — full schedule, no missed deadlines</div>
+        <div class="skill-row"><div class="skill-dot"></div> Teaching and explaining to any audience</div>
+        <div class="skill-row"><div class="skill-dot"></div> Google Workspace, Microsoft Office</div>
+        <div class="skill-row"><div class="skill-dot"></div> Problem-solving under pressure, self-directed</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Education</div>
+        <div class="edu-line">
+          <strong>Pine Forest High School</strong> — Fayetteville, NC<br>
+          Academy of Information Technology | Expected Jun 2026<br>
+          Weighted GPA: 4.000 | Class Rank: 51 / 342<br>
+          NTHS Secretary | NHS | Varsity Tennis<br><br>
+          <strong>FTCC Dual Enrollment</strong> — IT, Networking, Cybersecurity<br>
+          6 college-level courses in progress (2025–2026)
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="margin-top:16px;margin-bottom:0">
+      <div class="section-title">References</div>
+      <p style="font-family:'Calibri','Arial',sans-serif;font-size:9pt;color:#6b7280">
+        Available upon request — church (5-year relationship), NTHS faculty advisor, Code Forward program director.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wisdom M. Johnson — Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @page {
+      size: letter;
+      margin: 0.4in 0.5in;
+    }
+
+    :root {
+      --navy:   #0c1f5c;
+      --blue:   #1d4ed8;
+      --accent: #3b82f6;
+      --soft:   #eff6ff;
+      --border: #c7d9f8;
+      --text:   #1f2937;
+      --muted:  #6b7280;
+      --light:  #f5f8ff;
+    }
+
+    /* ── SCREEN PREVIEW ONLY ────────────────── */
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 9.8pt;
+      line-height: 1.5;
+      color: var(--text);
+      background: #b8cef0;
+      padding: 30px 20px;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 8.5in;
+      margin: 0 auto;
+      box-shadow: 0 16px 48px rgba(12,31,92,0.2);
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    .header {
+      background: #0f172a;
+      padding: 32px 44px 26px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .header h1 {
+      font-size: 28pt;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .header .sub {
+      font-size: 9.5pt;
+      font-weight: 400;
+      color: #93c5fd;
+      letter-spacing: 0.8px;
+      margin-bottom: 13px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .contact-row span {
+      font-size: 8.5pt;
+      color: #bfdbfe;
+    }
+
+    .contact-row span + span::before {
+      content: ' · ';
+      color: #4b7fd4;
+      margin: 0 7px;
+    }
+
+    /* ── ACCENT BAR ─────────────────────────── */
+    .accent-bar {
+      height: 4px;
+      background: linear-gradient(to right, #3b82f6, #60a5fa, #93c5fd);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── BODY ───────────────────────────────── */
+    .body {
+      padding: 26px 44px 34px;
+    }
+
+    /* ── SECTION ────────────────────────────── */
+    .section {
+      margin-bottom: 18px;
+    }
+
+    .sec-title {
+      font-size: 7.5pt;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .sec-title::after {
+      content: '';
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(to right, var(--border), transparent);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── PROFILE ────────────────────────────── */
+    .profile {
+      font-size: 9.8pt;
+      color: var(--text);
+      line-height: 1.65;
+      padding: 10px 14px;
+      background: var(--soft);
+      border-left: 3px solid var(--accent);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── EDUCATION BLOCKS ───────────────────── */
+    .edu-block {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--light);
+      margin-bottom: 7px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .edu-school {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .edu-right {
+      font-size: 8.5pt;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .edu-sub {
+      font-size: 8.5pt;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .edu-detail {
+      font-size: 9pt;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .edu-detail strong { font-weight: 700; color: var(--navy); }
+
+    /* ── EXPERIENCE ─────────────────────────── */
+    .exp-item {
+      margin-bottom: 13px;
+      padding-left: 12px;
+      border-left: 2.5px solid var(--accent);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .exp-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .exp-date {
+      font-size: 8pt;
+      color: var(--blue);
+      font-weight: 600;
+      white-space: nowrap;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1px 10px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .exp-org {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    ul.bullets {
+      margin-left: 14px;
+      padding-left: 0;
+    }
+
+    ul.bullets li {
+      font-size: 9.2pt;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 2.5px;
+      list-style-type: disc;
+    }
+
+    ul.bullets li::marker {
+      color: var(--accent);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── TWO-COL GRID ───────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px 24px;
+    }
+
+    .grid-line {
+      font-size: 9.2pt;
+      color: var(--text);
+      line-height: 1.75;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .grid-line::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 7pt;
+      top: 2px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── PRINT BUTTON (screen only) ─────────── */
+    .print-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(12,31,92,0.45);
+      font-family: 'Inter', sans-serif;
+      z-index: 9999;
+    }
+
+    @media print {
+      body { background: white; padding: 0; margin: 0; }
+      .page { box-shadow: none; max-width: 100%; width: 100%; }
+      .print-btn { display: none; }
+      .section { page-break-inside: avoid; }
+      .exp-item { page-break-inside: avoid; }
+      .edu-block { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>WISDOM M. JOHNSON</h1>
+    <div class="sub">Entrepreneur &nbsp;·&nbsp; Engineer-in-Training &nbsp;·&nbsp; Technologist</div>
+    <div class="contact-row">
+      <span>910.835.6020</span>
+      <span>wisemoson@gmail.com</span>
+      <span>Fayetteville, NC</span>
+      <span>wisdomlayers.com</span>
+    </div>
+  </div>
+
+  <div class="accent-bar"></div>
+  <div class="body">
+
+    <!-- PROFILE -->
+    <div class="section">
+      <div class="sec-title">Profile</div>
+      <p class="profile">
+        High-achieving high school senior (4.0 GPA) with proven experience founding and operating a web development business, teaching coding, and completing six college-level courses simultaneously. Built a client-serving business from the ground up and managed full project lifecycles independently. Pursuing Mechanical Engineering to apply systems thinking and problem-solving to real-world challenges.
+      </p>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <div class="sec-title">Education</div>
+
+      <div class="edu-block">
+        <div class="edu-row">
+          <span class="edu-school">Pine Forest High School</span>
+          <span class="edu-right">Fayetteville, NC &nbsp;·&nbsp; Expected Graduation: June 2026</span>
+        </div>
+        <div class="edu-sub">Academy of Information Technology (AOIT) &nbsp;·&nbsp; GPA: 4.0 (W) / 3.76 (UW) &nbsp;·&nbsp; Rank: 51 of 342</div>
+        <div class="edu-detail">
+          <strong>College-prep curriculum</strong> with AP and Honors coursework across STEM, business, and technology<br>
+          <strong>Activities:</strong> NTHS (Secretary) &nbsp;·&nbsp; NHS &nbsp;·&nbsp; FBLA &nbsp;·&nbsp; Student Voices &nbsp;·&nbsp; Varsity Tennis
+        </div>
+      </div>
+
+      <div class="edu-block">
+        <div class="edu-row">
+          <span class="edu-school">Fayetteville Technical Community College (FTCC)</span>
+          <span class="edu-right">Dual Enrollment &nbsp;·&nbsp; 2025–2026</span>
+        </div>
+        <div class="edu-detail">
+          <strong>6 college-level courses</strong> in Web Development, Networking, Cybersecurity, Hardware/Software Support, and Operating Systems — completed while in high school
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTREPRENEURIAL EXPERIENCE -->
+    <div class="section">
+      <div class="sec-title">Entrepreneurial Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-title">Founder &amp; Web Developer</span>
+          <span class="exp-date">June 2025 – Present</span>
+        </div>
+        <div class="exp-org">WisdomLayers &nbsp;·&nbsp; Fayetteville, NC</div>
+        <ul class="bullets">
+          <li>Founded a web development business serving local businesses and nonprofits across multiple active client projects</li>
+          <li>Secured and retained paying clients through referral-driven growth and consistent delivery</li>
+          <li>Managed full project lifecycle: client discovery, scoping, design, development (HTML/CSS/JavaScript), deployment, and maintenance</li>
+          <li>Led a team across proposals, timelines, and delivery while maintaining a 4.0 GPA and full extracurricular schedule</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WORK EXPERIENCE -->
+    <div class="section">
+      <div class="sec-title">Work Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-title">Camp Instructor &amp; Team Leader</span>
+          <span class="exp-date">Summer 2024</span>
+        </div>
+        <div class="exp-org">Code Forward &nbsp;·&nbsp; Fayetteville, NC</div>
+        <ul class="bullets">
+          <li>Designed and delivered a month-long coding curriculum for beginner high school students</li>
+          <li>Increased student engagement by centering projects around personal interests and real-world applications</li>
+          <li>Guided students through debugging using inquiry-based coaching rather than direct solutions</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- LEADERSHIP & COMMUNITY -->
+    <div class="section">
+      <div class="sec-title">Leadership &amp; Community</div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-title">Secretary &amp; Chapter Leader</span>
+          <span class="exp-date">2022 – Present</span>
+        </div>
+        <div class="exp-org">National Technical Honor Society (NTHS) &nbsp;·&nbsp; Pine Forest Chapter</div>
+        <ul class="bullets">
+          <li>Maintained chapter operations through structured agendas, meeting minutes, and action tracking</li>
+          <li>Mediated officer conflicts and improved member engagement through targeted one-on-one outreach</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-title">Program Participant</span>
+          <span class="exp-date">2023 – Present</span>
+        </div>
+        <div class="exp-org">Upward Bound / TRIO &nbsp;·&nbsp; Fayetteville State University</div>
+        <ul class="bullets">
+          <li>Completed college-prep coursework in STEM and entrepreneurship; participated in campus visits and admissions engagement</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-title">Library Volunteer</span>
+          <span class="exp-date">Aug – Dec 2023 &nbsp;·&nbsp; 50+ Hrs</span>
+        </div>
+        <div class="exp-org">North Regional Public Library &nbsp;·&nbsp; Fayetteville, NC</div>
+        <ul class="bullets">
+          <li>Assisted with cataloging, visitor support, and technology navigation</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <span class="exp-title">Childcare Volunteer</span>
+          <span class="exp-date">2020 – Present &nbsp;·&nbsp; 100+ Hrs</span>
+        </div>
+        <div class="exp-org">St. Matthews Church &nbsp;·&nbsp; Fayetteville, NC</div>
+        <ul class="bullets">
+          <li>Led youth activities and supported weekly programming</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ACADEMIC PROGRAMS -->
+    <div class="section">
+      <div class="sec-title">Academic Programs</div>
+      <ul class="bullets">
+        <li><strong>Emory University — Coding &amp; AI Academy (2022):</strong> Built autonomous driving algorithms using sensor suites and computer vision</li>
+        <li><strong>Campbell University — Academy for Emerging Scholars (2023):</strong> Microbiology lab with data analysis; rocket design and VR/coding labs</li>
+        <li><strong>Spark Labs District C:</strong> 30+ hours solving real-world business challenges in collaborative environments</li>
+      </ul>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+      <div class="sec-title">Technical Skills</div>
+      <div class="two-col">
+        <div class="grid-line">HTML, CSS, JavaScript (client projects)</div>
+        <div class="grid-line">Adobe Certified Professional</div>
+        <div class="grid-line">Python</div>
+        <div class="grid-line">CompTIA ITF+</div>
+        <div class="grid-line">Networking &amp; OS Concepts</div>
+        <div class="grid-line">Security &amp; Hardware Support</div>
+        <div class="grid-line">Google Workspace &amp; Canva</div>
+      </div>
+    </div>
+
+    <!-- HONORS & INTERESTS -->
+    <div class="section">
+      <div class="sec-title">Honors &amp; Interests</div>
+      <div class="two-col">
+        <div class="grid-line">NHS Member &nbsp;·&nbsp; FBLA</div>
+        <div class="grid-line">Varsity Tennis</div>
+        <div class="grid-line">Student Voices</div>
+        <div class="grid-line">Piano (4+ years)</div>
+        <div class="grid-line">CPR Certified</div>
+        <div class="grid-line">Ninjutsu (Brown Belt) &nbsp;·&nbsp; Boxing</div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+</div>
+
+<button class="print-btn" onclick="window.print()">Save as PDF</button>
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2026 DeMayo Law Offices Arrive Alive® Scholarship Application — Wisdom M. Johnson</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.75in;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt;
+      color: #000;
+      background: #fff;
+      line-height: 1.4;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.75in;
+      background: #fff;
+    }
+
+    /* ---- HEADER ---- */
+    .app-header {
+      text-align: center;
+      border-bottom: 2pt solid #000;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+
+    .app-header h1 {
+      font-size: 14pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .app-header h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    .app-header p {
+      font-size: 10pt;
+      margin-top: 4px;
+    }
+
+    /* ---- SECTION TITLES ---- */
+    .section-title {
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: #000;
+      color: #fff;
+      padding: 3px 8px;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ---- FIELD ROWS ---- */
+    .field-row {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 7px;
+      gap: 6px;
+    }
+
+    .field-row.wrap {
+      flex-wrap: wrap;
+    }
+
+    .field-label {
+      font-size: 10pt;
+      white-space: nowrap;
+      font-weight: bold;
+      min-width: 160px;
+    }
+
+    .field-value {
+      font-size: 10.5pt;
+      border-bottom: 1px solid #000;
+      flex: 1;
+      min-width: 120px;
+      padding-bottom: 1px;
+    }
+
+    .field-value.short {
+      flex: 0 0 80px;
+      min-width: 80px;
+    }
+
+    .field-value.medium {
+      flex: 0 0 180px;
+      min-width: 180px;
+    }
+
+    .field-value.blank {
+      color: #000;
+    }
+
+    /* ---- TWO COLUMN LAYOUT ---- */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 24px;
+    }
+
+    .two-col .field-label {
+      min-width: 120px;
+    }
+
+    /* ---- SCORES ROW ---- */
+    .scores-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 7px;
+      flex-wrap: wrap;
+    }
+
+    .scores-row .score-item {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .scores-row .score-label {
+      font-size: 10pt;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .scores-row .score-val {
+      border-bottom: 1px solid #000;
+      min-width: 45px;
+      font-size: 10.5pt;
+      padding-bottom: 1px;
+    }
+
+    /* ---- TEXTAREA FIELDS ---- */
+    .text-block {
+      border: 1px solid #000;
+      min-height: 60px;
+      padding: 6px 8px;
+      font-size: 10.5pt;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .text-block.tall {
+      min-height: 80px;
+    }
+
+    /* ---- ACTIVITIES TABLE ---- */
+    table.activities {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+      margin-top: 6px;
+    }
+
+    table.activities th {
+      border: 1px solid #000;
+      padding: 4px 6px;
+      background: #e8e8e8;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    table.activities td {
+      border: 1px solid #000;
+      padding: 4px 6px;
+      text-align: left;
+    }
+
+    table.activities tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+
+    /* ---- REFERRAL CHECKBOXES ---- */
+    .referral-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 10px;
+      margin-top: 6px;
+      font-size: 10.5pt;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .checkbox {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #000;
+      display: inline-block;
+      flex-shrink: 0;
+      line-height: 10px;
+      text-align: center;
+      font-size: 10pt;
+    }
+
+    .checkbox.checked {
+      background: #000;
+      color: #fff;
+    }
+
+    /* ---- SIGNATURE BLOCK ---- */
+    .sig-block {
+      margin-top: 20px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-end;
+    }
+
+    .sig-line {
+      flex: 2;
+    }
+
+    .sig-line .underline {
+      border-bottom: 1px solid #000;
+      height: 28px;
+      margin-bottom: 3px;
+    }
+
+    .sig-line .sig-label {
+      font-size: 9.5pt;
+    }
+
+    .date-line {
+      flex: 1;
+    }
+
+    .date-line .underline {
+      border-bottom: 1px solid #000;
+      height: 28px;
+      margin-bottom: 3px;
+    }
+
+    .date-line .sig-label {
+      font-size: 9.5pt;
+    }
+
+    /* ---- FOOTER ---- */
+    .app-footer {
+      margin-top: 24px;
+      border-top: 1pt solid #000;
+      padding-top: 8px;
+      font-size: 9pt;
+      text-align: center;
+      color: #333;
+    }
+
+    /* ---- PAGE BREAK ---- */
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* ---- PRINT BUTTON (hidden on print) ---- */
+    .print-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(30,58,138,0.4);
+      font-family: Arial, sans-serif;
+      transition: background 0.2s;
+      z-index: 1000;
+    }
+
+    .print-btn:hover { background: #3b82f6; }
+
+    @media print {
+      .print-btn { display: none; }
+      .page { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="app-header">
+    <h1>DeMayo Law Offices</h1>
+    <h2>Arrive Alive<sup>®</sup> Scholarship Application — 2026</h2>
+    <p>Celebrating 24 Years of Supporting Academic Excellence</p>
+  </div>
+
+  <!-- PERSONAL INFORMATION -->
+  <div class="section-title">Personal Information</div>
+
+  <div class="field-row">
+    <span class="field-label">Name:</span>
+    <span class="field-value">Wisdom Morsit Johnson</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Preferred Name (Nickname):</span>
+    <span class="field-value">Wisdom</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">High School:</span>
+    <span class="field-value">Pine Forest High School</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">County:</span>
+    <span class="field-value">Cumberland</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Home Address:</span>
+    <span class="field-value">332 W Summerchase Dr</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">City, State, Zip:</span>
+    <span class="field-value">Fayetteville, NC 28311</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Home Phone #:</span>
+    <span class="field-value medium">(818) 231-1424</span>
+    &nbsp;&nbsp;
+    <span class="field-label">Cell Phone #:</span>
+    <span class="field-value medium">(910) 835-6020</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Email Address:</span>
+    <span class="field-value">wisemoson@gmail.com</span>
+    &nbsp;&nbsp;
+    <span class="field-label" style="min-width:60px;">Gender:</span>
+    <span class="field-value short">Male</span>
+  </div>
+
+  <div class="field-row" style="margin-top:10px;">
+    <span class="field-label">Weighted GPA:</span>
+    <span class="field-value short">4.000</span>
+    &nbsp;&nbsp;
+    <span class="field-label" style="min-width:auto;">Class Rank:</span>
+    <span class="field-value short">51</span>
+    <span style="font-size:10.5pt; padding-bottom:1px;">of</span>
+    <span class="field-value short">342</span>
+    <span style="font-size:10pt;">total students</span>
+  </div>
+
+  <div class="scores-row" style="margin-top:8px;">
+    <span class="score-label">SAT Scores:</span>
+    <span class="score-item"><span class="score-label">V</span><span class="score-val"></span></span>
+    <span class="score-item"><span class="score-label">M</span><span class="score-val"></span></span>
+    <span class="score-item"><span class="score-label">W</span><span class="score-val"></span></span>
+    <span class="score-item"><span class="score-label">Combined</span><span class="score-val" style="min-width:60px;"></span></span>
+  </div>
+
+  <div class="scores-row">
+    <span class="score-label">ACT Scores:</span>
+    <span class="score-item"><span class="score-label">E</span><span class="score-val">20</span></span>
+    <span class="score-item"><span class="score-label">M</span><span class="score-val">25</span></span>
+    <span class="score-item"><span class="score-label">R</span><span class="score-val">19</span></span>
+    <span class="score-item"><span class="score-label">S</span><span class="score-val">19</span></span>
+    <span class="score-item"><span class="score-label">Combined</span><span class="score-val" style="min-width:60px;">21</span></span>
+  </div>
+
+  <div class="field-row" style="margin-top:8px;">
+    <span class="field-label">Intended Major:</span>
+    <span class="field-value">Mechanical Engineering</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">College/University (this fall):</span>
+    <span class="field-value">North Carolina Agricultural and Technical State University (NC A&amp;T)</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">If undecided, applied/accepted:</span>
+    <span class="field-value">N/A</span>
+  </div>
+
+  <div style="margin-top:8px; font-size:10pt; font-weight:bold;">
+    List all other scholarships applied for and their status:
+  </div>
+  <div class="text-block" style="min-height:50px;"></div>
+
+  <!-- PARENT INFORMATION -->
+  <div class="section-title">Parent / Guardian Information</div>
+
+  <div class="two-col">
+    <div>
+      <div style="font-weight:bold; font-size:10.5pt; margin-bottom:6px;">Mother (or Legal Guardian)</div>
+      <div class="field-row">
+        <span class="field-label">Name:</span>
+        <span class="field-value">Marva Evans Johnson</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Home Address:</span>
+        <span class="field-value">332 W Summerchase Dr</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">City, State, Zip:</span>
+        <span class="field-value">Fayetteville, NC 28311</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Home Phone #:</span>
+        <span class="field-value"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Cell Phone #:</span>
+        <span class="field-value"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Email Address:</span>
+        <span class="field-value"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Employer:</span>
+        <span class="field-value">VA Medical Hospital</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Occupation:</span>
+        <span class="field-value">Counselor</span>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-weight:bold; font-size:10.5pt; margin-bottom:6px;">Father (or Legal Guardian)</div>
+      <div class="field-row">
+        <span class="field-label">Name:</span>
+        <span class="field-value">Jermaine Johnson</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Home Address:</span>
+        <span class="field-value">332 W Summerchase Dr</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">City, State, Zip:</span>
+        <span class="field-value">Fayetteville, NC 28311</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Home Phone #:</span>
+        <span class="field-value"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Cell Phone #:</span>
+        <span class="field-value"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Email Address:</span>
+        <span class="field-value"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Employer:</span>
+        <span class="field-value">PWC</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Occupation:</span>
+        <span class="field-value">Marketing</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCIAL CIRCUMSTANCES -->
+  <div class="section-title">Circumstances Affecting Ability to Pay for College</div>
+  <div class="text-block tall">
+    I am enrolled in the federal TRIO Upward Bound Program, which serves students from low-income families and first-generation college students. I am also a recipient of the NC Countdown to College Fee Waiver and the Common App Fee Waiver, both of which reflect demonstrated financial need. My family's resources are limited, and scholarship support will be essential in helping me pursue a Mechanical Engineering degree at North Carolina A&amp;T State University.
+  </div>
+
+  <!-- DRINKING & DRIVING IMPACT -->
+  <div class="section-title">Family Directly Affected by Drinking and Driving</div>
+  <div class="text-block tall"></div>
+
+  <!-- PAGE BREAK -->
+  <div class="page-break"></div>
+
+  <!-- REFERRAL -->
+  <div class="section-title">Referral Information — How did you learn about the Arrive Alive Scholarship?</div>
+  <div class="referral-grid">
+    <div class="check-item"><div class="checkbox"></div> Teacher</div>
+    <div class="check-item"><div class="checkbox"></div> Received postcard in mail</div>
+    <div class="check-item"><div class="checkbox"></div> Newspaper</div>
+    <div class="check-item"><div class="checkbox"></div> Friend</div>
+    <div class="check-item"><div class="checkbox"></div> Online search</div>
+    <div class="check-item"><div class="checkbox"></div> www.DeMayoLaw.com</div>
+    <div class="check-item"><div class="checkbox"></div> Guidance Counselor</div>
+    <div class="check-item"><div class="checkbox"></div> Television commercial</div>
+    <div class="check-item"><div class="checkbox"></div> School website</div>
+  </div>
+
+  <!-- EXTRACURRICULAR ACTIVITIES -->
+  <div class="section-title">Extracurricular Activities</div>
+  <p style="font-size:9.5pt; margin-bottom:8px;">Clubs, sports, fine arts groups, volunteer work, scouting, jobs, internships, church involvement, special interests and hobbies.</p>
+
+  <table class="activities">
+    <thead>
+      <tr>
+        <th style="width:60%;">Activity</th>
+        <th style="width:20%; text-align:center;"># of Years Participated</th>
+        <th style="width:20%; text-align:center;">Hours Per Week Contributed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>National Technical Honor Society — Secretary</td>
+        <td style="text-align:center;">3</td>
+        <td style="text-align:center;">2</td>
+      </tr>
+      <tr>
+        <td>National Honor Society — Member</td>
+        <td style="text-align:center;">2</td>
+        <td style="text-align:center;">2</td>
+      </tr>
+      <tr>
+        <td>Future Business Leaders of America (FBLA)</td>
+        <td style="text-align:center;">2</td>
+        <td style="text-align:center;">2</td>
+      </tr>
+      <tr>
+        <td>Student Voices Club</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">1</td>
+      </tr>
+      <tr>
+        <td>Varsity Tennis</td>
+        <td style="text-align:center;">2</td>
+        <td style="text-align:center;">8</td>
+      </tr>
+      <tr>
+        <td>Fayetteville School of Music — Piano (bi-annual recitals)</td>
+        <td style="text-align:center;">4</td>
+        <td style="text-align:center;">8</td>
+      </tr>
+      <tr>
+        <td>St. Matthews Church — Childcare Volunteer</td>
+        <td style="text-align:center;">5</td>
+        <td style="text-align:center;">3</td>
+      </tr>
+      <tr>
+        <td>North Regional Library — Volunteer (50+ hours)</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">10</td>
+      </tr>
+      <tr>
+        <td>TRIO Upward Bound Program</td>
+        <td style="text-align:center;">3</td>
+        <td style="text-align:center;">5</td>
+      </tr>
+      <tr>
+        <td>100 Black Men — Community Organization Participant</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">2</td>
+      </tr>
+      <tr>
+        <td>WisdomLayers — Founder &amp; Web Developer (Client-facing web development firm)</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">10</td>
+      </tr>
+      <tr>
+        <td>Code Forward — Camp Leader / Instructor (taught Python &amp; web basics)</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">9</td>
+      </tr>
+      <tr>
+        <td>FTCC Dual Enrollment — CTI-110 &amp; IT coursework</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">4</td>
+      </tr>
+      <tr>
+        <td>Ninjutsu Martial Arts — Brown Belt</td>
+        <td style="text-align:center;">3</td>
+        <td style="text-align:center;">3</td>
+      </tr>
+      <tr>
+        <td>Boxing Training</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">2</td>
+      </tr>
+      <tr>
+        <td>Spark Labs District C (30+ hrs, real business problem solving)</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">3</td>
+      </tr>
+      <tr>
+        <td>Campbell University — Academy for Emerging Scholars</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">—</td>
+      </tr>
+      <tr>
+        <td>Emory University — Coding &amp; AI Academy</td>
+        <td style="text-align:center;">1</td>
+        <td style="text-align:center;">—</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- HONOR PLEDGE -->
+  <div class="section-title" style="margin-top:24px;">Honor Pledge</div>
+  <p style="font-size:10pt; line-height:1.6; margin-bottom:16px;">
+    I certify that the information provided in this application packet is complete and accurate to the best of my knowledge. I understand that falsification of information will result in termination of any scholarship granted. I understand that incomplete or late applications will not be considered. Should I receive a scholarship, I permit the DeMayo Law Offices, L.L.P. to use my presentation, name, and likeness in publicity materials relating to the scholarship program.
+  </p>
+
+  <div class="sig-block">
+    <div class="sig-line">
+      <div class="underline"></div>
+      <div class="sig-label">Signature of Applicant</div>
+    </div>
+    <div class="date-line">
+      <div class="underline"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="app-footer">
+    <strong>Mail to:</strong> 2026 DeMayo Law Offices Arrive Alive® Scholarship &nbsp;|&nbsp; Attn: Ms. Iphigenia Sarrimanolis &nbsp;|&nbsp; PO Box 34426, Charlotte, NC 28234<br>
+    <strong>Deadline:</strong> Postmarked on or before Monday, March 23, 2026 &nbsp;|&nbsp; Questions: DeMayoScholarship@demayolaw.com
+  </div>
+
+</div>
+</body>
+</html>

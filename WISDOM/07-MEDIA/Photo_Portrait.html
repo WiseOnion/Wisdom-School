@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wisdom M. Johnson — Portrait Photo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @page { size: letter; margin: 0.75in; }
+
+    body {
+      font-family: 'Calibri', 'Georgia', serif;
+      background: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page-wrap {
+      background: white;
+      width: 8.5in;
+      min-height: 11in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+
+    .portrait-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 80px;
+      gap: 30px;
+    }
+
+    /* decorative frame */
+    .frame {
+      border: 3px solid #1e3a8a;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 16px rgba(30,58,138,0.15);
+      background: white;
+    }
+
+    .frame img {
+      display: block;
+      max-width: 420px;
+      max-height: 520px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    /* gold accent line */
+    .accent-line {
+      width: 80px;
+      height: 3px;
+      background: #f59e0b;
+      border-radius: 2px;
+    }
+
+    .name-block { text-align: center; }
+    .name-block h1 {
+      font-size: 22pt;
+      font-weight: 900;
+      color: #1e3a8a;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .name-block p {
+      font-size: 12pt;
+      color: #555;
+      margin-bottom: 3px;
+    }
+    .name-block .detail {
+      font-size: 10.5pt;
+      color: #888;
+    }
+
+    /* print button */
+    .print-btn {
+      position: fixed; bottom: 28px; right: 28px;
+      background: #1e3a8a; color: white; border: none;
+      padding: 13px 26px; border-radius: 50px;
+      font-size: 14px; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(30,58,138,0.4);
+      font-family: 'Calibri', sans-serif;
+    }
+    .print-btn:hover { background: #2d4fa3; }
+
+    @media print {
+      body { background: white; }
+      .page-wrap { box-shadow: none; width: 100%; min-height: 0; }
+      .print-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="portrait-card">
+      <div class="frame">
+        <img src="unnamed.jpg" alt="Wisdom M. Johnson — Portrait Photo" />
+      </div>
+      <div class="accent-line"></div>
+      <div class="name-block">
+        <h1>Wisdom M. Johnson</h1>
+        <p>Pine Forest High School &nbsp;·&nbsp; Fayetteville, NC</p>
+        <p class="detail">Academy of Information Technology &nbsp;·&nbsp; Class of 2026</p>
+        <p class="detail" style="margin-top:8px;color:#1e3a8a;font-weight:600">Incoming Mechanical Engineering · North Carolina A&T State University</p>
+      </div>
+    </div>
+  </div>
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</body>
+</html>

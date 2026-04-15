@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miles Walter Johnson — Resume</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Calibri', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11pt;
+      color: #1a1a1a;
+      background: #e8e8e8;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .no-print { display: none !important; }
+      .page { box-shadow: none; margin: 0; padding: 0.45in 0.55in; }
+      @page { size: letter portrait; margin: 0; }
+    }
+
+    .no-print {
+      text-align: center;
+      padding: 14px;
+      background: #1a4a2e;
+    }
+    .no-print button {
+      background: #fff;
+      color: #1a4a2e;
+      border: none;
+      padding: 8px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .no-print button:hover { background: #e6f0ea; }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      background: #fff;
+      padding: 0.5in 0.65in;
+    }
+
+    /*  Header  */
+    header {
+      background: #1a4a2e;
+      color: #fff;
+      padding: 22px 28px 18px;
+      margin: -0.5in -0.65in 20px;
+    }
+    header h1 {
+      font-size: 28pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      color: #fff;
+    }
+    header .tagline {
+      font-size: 10.5pt;
+      color: #b8d4c0;
+      margin-top: 3px;
+      font-style: italic;
+    }
+    .contact-row {
+      margin-top: 8px;
+      font-size: 9.5pt;
+      color: #d4e8da;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 22px;
+    }
+    .contact-row a { color: #d4e8da; text-decoration: none; }
+
+    /*  Section  */
+    .section { margin-top: 16px; }
+    .section-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #1a4a2e;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      border-bottom: 2px solid #1a4a2e;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    /*  Profile  */
+    .profile p {
+      font-size: 10pt;
+      line-height: 1.6;
+      color: #2a2a2a;
+    }
+
+    /*  Skills  */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px 14px;
+      font-size: 9.5pt;
+    }
+    .skill-item {
+      background: #f0f7f2;
+      border-left: 3px solid #1a4a2e;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    /*  Entry  */
+    .entry { margin-bottom: 12px; }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .entry-title { font-size: 10.5pt; font-weight: 700; color: #1a4a2e; }
+    .entry-org   { font-size: 9.5pt; font-style: italic; color: #555; }
+    .entry-date  {
+      font-size: 9pt;
+      color: #fff;
+      background: #1a4a2e;
+      padding: 1px 7px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+    .entry-sub   { font-size: 9pt; color: #444; margin-top: 2px; }
+
+    ul.bullets {
+      margin-top: 5px;
+      padding-left: 18px;
+      list-style: disc;
+    }
+    ul.bullets li {
+      font-size: 9.5pt;
+      line-height: 1.5;
+      color: #2a2a2a;
+      margin-bottom: 2px;
+    }
+
+    /*  Two col bottom  */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 30px;
+      margin-top: 16px;
+    }
+
+    /*  Page 2 break  */
+    .page-break { page-break-before: always; }
+  </style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <h1>Miles Walter Johnson</h1>
+    <div class="tagline">Graphic Designer &nbsp;&bull;&nbsp; IT Student &nbsp;&bull;&nbsp; Adobe Certified Professional</div>
+    <div class="contact-row">
+      <span>818-231-1424 (Mobile)</span>
+      <span>910-813-9179 (Home)</span>
+      <span><a href="mailto:milwason@gmail.com">milwason@gmail.com</a></span>
+      <span>Fayetteville, NC</span>
+    </div>
+  </header>
+
+  <!-- PROFILE -->
+  <section class="section profile">
+    <div class="section-title">Professional Profile</div>
+    <p>
+      Creative and driven high school sophomore enrolled in the Academy of Information Technology with a 4.1 GPA and real-world design experience. Adobe Certified in both Illustrator and Photoshop, with over two years of hands-on client work delivering professional graphics, advertisements, and branding materials. A fast learner who takes initiative, meets deadlines, and brings energy and dedication to every project. Ready to contribute meaningful work from day one.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section">
+    <div class="section-title">Core Skills</div>
+    <div class="skills-grid">
+      <span class="skill-item">Adobe Illustrator (Certified)</span>
+      <span class="skill-item">Adobe Photoshop (Certified)</span>
+      <span class="skill-item">Brand &amp; Identity Design</span>
+      <span class="skill-item">Social Media Graphics</span>
+      <span class="skill-item">Print &amp; Digital Advertising</span>
+      <span class="skill-item">Java Programming</span>
+      <span class="skill-item">VR &amp; Robotics Concepts</span>
+      <span class="skill-item">Microsoft Office Suite</span>
+      <span class="skill-item">Creative Problem Solving</span>
+      <span class="skill-item">Team Collaboration</span>
+      <span class="skill-item">Time Management</span>
+      <span class="skill-item">Client Communication</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <div class="section-title">Education</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Pine Forest High School &mdash; Academy of Information Technology (AOIT)</span>
+        <span class="entry-date">Grad. June 2027</span>
+      </div>
+      <div class="entry-org">Fayetteville, NC &nbsp;|&nbsp; Sophomore &nbsp;|&nbsp; GPA: 4.1</div>
+      <ul class="bullets">
+        <li>Enrolled in a specialized IT-focused academy track with Honors and Advanced Placement coursework</li>
+        <li>Consistently maintained A Honor Roll status throughout middle school and into high school</li>
+        <li>Selected member of the National Society of High School Scholars (NSHSS) — recognition for academic excellence</li>
+        <li>Competed on the Pine Forest E-Sports Team in the High School Esports League (HSEL) and UNCG League, developing strategic thinking, communication under pressure, and teamwork</li>
+        <li>Member of the Pine Forest High School Tennis Team, 2025</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="section-title">Work Experience</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Graphic Designer Intern</span>
+        <span class="entry-date">Jun &ndash; Aug 2025</span>
+      </div>
+      <div class="entry-org">LWood Solutions (via District C) &mdash; Fayetteville, NC</div>
+      <ul class="bullets">
+        <li>Secured an internship through the District C competitive placement program as one of a select group of student designers</li>
+        <li>Created professional social media graphics, branded marketing assets, and digital content for a real business client over a 2-month engagement</li>
+        <li>Used Adobe Illustrator and Photoshop to produce polished, publication-ready files from initial brief to final delivery</li>
+        <li>Managed multiple design requests simultaneously, consistently meeting client expectations and deadlines</li>
+        <li>Demonstrated professional communication and responsiveness throughout the engagement</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Freelance Graphic Designer</span>
+        <span class="entry-date">2023 &ndash; Present</span>
+      </div>
+      <div class="entry-org">Saint Matthews Christian Center &mdash; Fayetteville, NC</div>
+      <ul class="bullets">
+        <li>Designed event advertisements, flyers, and promotional materials for an active community ministry for over 2 years</li>
+        <li>Built and maintained a consistent visual brand identity across both print and digital formats</li>
+        <li>Collaborated directly with organizational leadership to understand goals and translate them into effective, attractive visuals</li>
+        <li>Handled revision rounds and delivered final assets ready for immediate use with no additional edits needed</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- PAGE 2 -->
+  <div class="page-break"></div>
+
+  <!-- RE-PRINT HEADER ON PAGE 2 -->
+  <header style="margin-top: 0;">
+    <h1>Miles Walter Johnson</h1>
+    <div class="tagline">Continued</div>
+    <div class="contact-row">
+      <span>818-231-1424</span>
+      <span>milwason@gmail.com</span>
+      <span>Fayetteville, NC</span>
+    </div>
+  </header>
+
+  <!-- ADDITIONAL EXPERIENCE -->
+  <section class="section">
+    <div class="section-title">Additional Experience</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Business &amp; Entrepreneurship Program &mdash; Spark Labs: District C</span>
+        <span class="entry-date">Aug 2024</span>
+      </div>
+      <ul class="bullets">
+        <li>Completed 20+ hours of real business challenges with professionals from ApSeed and Kaplan; built communication, teamwork, and presentation skills</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Event Volunteer &mdash; Fayetteville Botanical Garden</span>
+        <span class="entry-date">Jun 2024</span>
+      </div>
+      <ul class="bullets">
+        <li>Served as front-facing greeter, handled event setup/breakdown, and engaged younger visitors with themed storytelling</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- PROGRAMS & TRAINING -->
+  <section class="section">
+    <div class="section-title">Programs &amp; Training</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Trio / Upward Bound &mdash; UNC Fayetteville State University</span>
+        <span class="entry-date">Jun 2023 &ndash; Present</span>
+      </div>
+      <ul class="bullets">
+        <li>Federally funded college-prep program focused on STEM and entrepreneurship; toured campuses and interviewed admissions professionals for post-secondary planning</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Java Programming Course &mdash; NC State University</span>
+        <span class="entry-date">Jun 2022</span>
+      </div>
+      <ul class="bullets">
+        <li>Studied Java fundamentals and software logic; built algorithms and applied autonomous control concepts through hands-on coding labs</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">STEM Camp (Microbiology, Rocket Design &amp; VR) &mdash; Campbell University</span>
+        <span class="entry-date">Jul 2023</span>
+      </div>
+      <ul class="bullets">
+        <li>Participated in university-level labs covering microbiology, rocket engineering, and VR; applied analytical thinking in research environments</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Piano Performance &amp; Music Theory &mdash; Fayetteville School of Music</span>
+        <span class="entry-date">2020 &ndash; Present</span>
+      </div>
+      <ul class="bullets">
+        <li>Four+ years of formal training in theory and performance; bi-annual recitals; ensemble collaboration with fellow students</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">ACE Aviation Career Education Academy &mdash; Fayetteville Regional Airport</span>
+        <span class="entry-date">Aug 2022</span>
+      </div>
+      <ul class="bullets">
+        <li>Explored aviation and aerospace career pathways through an industry-led hands-on education program</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+  <section class="section">
+    <div class="section-title">Certifications &amp; Achievements</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px 40px;">
+      <ul class="bullets" style="margin-top:0;">
+        <li>Adobe Certified Professional &mdash; Illustrator</li>
+        <li>Adobe Certified Professional &mdash; Photoshop</li>
+        <li>Completed two online business courses</li>
+        <li>Ninjutsu Martial Arts &mdash; Yellow-Black Belt</li>
+      </ul>
+      <ul class="bullets" style="margin-top:0;">
+        <li>City of Fayetteville Mascot Contest &mdash; Top Finalist, 2024&ndash;2025</li>
+        <li>A Honor Roll &mdash; 4.1 GPA, middle school through 10th grade</li>
+        <li>Pine Forest High School Tennis Team, 2025</li>
+        <li>National Society of High School Scholars Member</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

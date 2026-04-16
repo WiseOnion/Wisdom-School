@@ -882,6 +882,10 @@
    lb.style.display = 'flex';
  }
 
+ function scShowPhotoById(imgEl) {
+   scShowPhoto(imgEl.src);
+ }
+
  function scRender() {
    var tbody = document.getElementById('sc-body');
    tbody.innerHTML = '';
@@ -920,7 +924,7 @@
      }
 
      var photoCell = e.photo
-       ? '<img src="' + e.photo + '" onclick="scShowPhoto('' + e.photo.replace(/'/g,"\\'") + '')" style="width:36px;height:36px;object-fit:cover;border-radius:5px;cursor:zoom-in;border:1px solid var(--gray-200)" title="View screenshot">'
+       ? '<img src="' + e.photo + '" data-photo-id="' + e.id + '" onclick="scShowPhotoById(this)" style="width:36px;height:36px;object-fit:cover;border-radius:5px;cursor:zoom-in;border:1px solid var(--gray-200)" title="View screenshot">'
        : '<span style="color:var(--gray-400);font-size:11px">—</span>';
 
      var tr = document.createElement('tr');

@@ -743,63 +743,6 @@
  <h2 class="page-title">Scholarship Tracker</h2>
  <p class="page-subtitle">Your personal record. Every scholarship you applied to, all in one place.</p>
 
- <!-- MODAL OVERLAY -->
- <div id="sc-modal-overlay" onclick="scCloseModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:500"></div>
-
- <!-- MODAL -->
- <div id="sc-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:600;background:var(--white);border-radius:14px;padding:32px;width:540px;max-width:95vw;max-height:90vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,0.18)">
-   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-     <h3 style="font-size:17px;font-weight:800;color:var(--navy)">Add Scholarship</h3>
-     <button onclick="scCloseModal()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray-400);line-height:1">&times;</button>
-   </div>
-   <div style="margin-bottom:14px">
-     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Scholarship Name *</label>
-     <input id="sc-name" type="text" placeholder="e.g. TMCF Scholarship" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-   </div>
-   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-     <div>
-       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Amount ($)</label>
-       <input id="sc-amount" type="text" placeholder="e.g. 3000" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-     </div>
-     <div>
-       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Date Applied</label>
-       <input id="sc-date" type="date" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-     </div>
-   </div>
-   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-     <div>
-       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Decision Date</label>
-       <input id="sc-decision" type="date" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-     </div>
-     <div>
-       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Status</label>
-       <select id="sc-status" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-         <option value="pending">Pending</option>
-         <option value="awarded">Awarded</option>
-         <option value="not-selected">Not Selected</option>
-       </select>
-     </div>
-   </div>
-   <div style="margin-bottom:14px">
-     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Notes</label>
-     <input id="sc-notes" type="text" placeholder="e.g. Essay submitted, waiting on response..." style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-   </div>
-   <div style="margin-bottom:20px">
-     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Submission Photo / Screenshot</label>
-     <input id="sc-photo" type="file" accept="image/*" style="width:100%;padding:7px 0;font-size:12px;color:var(--gray-800)">
-     <div id="sc-photo-preview" style="margin-top:8px"></div>
-   </div>
-   <div style="display:flex;gap:10px;justify-content:flex-end">
-     <button onclick="scCloseModal()" class="btn btn-outline">Cancel</button>
-     <button onclick="scAdd()" class="btn btn-primary">Add Entry</button>
-   </div>
- </div>
-
- <!-- PHOTO LIGHTBOX -->
- <div id="sc-lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:900;display:none;align-items:center;justify-content:center;cursor:zoom-out">
-   <img id="sc-lightbox-img" style="max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 4px 32px rgba(0,0,0,0.5)">
- </div>
-
  <!-- STAT TILES + ADD BUTTON -->
  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px;flex-wrap:wrap">
    <div class="grid-4" style="flex:1;min-width:0">
@@ -1606,5 +1549,62 @@
   });
 
 </script>
+
+<!-- SC MODAL OVERLAY -->
+<div id="sc-modal-overlay" onclick="scCloseModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:500"></div>
+
+<!-- SC MODAL -->
+<div id="sc-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:600;background:var(--white);border-radius:14px;padding:32px;width:540px;max-width:95vw;max-height:90vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,0.18)">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+    <h3 style="font-size:17px;font-weight:800;color:var(--navy)">Add Scholarship</h3>
+    <button onclick="scCloseModal()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray-400);line-height:1">&times;</button>
+  </div>
+  <div style="margin-bottom:14px">
+    <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Scholarship Name *</label>
+    <input id="sc-name" type="text" placeholder="e.g. TMCF Scholarship" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+    <div>
+      <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Amount ($)</label>
+      <input id="sc-amount" type="text" placeholder="e.g. 3000" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+    </div>
+    <div>
+      <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Date Applied</label>
+      <input id="sc-date" type="date" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+    <div>
+      <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Decision Date</label>
+      <input id="sc-decision" type="date" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+    </div>
+    <div>
+      <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Status</label>
+      <select id="sc-status" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+        <option value="pending">Pending</option>
+        <option value="awarded">Awarded</option>
+        <option value="not-selected">Not Selected</option>
+      </select>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Notes</label>
+    <input id="sc-notes" type="text" placeholder="e.g. Essay submitted, waiting on response..." style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+  </div>
+  <div style="margin-bottom:20px">
+    <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Submission Photo / Screenshot</label>
+    <input id="sc-photo" type="file" accept="image/*" style="width:100%;padding:7px 0;font-size:12px;color:var(--gray-800)">
+    <div id="sc-photo-preview" style="margin-top:8px"></div>
+  </div>
+  <div style="display:flex;gap:10px;justify-content:flex-end">
+    <button onclick="scCloseModal()" class="btn btn-outline">Cancel</button>
+    <button onclick="scAdd()" class="btn btn-primary">Add Entry</button>
+  </div>
+</div>
+
+<!-- SC PHOTO LIGHTBOX -->
+<div id="sc-lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:900;align-items:center;justify-content:center;cursor:zoom-out">
+  <img id="sc-lightbox-img" style="max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 4px 32px rgba(0,0,0,0.5)">
+</div>
 </body>
 </html>

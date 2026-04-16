@@ -741,66 +741,103 @@
  <!-- SCHOLARSHIPS -->
  <section class="section" id="scholarships">
  <h2 class="page-title">Scholarship Tracker</h2>
- <p class="page-subtitle">Your personal record. Add every scholarship you apply to. Mark it when you hear back.</p>
+ <p class="page-subtitle">Your personal record. Every scholarship you applied to, all in one place.</p>
 
- <div class="grid-4" style="margin-bottom:24px">
-   <div class="stat-tile"><div class="val" id="sc-total">0</div><div class="lbl">Total Applied</div></div>
-   <div class="stat-tile"><div class="val" id="sc-pending">0</div><div class="lbl">Pending</div></div>
-   <div class="stat-tile"><div class="val" id="sc-awarded">0</div><div class="lbl">Awarded</div></div>
-   <div class="stat-tile"><div class="val" id="sc-money" style="font-size:22px">$0</div><div class="lbl">Total Awarded</div></div>
- </div>
+ <!-- MODAL OVERLAY -->
+ <div id="sc-modal-overlay" onclick="scCloseModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:500"></div>
 
- <div class="card" style="margin-bottom:20px">
-   <h3>Add a Scholarship</h3>
-   <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px;margin-bottom:10px">
+ <!-- MODAL -->
+ <div id="sc-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:600;background:var(--white);border-radius:14px;padding:32px;width:520px;max-width:95vw;box-shadow:0 8px 40px rgba(0,0,0,0.18)">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+     <h3 style="font-size:17px;font-weight:800;color:var(--navy)">Add Scholarship</h3>
+     <button onclick="scCloseModal()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray-400);line-height:1">&times;</button>
+   </div>
+   <div style="margin-bottom:14px">
+     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Scholarship Name *</label>
+     <input id="sc-name" type="text" placeholder="e.g. TMCF Scholarship" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+   </div>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
      <div>
-       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px">Scholarship Name *</label>
-       <input id="sc-name" type="text" placeholder="e.g. TMCF Scholarship" style="width:100%;padding:7px 10px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:12px;background:var(--white);color:var(--gray-800)">
+       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Amount ($)</label>
+       <input id="sc-amount" type="text" placeholder="e.g. 3000" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
      </div>
      <div>
-       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px">Amount ($)</label>
-       <input id="sc-amount" type="text" placeholder="e.g. 5000" style="width:100%;padding:7px 10px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:12px;background:var(--white);color:var(--gray-800)">
-     </div>
-     <div>
-       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px">Date Applied</label>
-       <input id="sc-date" type="date" style="width:100%;padding:7px 10px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:12px;background:var(--white);color:var(--gray-800)">
-     </div>
-     <div>
-       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px">Status</label>
-       <select id="sc-status" style="width:100%;padding:7px 10px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:12px;background:var(--white);color:var(--gray-800)">
-         <option value="pending">Pending</option>
-         <option value="awarded">Awarded</option>
-         <option value="not-selected">Not Selected</option>
-       </select>
+       <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Date Applied</label>
+       <input id="sc-date" type="date" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
      </div>
    </div>
-   <div style="margin-bottom:10px">
-     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px">Notes (optional)</label>
-     <input id="sc-notes" type="text" placeholder="e.g. Essay submitted, waiting on response..." style="width:100%;padding:7px 10px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:12px;background:var(--white);color:var(--gray-800)">
+   <div style="margin-bottom:14px">
+     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Status</label>
+     <select id="sc-status" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+       <option value="pending">Pending</option>
+       <option value="awarded">Awarded</option>
+       <option value="not-selected">Not Selected</option>
+     </select>
    </div>
-   <button onclick="scAdd()" class="btn btn-primary">Add Entry</button>
+   <div style="margin-bottom:20px">
+     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Notes</label>
+     <input id="sc-notes" type="text" placeholder="e.g. Essay submitted, waiting on response..." style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+   </div>
+   <div style="display:flex;gap:10px;justify-content:flex-end">
+     <button onclick="scCloseModal()" class="btn btn-outline">Cancel</button>
+     <button onclick="scAdd()" class="btn btn-primary">Add Entry</button>
+   </div>
  </div>
 
+ <!-- STAT TILES + ADD BUTTON -->
+ <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px;flex-wrap:wrap">
+   <div class="grid-4" style="flex:1;min-width:0">
+     <div class="stat-tile"><div class="val" id="sc-total">0</div><div class="lbl">Total Applied</div></div>
+     <div class="stat-tile"><div class="val" id="sc-pending">0</div><div class="lbl">Pending</div></div>
+     <div class="stat-tile"><div class="val" id="sc-awarded">0</div><div class="lbl">Awarded</div></div>
+     <div class="stat-tile"><div class="val" id="sc-money" style="font-size:22px">$0</div><div class="lbl">Total Awarded</div></div>
+   </div>
+   <button onclick="scOpenModal()" class="btn btn-gold" style="padding:12px 24px;font-size:14px;white-space:nowrap;align-self:center">+ Add</button>
+ </div>
+
+ <!-- TABLE -->
  <div class="card" style="padding:0;overflow:hidden">
    <table style="width:100%;border-collapse:collapse;font-size:13px">
      <thead>
        <tr>
-         <th style="width:30%">Scholarship</th>
+         <th style="width:28%">Scholarship</th>
          <th style="width:12%">Amount</th>
          <th style="width:13%">Date Applied</th>
          <th style="width:13%">Status</th>
-         <th style="width:25%">Notes</th>
+         <th style="width:27%">Notes</th>
          <th style="width:7%"></th>
        </tr>
      </thead>
      <tbody id="sc-body">
-       <tr id="sc-empty"><td colspan="6" style="text-align:center;padding:28px;color:var(--gray-400);font-size:13px">No scholarships added yet. Use the form above to add your first one.</td></tr>
+       <tr><td colspan="6" style="text-align:center;padding:28px;color:var(--gray-400);font-size:13px">No scholarships added yet. Hit <strong>+ Add</strong> to log your first one.</td></tr>
      </tbody>
    </table>
  </div>
 
  <script>
- var scData = JSON.parse(localStorage.getItem('sc_entries') || '[]');
+ var scData = JSON.parse(localStorage.getItem('sc_entries') || 'null');
+
+ // Seed with the two scholarships Wisdom already applied to if no data exists yet
+ if (!scData) {
+   scData = [
+     { id: 1, name: 'ASHRAE High School Senior Scholarship', amount: '3000', date: '2026-04-16', status: 'pending', notes: 'Four $3,000 awards. Pre-engineering/HVAC&R focus. Deadline May 1.' },
+     { id: 2, name: 'ERLY Scholarship', amount: '', date: '2026-04-16', status: 'pending', notes: 'Essay-based. Science, creativity, entrepreneurship, service. Deadline April 15.' }
+   ];
+   localStorage.setItem('sc_entries', JSON.stringify(scData));
+ }
+
+ function scOpenModal() {
+   document.getElementById('sc-modal').style.display = 'block';
+   document.getElementById('sc-modal-overlay').style.display = 'block';
+   document.getElementById('sc-name').focus();
+ }
+
+ function scCloseModal() {
+   document.getElementById('sc-modal').style.display = 'none';
+   document.getElementById('sc-modal-overlay').style.display = 'none';
+ }
+
+ document.addEventListener('keydown', function(e){ if(e.key==='Escape') scCloseModal(); });
 
  function scSave() {
    localStorage.setItem('sc_entries', JSON.stringify(scData));
@@ -809,7 +846,7 @@
 
  function scAdd() {
    var name = document.getElementById('sc-name').value.trim();
-   if (!name) { alert('Enter a scholarship name.'); return; }
+   if (!name) { document.getElementById('sc-name').focus(); return; }
    var entry = {
      id: Date.now(),
      name: name,
@@ -823,9 +860,11 @@
    ['sc-name','sc-amount','sc-notes'].forEach(function(id){ document.getElementById(id).value=''; });
    document.getElementById('sc-date').value = '';
    document.getElementById('sc-status').value = 'pending';
+   scCloseModal();
  }
 
  function scDelete(id) {
+   if (!confirm('Remove this entry?')) return;
    scData = scData.filter(function(e){ return e.id !== id; });
    scSave();
  }
@@ -839,8 +878,8 @@
    var tbody = document.getElementById('sc-body');
    tbody.innerHTML = '';
 
-   if (scData.length === 0) {
-     tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:28px;color:var(--gray-400);font-size:13px">No scholarships added yet. Use the form above to add your first one.</td></tr>';
+   if (!scData.length) {
+     tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:28px;color:var(--gray-400);font-size:13px">No scholarships added yet. Hit <strong>+ Add</strong> to log your first one.</td></tr>';
      document.getElementById('sc-total').textContent = '0';
      document.getElementById('sc-pending').textContent = '0';
      document.getElementById('sc-awarded').textContent = '0';
@@ -870,9 +909,9 @@
        '<td style="padding:12px 14px;color:#15803d;font-weight:700">' + amtDisplay + '</td>' +
        '<td style="padding:12px 14px">' + (e.date || '—') + '</td>' +
        '<td style="padding:12px 14px"><select onchange="scChangeStatus(' + e.id + ',this.value)" style="font-size:12px;padding:3px 6px;border-radius:6px;border:1px solid var(--gray-200);background:var(--white);color:var(--gray-800)">' +
-         '<option value="pending"'        + (e.status==='pending'       ? ' selected' : '') + '>Pending</option>' +
-         '<option value="awarded"'        + (e.status==='awarded'       ? ' selected' : '') + '>Awarded</option>' +
-         '<option value="not-selected"'   + (e.status==='not-selected'  ? ' selected' : '') + '>Not Selected</option>' +
+         '<option value="pending"'      + (e.status==='pending'      ? ' selected':'') + '>Pending</option>' +
+         '<option value="awarded"'      + (e.status==='awarded'      ? ' selected':'') + '>Awarded</option>' +
+         '<option value="not-selected"' + (e.status==='not-selected' ? ' selected':'') + '>Not Selected</option>' +
        '</select></td>' +
        '<td style="padding:12px 14px;color:var(--gray-600);font-size:12px">' + (e.notes || '—') + '</td>' +
        '<td style="padding:12px 14px;text-align:center"><button onclick="scDelete(' + e.id + ')" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px" title="Remove">&#x2715;</button></td>';
@@ -888,7 +927,6 @@
  scRender();
  </script>
  </section>
-
  <!-- ACTIVITIES -->
  <!-- ACTIVITIES -->
  <!-- COLLEGES -->

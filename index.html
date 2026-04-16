@@ -778,7 +778,7 @@
  <script>
  var scData = JSON.parse(localStorage.getItem('sc_entries') || 'null');
 
- if (!scData) {
+ if (!scData || !Array.isArray(scData) || scData.length === 0) {
    scData = [
      { id: 1, name: 'ASHRAE High School Senior Scholarship', amount: '3000', date: '2026-04-16', decision: '2026-05-01', status: 'pending', notes: 'Four $3,000 awards. Pre-engineering/HVAC&R focus.', photo: '' },
      { id: 2, name: 'ERLY Scholarship', amount: '', date: '2026-04-16', decision: '', status: 'pending', notes: 'Essay-based. Science, creativity, entrepreneurship, service.', photo: '' }

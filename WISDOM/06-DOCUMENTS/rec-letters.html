@@ -3,8 +3,8 @@
 <head>
  <meta charset="UTF-8"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
- <script src="../auth.js"></script>
- <title>Checklists — Wisdom M. Johnson</title>
+ <script src="../../auth.js"></script>
+ <title>Rec Letters — Wisdom M. Johnson</title>
  <style>
  :root {
  --navy: #1e3a8a; --navy-dark: #162d6b; --navy-light: #2d4fa3;
@@ -131,31 +131,67 @@
    <p>Pine Forest HS · Class of 2026</p>
  </div>
  <nav>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../index.html">Home</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="resumes.html">Resumes</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="transcripts.html">Transcripts</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="essays.html">Essays</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="scholarships.html">Scholarships</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="activities.html">Activities</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="scores.html">Test Scores</a>
-   <a class="nav-item active" onclick="if(window.innerWidth<=768)closeSidebar()" href="checklists.html">Checklists</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../../index.html">Home</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../02-RESUMES/resumes.html">Resumes</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../03-TRANSCRIPTS/transcripts.html">Transcripts</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../04-ESSAYS/essays.html">Essays</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../01-CONTROL-CENTER/scholarships.html">Scholarships</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../01-CONTROL-CENTER/activities.html">Activities</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../01-CONTROL-CENTER/scores.html">Test Scores</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../01-CONTROL-CENTER/checklists.html">Checklists</a>
    <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="documents.html">Documents</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="rec-letters.html">Rec Letters</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="colleges.html">Colleges</a>
+   <a class="nav-item active" onclick="if(window.innerWidth<=768)closeSidebar()" href="rec-letters.html">Rec Letters</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../01-CONTROL-CENTER/colleges.html">Colleges</a>
  </nav>
  <div class="sidebar-footer">
    <button class="dark-toggle" onclick="toggleDark()">Toggle Dark Mode</button>
  </div>
 </aside>
 <main class="main">
-<h2 class="page-title">Checklists</h2>
-<p class="page-subtitle">Check items off as you complete them. Progress saves automatically in your browser.</p>
+<h2 class="page-title">Recommendation Letters</h2>
+<p class="page-subtitle">Track who is writing letters, their status, and where each one is being used.</p>
 
-<div class="grid-2">
-  <div class="card"><h3>College Applications</h3><div id="cl-college"></div></div>
-  <div class="card"><h3>Scholarships</h3><div id="cl-scholarships"></div></div>
-  <div class="card"><h3>Documents &amp; Records</h3><div id="cl-documents"></div></div>
-  <div class="card"><h3>Recommendation Letters</h3><div id="cl-recs"></div></div>
+<div class="section-label">Letters on File</div>
+<div class="card" style="overflow-x:auto;padding:0;">
+  <table style="width:100%;border-collapse:collapse;font-size:13px;min-width:560px;">
+    <thead>
+      <tr style="background:var(--gray-100);text-align:left;">
+        <th style="padding:10px 12px;">Writer</th>
+        <th style="padding:10px 12px;">Relationship</th>
+        <th style="padding:10px 12px;">File</th>
+        <th style="padding:10px 12px;">Used For</th>
+        <th style="padding:10px 12px;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-top:1px solid var(--gray-200);">
+        <td style="padding:10px 12px;font-weight:600;">Amber House, NBCT</td>
+        <td style="padding:10px 12px;">Director, AOIT Academy — Gray's Creek High School</td>
+        <td style="padding:10px 12px;"><a href="../06-DOCUMENTS/Recommendation_Letter_AOIT_Director.pdf" target="_blank">View Letter (PDF)</a></td>
+        <td style="padding:10px 12px;">Wisdom — Scholarships / College</td>
+        <td style="padding:10px 12px;"><span style="background:#dcfce7;color:#16a34a;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;">Complete</span></td>
+      </tr>
+      <tr style="border-top:1px solid var(--gray-200);">
+        <td style="padding:10px 12px;font-weight:600;">Liauna Jordan</td>
+        <td style="padding:10px 12px;">AOIT Teacher, Pine Forest — Apr 14, 2026</td>
+        <td style="padding:10px 12px;"><a href="../06-DOCUMENTS/Recommendation_Letter_AOIT_Teacher_LiaunaJordan.docx" target="_blank">View Letter (DOCX)</a></td>
+        <td style="padding:10px 12px;">Wisdom — Scholarships / College</td>
+        <td style="padding:10px 12px;"><span style="background:#dcfce7;color:#16a34a;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;">Complete</span></td>
+      </tr>
+      <tr style="border-top:1px solid var(--gray-200);">
+        <td style="padding:10px 12px;font-weight:600;">St. Matthews Church</td>
+        <td style="padding:10px 12px;">Church / Community — Miles</td>
+        <td style="padding:10px 12px;"><a href="../../MILES/Miles_Recommendation_StMatthews.html" target="_blank">View Letter</a></td>
+        <td style="padding:10px 12px;">Miles</td>
+        <td style="padding:10px 12px;"><span style="background:#dcfce7;color:#16a34a;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;">Complete</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section-label">Notes</div>
+<div class="card">
+  <p style="font-size:13px;color:var(--gray-600);">Wisdom has 2 letters on file — AOIT Director (PDF) and Liauna Jordan (DOCX). Add more letters to <code>WISDOM/06-DOCUMENTS/</code> and add a row above. Ask recommenders at least 4–6 weeks before deadlines. Give them your resume and context when requesting.</p>
 </div>
 
 </main>

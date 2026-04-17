@@ -279,13 +279,17 @@ function toggleDark() {
 function toggleSidebar() {
   var sidebar = document.getElementById('sidebar');
   var overlay = document.getElementById('mobile-overlay');
-  sidebar.classList.toggle('open');
-  if (overlay) overlay.classList.toggle('active');
+  var hamburger = document.querySelector('.hamburger');
+  var isOpen = sidebar.classList.toggle('open');
+  if (overlay) overlay.classList.toggle('active', isOpen);
+  if (hamburger) hamburger.style.display = isOpen ? 'none' : '';
 }
 function closeSidebar() {
   document.getElementById('sidebar').classList.remove('open');
   var overlay = document.getElementById('mobile-overlay');
   if (overlay) overlay.classList.remove('active');
+  var hamburger = document.querySelector('.hamburger');
+  if (hamburger) hamburger.style.display = '';
 }
 if (localStorage.getItem('theme') === 'dark') {
   document.documentElement.setAttribute('data-theme', 'dark');

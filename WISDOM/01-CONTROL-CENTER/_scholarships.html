@@ -132,7 +132,10 @@
   <div class="sync-bar">
     <div class="sync-dot loading" id="sync-dot"></div>
     <span id="sync-status">Connecting to Google Sheets…</span>
-    <button onclick="scLoad()" class="btn btn-outline" style="margin-left:auto;padding:4px 10px;font-size:11px">Refresh</button>
+    <div style="display:flex;gap:8px;margin-left:auto;">
+      <a href="https://docs.google.com/spreadsheets/d/10QMY58_NHxx4B-H1V0L6VEKdLg7JPf13VtQZ0cilmq4/edit?gid=0#gid=0" target="_blank" class="btn btn-outline" style="padding:4px 10px;font-size:11px">Open Sheet</a>
+      <button onclick="scLoad()" class="btn btn-outline" style="padding:4px 10px;font-size:11px">Refresh</button>
+    </div>
   </div>
 
   <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px;flex-wrap:wrap">

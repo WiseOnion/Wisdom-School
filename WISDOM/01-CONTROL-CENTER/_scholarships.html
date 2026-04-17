@@ -239,6 +239,17 @@ async function scLoad() {
     var text = await resp.text();
     var parsed = JSON.parse(text);
     scData = Array.isArray(parsed) ? parsed.filter(function(e){ return e && e.id; }) : [];
+
+    var seedIds = ['seed-erly-2026', 'seed-ashrae-2026'];
+    var existingIds = scData.map(function(e){ return e.id; });
+    var seeds = [
+      { id: 'seed-erly-2026', name: 'ERLY Scholarship', amount: '', deadline: '2025-09-15', applied: '2025-09-01', status: 'pending', notes: 'All three prompts answered. Essay submitted.', link: 'https://itserly.com/pages/erly-scholarship' },
+      { id: 'seed-ashrae-2026', name: 'ASHRAE High School Senior Scholarship', amount: '3000', deadline: '2026-05-01', applied: '2026-04-17', status: 'pending', notes: '$3,000. Pre-engineering / engineering focus. Applied April 2026.', link: 'https://www.ashrae.org/communities/student-zone/scholarships-and-grants/high-school-senior-scholarships' }
+    ];
+    seeds.forEach(function(s) {
+      if (!existingIds.includes(s.id)) scData.push(s);
+    });
+
     setSyncStatus('ok', 'Synced · ' + new Date().toLocaleTimeString());
     scRender();
   } catch(err) {

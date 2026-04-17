@@ -246,12 +246,14 @@ async function scLoad() {
       { id: 'seed-erly-2026', name: 'ERLY Scholarship', amount: '', deadline: '2025-09-15', applied: '2025-09-01', status: 'pending', notes: 'All three prompts answered. Essay submitted.', link: 'https://itserly.com/pages/erly-scholarship' },
       { id: 'seed-ashrae-2026', name: 'ASHRAE High School Senior Scholarship', amount: '3000', deadline: '2026-05-01', applied: '2026-04-17', status: 'pending', notes: '$3,000. Pre-engineering / engineering focus. Applied April 2026.', link: 'https://www.ashrae.org/communities/student-zone/scholarships-and-grants/high-school-senior-scholarships' }
     ];
+    var newSeeds = [];
     seeds.forEach(function(s) {
-      if (!existingIds.includes(s.id)) scData.push(s);
+      if (!existingIds.includes(s.id)) { scData.push(s); newSeeds.push(s); }
     });
 
     setSyncStatus('ok', 'Synced · ' + new Date().toLocaleTimeString());
     scRender();
+    if (newSeeds.length) scPush();
   } catch(err) {
     setSyncStatus('err', 'Could not connect to Google Sheets');
     document.getElementById('sc-body').innerHTML =

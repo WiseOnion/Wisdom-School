@@ -384,7 +384,7 @@ function scRender() {
   var today = new Date(); today.setHours(0,0,0,0);
 
   scData.forEach(function(e) {
-    var amtNum = parseFloat((e.amount||'').replace(/[^0-9.]/g,'')) || 0;
+    var amtNum = parseFloat(String(e.amount||'').replace(/[^0-9.]/g,'')) || 0;
     var amtDisplay = amtNum > 0 ? '$' + amtNum.toLocaleString() : '—';
     if (e.status === 'pending')  pending++;
     if (e.status === 'awarded')  { awarded++; totalMoney += amtNum; }

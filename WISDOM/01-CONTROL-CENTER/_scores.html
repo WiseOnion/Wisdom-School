@@ -4,7 +4,7 @@
  <meta charset="UTF-8"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
  <script src="../../auth.js"></script>
- <title>Colleges — Wisdom M. Johnson</title>
+ <title>Test Scores — Wisdom M. Johnson</title>
  <style>
  :root {
  --navy: #1e3a8a; --navy-dark: #162d6b; --navy-light: #2d4fa3;
@@ -132,94 +132,92 @@
  </div>
  <nav>
    <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../../index.html">Home</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../02-RESUMES/resumes.html">Resumes</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../03-TRANSCRIPTS/transcripts.html">Transcripts</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../04-ESSAYS/essays.html">Essays</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="scholarships.html">Scholarships</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="activities.html">Activities</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="scores.html">Test Scores</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="checklists.html">Checklists</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../06-DOCUMENTS/documents.html">Documents</a>
-   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../06-DOCUMENTS/rec-letters.html">Rec Letters</a>
-   <a class="nav-item active" onclick="if(window.innerWidth<=768)closeSidebar()" href="colleges.html">Colleges</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../02-RESUMES/_resumes.html">Resumes</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../03-TRANSCRIPTS/_transcripts.html">Transcripts</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../04-ESSAYS/_essays.html">Essays</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="_scholarships.html">Scholarships</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="_activities.html">Activities</a>
+   <a class="nav-item active" onclick="if(window.innerWidth<=768)closeSidebar()" href="_scores.html">Test Scores</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="_checklists.html">Checklists</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../06-DOCUMENTS/_documents.html">Documents</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="../06-DOCUMENTS/_rec-letters.html">Rec Letters</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="_colleges.html">Colleges</a>
  </nav>
  <div class="sidebar-footer">
    <button class="dark-toggle" onclick="toggleDark()">Toggle Dark Mode</button>
  </div>
 </aside>
 <main class="main">
-<h2 class="page-title">College Tracker</h2>
-<p class="page-subtitle"></p>
+<h2 class="page-title">Test Scores</h2>
+<p class="page-subtitle">ACT, EOC, and FTCC coursework.</p>
 
-<div class="grid-4">
-  <div class="stat-tile"><div class="val" id="col-applied">0</div><div class="lbl">Applied</div></div>
-  <div class="stat-tile"><div class="val" id="col-awaiting">0</div><div class="lbl">Awaiting Decision</div></div>
-  <div class="stat-tile"><div class="val" id="col-accepted">0</div><div class="lbl">Accepted</div></div>
-  <div class="stat-tile"><div class="val" id="col-deferred">0</div><div class="lbl">Deferred / Denied</div></div>
+<div class="grid-2">
+  <div class="card">
+    <h3>ACT Scores</h3>
+    <div class="score-bar-wrap" style="margin-top:8px">
+      <div class="score-bar-label"><span>Math</span><span><strong>25</strong> / 36</span></div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:69%"></div></div>
+    </div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-label"><span>English</span><span><strong>20</strong> / 36</span></div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:56%"></div></div>
+    </div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-label"><span>Reading</span><span><strong>19</strong> / 36</span></div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:53%"></div></div>
+    </div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-label"><span>Science</span><span><strong>19</strong> / 36</span></div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:53%"></div></div>
+    </div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-label"><span><strong>Composite</strong></span><span><strong>21</strong> / 36</span></div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:58%;background:var(--gold)"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>NC EOC Scores</h3>
+    <table>
+      <thead><tr><th>Test</th><th>Score</th><th>Date</th></tr></thead>
+      <tbody>
+        <tr><td>NC Math 1</td><td><strong>558</strong></td><td>Jan 2023</td></tr>
+        <tr><td>Biology</td><td><strong>253</strong></td><td>Jun 2024</td></tr>
+        <tr><td>English II</td><td><strong>558</strong></td><td>Jun 2024</td></tr>
+        <tr><td>NC Math 3</td><td><strong>564</strong></td><td>Jan 2025</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>FTCC Dual Enrollment (In Progress)</h3>
+    <table>
+      <thead><tr><th>Course</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>CTI-110 (IT fundamentals)</td><td><span class="badge badge-progress">In Progress</span></td></tr>
+        <tr><td>CTS-120</td><td><span class="badge badge-progress">In Progress</span></td></tr>
+        <tr><td>CTS-220</td><td><span class="badge badge-progress">In Progress</span></td></tr>
+        <tr><td>NET-110 (Networking)</td><td><span class="badge badge-progress">In Progress</span></td></tr>
+        <tr><td>NOS-110 (OS & Security)</td><td><span class="badge badge-progress">In Progress</span></td></tr>
+        <tr><td>SEC-110 (Security)</td><td><span class="badge badge-progress">In Progress</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Certifications & Skills</h3>
+    <table>
+      <thead><tr><th>Credential</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>CompTIA IT Fundamentals</td><td><span class="badge badge-done">Completed</span></td></tr>
+        <tr><td>Adobe Visual Design (2 years)</td><td><span class="badge badge-done">Completed</span></td></tr>
+        <tr><td>Python Programming</td><td><span class="badge badge-done">Completed</span></td></tr>
+        <tr><td>Entrepreneurship I & II</td><td><span class="badge badge-done">Completed</span></td></tr>
+        <tr><td>AP Precalculus</td><td><span class="badge badge-progress">In Progress</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<div class="section-label">Schools</div>
-<div class="card" style="overflow-x:auto;">
-  <table style="width:100%;border-collapse:collapse;font-size:13px;">
-    <thead>
-      <tr style="background:var(--gray-100);text-align:left;">
-        <th style="padding:10px 12px;">School</th>
-        <th style="padding:10px 12px;">Type</th>
-        <th style="padding:10px 12px;">Deadline</th>
-        <th style="padding:10px 12px;">Status</th>
-        <th style="padding:10px 12px;">Notes</th>
-      </tr>
-    </thead>
-    <tbody id="colleges-tbody">
-      <tr style="border-top:1px solid var(--gray-200);">
-        <td style="padding:10px 12px;font-weight:600;">NC A&amp;T State University</td>
-        <td style="padding:10px 12px;">HBCU / Public</td>
-        <td style="padding:10px 12px;">Rolling</td>
-        <td style="padding:10px 12px;">
-          <select class="college-status" data-school="NCAT" onchange="saveCollegeStatus(this);updateCollegeTiles()" style="font-size:12px;padding:3px 6px;border-radius:6px;border:1px solid var(--gray-200);background:var(--white);color:var(--gray-800);">
-            <option>Not Started</option>
-            <option>In Progress</option>
-            <option>Submitted</option>
-            <option>Awaiting Decision</option>
-            <option>Accepted</option>
-            <option>Deferred</option>
-            <option>Denied</option>
-          </select>
-        </td>
-        <td style="padding:10px 12px;">Primary target. Mechanical Engineering.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<script>
-function saveCollegeStatus(sel) {
-  localStorage.setItem('college_' + sel.dataset.school, sel.value);
-}
-
-function updateCollegeTiles() {
-  var rows = document.querySelectorAll('.college-status');
-  var applied = 0, awaiting = 0, accepted = 0, deferred = 0;
-  rows.forEach(function(sel) {
-    var v = sel.value;
-    if (v === 'Submitted' || v === 'Awaiting Decision' || v === 'Accepted' || v === 'Deferred' || v === 'Denied') applied++;
-    if (v === 'Awaiting Decision') awaiting++;
-    if (v === 'Accepted') accepted++;
-    if (v === 'Deferred' || v === 'Denied') deferred++;
-  });
-  document.getElementById('col-applied').textContent = applied;
-  document.getElementById('col-awaiting').textContent = awaiting;
-  document.getElementById('col-accepted').textContent = accepted;
-  document.getElementById('col-deferred').textContent = deferred;
-}
-
-// Restore saved statuses
-document.querySelectorAll('.college-status').forEach(function(sel) {
-  var saved = localStorage.getItem('college_' + sel.dataset.school);
-  if (saved) sel.value = saved;
-});
-updateCollegeTiles();
-</script>
 
 </main>
 

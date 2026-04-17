@@ -153,11 +153,17 @@
  @media (max-width:768px) {
    .sidebar { transform:translateX(-100%); }
    .sidebar.open { transform:translateX(0); }
-   .main { margin-left:0; padding:20px; }
+   .main { margin-left:0; padding:16px; padding-top:60px; }
    .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; }
    .profile-hero { flex-direction:column; text-align:center; }
    .hamburger { display:block; }
+   .mobile-overlay { display:block; }
+   table { font-size:12px; }
+   th, td { padding:8px 10px; }
+   .stat-tile .val { font-size:26px; }
  }
+ .mobile-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:99; }
+ .mobile-overlay.active { display:block; }
 </style>
  
 </head>
@@ -176,6 +182,7 @@
 </div>
 
 <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
+<div class="mobile-overlay" id="mobile-overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar" id="sidebar">
  <div class="sidebar-header">
    <div class="initials">WJ</div>
@@ -183,17 +190,17 @@
    <p>Pine Forest HS · Class of 2026</p>
  </div>
  <nav>
-   <a class="nav-item active" href="index.html">Home</a>
-   <a class="nav-item" href="sections/resumes.html">Resumes</a>
-   <a class="nav-item" href="sections/transcripts.html">Transcripts</a>
-   <a class="nav-item" href="sections/essays.html">Essays</a>
-   <a class="nav-item" href="sections/scholarships.html">Scholarships</a>
-   <a class="nav-item" href="sections/activities.html">Activities</a>
-   <a class="nav-item" href="sections/scores.html">Test Scores</a>
-   <a class="nav-item" href="sections/checklists.html">Checklists</a>
-   <a class="nav-item" href="sections/documents.html">Documents</a>
-   <a class="nav-item" href="sections/rec-letters.html">Rec Letters</a>
-   <a class="nav-item" href="sections/colleges.html">Colleges</a>
+   <a class="nav-item active" onclick="if(window.innerWidth<=768)closeSidebar()" href="index.html">Home</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/resumes.html">Resumes</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/transcripts.html">Transcripts</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/essays.html">Essays</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/scholarships.html">Scholarships</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/activities.html">Activities</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/scores.html">Test Scores</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/checklists.html">Checklists</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/documents.html">Documents</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/rec-letters.html">Rec Letters</a>
+   <a class="nav-item" onclick="if(window.innerWidth<=768)closeSidebar()" href="sections/colleges.html">Colleges</a>
  </nav>
  <div class="sidebar-footer">
    <button class="dark-toggle" onclick="toggleDark()">Toggle Dark Mode</button>
@@ -354,7 +361,15 @@ function toggleDark() {
   localStorage.setItem('theme', isDark ? 'light' : 'dark');
 }
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
+  var sidebar = document.getElementById('sidebar');
+  var overlay = document.getElementById('mobile-overlay');
+  sidebar.classList.toggle('open');
+  if (overlay) overlay.classList.toggle('active');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  var overlay = document.getElementById('mobile-overlay');
+  if (overlay) overlay.classList.remove('active');
 }
 if (localStorage.getItem('theme') === 'dark') {
   document.documentElement.setAttribute('data-theme', 'dark');

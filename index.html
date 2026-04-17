@@ -3,7 +3,57 @@
 <head>
  <meta charset="UTF-8"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
- <title>Home — Wisdom M. Johnson</title>
+ <title>Wisdom M. Johnson — Dashboard</title>
+ <style>
+ /* ── Password gate ── */
+ #gate {
+   position:fixed; inset:0; z-index:9999;
+   background:linear-gradient(135deg,#1e3a8a 0%,#162d6b 100%);
+   display:flex; align-items:center; justify-content:center;
+ }
+ #gate-box {
+   background:#fff; border-radius:16px; padding:40px 36px;
+   width:100%; max-width:380px; box-shadow:0 24px 60px rgba(0,0,0,0.35);
+   text-align:center;
+ }
+ #gate-box .g-initials {
+   width:68px; height:68px; background:#f59e0b; border-radius:50%;
+   display:flex; align-items:center; justify-content:center;
+   font-size:24px; font-weight:900; color:#1e3a8a; margin:0 auto 16px;
+ }
+ #gate-box h1 { font-size:18px; font-weight:800; color:#1e293b; margin-bottom:4px; }
+ #gate-box p  { font-size:13px; color:#64748b; margin-bottom:24px; }
+ #gate-input {
+   width:100%; padding:12px 14px; border:2px solid #e2e8f0; border-radius:8px;
+   font-size:15px; outline:none; transition:border-color 0.2s;
+   font-family:inherit; letter-spacing:0.05em;
+ }
+ #gate-input:focus { border-color:#1e3a8a; }
+ #gate-input.shake {
+   animation: shake 0.4s ease;
+   border-color:#dc2626;
+ }
+ #gate-btn {
+   margin-top:14px; width:100%; padding:12px; background:#1e3a8a;
+   color:#fff; border:none; border-radius:8px; font-size:14px;
+   font-weight:700; cursor:pointer; transition:background 0.2s;
+ }
+ #gate-btn:hover { background:#2d4fa3; }
+ #gate-btn:disabled { background:#94a3b8; cursor:not-allowed; }
+ #gate-err {
+   margin-top:10px; font-size:12px; color:#dc2626;
+   min-height:18px; font-weight:600;
+ }
+ @keyframes shake {
+   0%,100%{transform:translateX(0)}
+   20%{transform:translateX(-8px)}
+   40%{transform:translateX(8px)}
+   60%{transform:translateX(-6px)}
+   80%{transform:translateX(6px)}
+ }
+ /* Hide main content until unlocked */
+ body.locked .sidebar, body.locked .main, body.locked .hamburger { display:none !important; }
+ </style>
  <style>
  :root {
  --navy: #1e3a8a; --navy-dark: #162d6b; --navy-light: #2d4fa3;
@@ -14,15 +64,27 @@
  --white: #ffffff; --sidebar-w: 240px;
  }
  [data-theme="dark"] {
- --gray-50: #0f172a; --gray-100: #1e293b; --gray-200: #334155;
- --gray-400: #64748b; --gray-600: #94a3b8; --gray-800: #f1f5f9; --white: #1e293b;
+ --gray-50: #0d1117; --gray-100: #161b22; --gray-200: #30363d;
+ --gray-400: #6e7681; --gray-600: #8b949e; --gray-800: #e6edf3; --white: #1c2128;
  }
+ [data-theme="dark"] .card,[data-theme="dark"] .stat-tile,[data-theme="dark"] .doc-card { box-shadow:0 2px 8px rgba(0,0,0,0.4); border-color:var(--gray-200); }
+ [data-theme="dark"] .badge-done { background:rgba(46,160,67,0.2); color:#3fb950; }
+ [data-theme="dark"] .badge-progress { background:rgba(187,128,9,0.2); color:#e3b341; }
+ [data-theme="dark"] .badge-missing { background:rgba(248,81,73,0.2); color:#f85149; }
+ [data-theme="dark"] .badge-upcoming { background:rgba(88,166,255,0.15); color:#58a6ff; }
+ [data-theme="dark"] .note-box { background:rgba(56,139,253,0.1); border-left-color:#58a6ff; color:#cdd9e5; }
+ [data-theme="dark"] .btn-outline { color:var(--gold-light); border-color:var(--gold-light); }
+ [data-theme="dark"] .btn-outline:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+ [data-theme="dark"] .score-bar-fill { background:var(--gold); }
+ [data-theme="dark"] .doc-card:hover { box-shadow:0 6px 20px rgba(0,0,0,0.5); }
+ [data-theme="dark"] input,[data-theme="dark"] textarea,[data-theme="dark"] select { background:var(--gray-100); color:var(--gray-800); border-color:var(--gray-200); }
+ [data-theme="dark"] input::placeholder,[data-theme="dark"] textarea::placeholder { color:var(--gray-400); }
  * { margin:0; padding:0; box-sizing:border-box; }
  body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--gray-50); color:var(--gray-800); display:flex; min-height:100vh; }
  .sidebar { width:var(--sidebar-w); background:var(--navy); min-height:100vh; position:fixed; top:0; left:0; display:flex; flex-direction:column; z-index:100; transition:transform 0.3s; }
  .sidebar-header { padding:24px 20px 20px; border-bottom:1px solid rgba(255,255,255,0.1); }
  .sidebar-header .initials { width:56px; height:56px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:var(--navy); margin-bottom:12px; }
- .sidebar-header h2 { color:var(--white); font-size:15px; font-weight:700; line-height:1.3; }
+ .sidebar-header h2 { color:#ffffff; font-size:15px; font-weight:700; line-height:1.3; }
  .sidebar-header p { color:var(--gold-light); font-size:11px; margin-top:3px; }
  .sidebar nav { flex:1; padding:12px 0; }
  .nav-item { display:flex; align-items:center; gap:10px; padding:11px 20px; color:rgba(255,255,255,0.7); font-size:13.5px; font-weight:500; border-left:3px solid transparent; transition:all 0.2s; text-decoration:none; }
@@ -99,7 +161,20 @@
 </style>
  
 </head>
-<body>
+<body class="locked">
+
+<!-- Password Gate -->
+<div id="gate">
+  <div id="gate-box">
+    <div class="g-initials">WJ</div>
+    <h1>Wisdom M. Johnson</h1>
+    <p>Enter your password to access the dashboard</p>
+    <input id="gate-input" type="password" placeholder="Password" autocomplete="current-password" />
+    <button id="gate-btn" onclick="gateSubmit()">Unlock</button>
+    <div id="gate-err"></div>
+  </div>
+</div>
+
 <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
 <aside class="sidebar" id="sidebar">
  <div class="sidebar-header">
@@ -178,6 +253,101 @@
 </main>
 
 <script>
+/* ── Auth constants ── */
+var PW_HASH_HEX  = '6bd826e563362c0ee2ed3c2081b473d33f9a0812101696642f0677d1bed0577b';
+var PW_SALT      = 'WisdomJohnson2026SchoolDashboard';
+var HMAC_KEY_HEX = '3f5872fa78a3e093313654f190d58d1354e5e7fc44f7eb7550871f6a4956c154';
+var SESSION_KEY  = 'wj_auth_token';
+var MAX_AGE_MS   = 8 * 60 * 60 * 1000;
+
+function hexToBytes(hex) {
+  var a = new Uint8Array(hex.length / 2);
+  for (var i = 0; i < a.length; i++) a[i] = parseInt(hex.slice(i*2,i*2+2),16);
+  return a;
+}
+function bytesToHex(buf) {
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function randomHex(n) {
+  return bytesToHex(crypto.getRandomValues(new Uint8Array(n)));
+}
+
+/* Check if already authenticated (same session) */
+(function checkExisting() {
+  var raw = null;
+  try { raw = sessionStorage.getItem(SESSION_KEY); } catch(e) {}
+  if (!raw) return;
+  var parts = raw.split('|');
+  if (parts.length !== 3) return;
+  var issuedAt = parseInt(parts[1], 10);
+  if (isNaN(issuedAt) || Date.now() - issuedAt > MAX_AGE_MS) return;
+  var payload = parts[1] + '|' + parts[2];
+  crypto.subtle.importKey('raw', hexToBytes(HMAC_KEY_HEX),
+    {name:'HMAC',hash:'SHA-256'}, false, ['verify'])
+  .then(function(key) {
+    return crypto.subtle.verify('HMAC', key, hexToBytes(parts[0]),
+      new TextEncoder().encode(payload));
+  }).then(function(valid) {
+    if (valid) unlock();
+  }).catch(function(){});
+})();
+
+function gateSubmit() {
+  var btn   = document.getElementById('gate-btn');
+  var input = document.getElementById('gate-input');
+  var err   = document.getElementById('gate-err');
+  var pw    = input.value;
+  if (!pw) return;
+  btn.disabled = true;
+  btn.textContent = 'Checking…';
+  err.textContent = '';
+
+  var enc = new TextEncoder();
+  crypto.subtle.importKey('raw', enc.encode(pw), {name:'PBKDF2'}, false, ['deriveBits'])
+  .then(function(key) {
+    return crypto.subtle.deriveBits({
+      name:'PBKDF2', salt:enc.encode(PW_SALT), iterations:200000, hash:'SHA-256'
+    }, key, 256);
+  }).then(function(bits) {
+    var candidate = bytesToHex(bits);
+    if (candidate !== PW_HASH_HEX) throw new Error('wrong');
+    /* Issue HMAC token */
+    var issuedAt = Date.now();
+    var nonce    = randomHex(16);
+    var payload  = issuedAt + '|' + nonce;
+    return crypto.subtle.importKey('raw', hexToBytes(HMAC_KEY_HEX),
+      {name:'HMAC',hash:'SHA-256'}, false, ['sign'])
+    .then(function(hmacKey) {
+      return crypto.subtle.sign('HMAC', hmacKey, enc.encode(payload));
+    }).then(function(sig) {
+      var token = bytesToHex(sig) + '|' + issuedAt + '|' + nonce;
+      sessionStorage.setItem(SESSION_KEY, token);
+      unlock();
+    });
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Unlock';
+    err.textContent = 'Wrong password. Try again.';
+    input.value = '';
+    input.classList.remove('shake');
+    void input.offsetWidth;
+    input.classList.add('shake');
+    input.focus();
+  });
+}
+
+function unlock() {
+  document.getElementById('gate').style.display = 'none';
+  document.body.classList.remove('locked');
+}
+
+/* Allow Enter key */
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('gate-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') gateSubmit();
+  });
+});
+
 function toggleDark() {
   var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   document.documentElement.setAttribute('data-theme', isDark ? '' : 'dark');

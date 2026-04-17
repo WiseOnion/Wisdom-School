@@ -3,6 +3,7 @@
 <head>
  <meta charset="UTF-8"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+ <script src="../auth.js"></script>
  <title>Resumes — Wisdom M. Johnson</title>
  <style>
  :root {
@@ -14,15 +15,30 @@
  --white: #ffffff; --sidebar-w: 240px;
  }
  [data-theme="dark"] {
- --gray-50: #0f172a; --gray-100: #1e293b; --gray-200: #334155;
- --gray-400: #64748b; --gray-600: #94a3b8; --gray-800: #f1f5f9; --white: #1e293b;
+ --gray-50: #0d1117; --gray-100: #161b22; --gray-200: #30363d;
+ --gray-400: #6e7681; --gray-600: #8b949e; --gray-800: #e6edf3; --white: #1c2128;
  }
+ [data-theme="dark"] .card,[data-theme="dark"] .stat-tile,[data-theme="dark"] .doc-card { box-shadow:0 2px 8px rgba(0,0,0,0.4); border-color:var(--gray-200); }
+ [data-theme="dark"] .badge-done { background:rgba(46,160,67,0.2); color:#3fb950; }
+ [data-theme="dark"] .badge-progress { background:rgba(187,128,9,0.2); color:#e3b341; }
+ [data-theme="dark"] .badge-missing { background:rgba(248,81,73,0.2); color:#f85149; }
+ [data-theme="dark"] .badge-upcoming { background:rgba(88,166,255,0.15); color:#58a6ff; }
+ [data-theme="dark"] .note-box { background:rgba(56,139,253,0.1); border-left-color:#58a6ff; color:#cdd9e5; }
+ [data-theme="dark"] .btn-outline { color:var(--gold-light); border-color:var(--gold-light); }
+ [data-theme="dark"] .btn-outline:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+ [data-theme="dark"] .score-bar-fill { background:var(--gold); }
+ [data-theme="dark"] .doc-card:hover { box-shadow:0 6px 20px rgba(0,0,0,0.5); }
+ [data-theme="dark"] .sync-bar { background:var(--white); border-color:var(--gray-200); }
+ [data-theme="dark"] #save-indicator { background:var(--gray-100); border:1px solid var(--gray-200); color:var(--gray-800); }
+ [data-theme="dark"] input,[data-theme="dark"] textarea,[data-theme="dark"] select { background:var(--gray-100); color:var(--gray-800); border-color:var(--gray-200); }
+ [data-theme="dark"] input::placeholder,[data-theme="dark"] textarea::placeholder { color:var(--gray-400); }
+ [data-theme="dark"] .modal-content { background:var(--white); border:1px solid var(--gray-200); }
  * { margin:0; padding:0; box-sizing:border-box; }
  body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--gray-50); color:var(--gray-800); display:flex; min-height:100vh; }
  .sidebar { width:var(--sidebar-w); background:var(--navy); min-height:100vh; position:fixed; top:0; left:0; display:flex; flex-direction:column; z-index:100; transition:transform 0.3s; }
  .sidebar-header { padding:24px 20px 20px; border-bottom:1px solid rgba(255,255,255,0.1); }
  .sidebar-header .initials { width:56px; height:56px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:var(--navy); margin-bottom:12px; }
- .sidebar-header h2 { color:var(--white); font-size:15px; font-weight:700; line-height:1.3; }
+ .sidebar-header h2 { color:#ffffff; font-size:15px; font-weight:700; line-height:1.3; }
  .sidebar-header p { color:var(--gold-light); font-size:11px; margin-top:3px; }
  .sidebar nav { flex:1; padding:12px 0; }
  .nav-item { display:flex; align-items:center; gap:10px; padding:11px 20px; color:rgba(255,255,255,0.7); font-size:13.5px; font-weight:500; border-left:3px solid transparent; transition:all 0.2s; text-decoration:none; }
@@ -137,7 +153,7 @@
     <span class="badge badge-done">New</span>
     <p>Balanced all-in-one. Academic achievements, tech skills, entrepreneurship, leadership, and service. Good for any situation.</p>
     <div class="actions">
-      <a href="WISDOM/02-RESUMES/Resume_General_AOIT_WisdomLayers_4pt0_Rank51.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/02-RESUMES/Resume_General_AOIT_WisdomLayers_4pt0_Rank51.html" target="_blank" class="btn btn-primary">Open</a>
     </div>
   </div>
   <div class="doc-card">
@@ -145,7 +161,7 @@
     <span class="badge badge-done">New</span>
     <p>Work experience front and center. WisdomLayers, Code Forward, people skills, reliability. Use for internships and part-time jobs.</p>
     <div class="actions">
-      <a href="WISDOM/02-RESUMES/Resume_Jobs_PartTime_Internship_Available.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/02-RESUMES/Resume_Jobs_PartTime_Internship_Available.html" target="_blank" class="btn btn-primary">Open</a>
     </div>
   </div>
   <div class="doc-card">
@@ -153,7 +169,35 @@
     <span class="badge badge-done">New</span>
     <p>GPA, rank, honors courses, NTHS Secretary, NHS, TRIO, dual enrollment, and community service hours. Built for college applications.</p>
     <div class="actions">
-      <a href="WISDOM/02-RESUMES/Resume_College_AOIT_DualEnrollment_FTCC_Detailed.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/02-RESUMES/Resume_College_AOIT_DualEnrollment_FTCC_Detailed.html" target="_blank" class="btn btn-primary">Open</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-label">NC A&T Polished Resume</div>
+<div class="grid-2">
+  <div class="doc-card">
+    <h4>NC A&T Polished Resume</h4>
+    <span class="badge badge-done">Polished</span>
+    <p>Final polished resume tailored for NC A&T Mechanical Engineering. Clean, professional layout optimized for the engineering program.</p>
+    <div class="actions">
+      <a href="../WISDOM/02-RESUMES/Resume_FINAL_MechEngineering_NCAandT_Polished.html" target="_blank" class="btn btn-gold">Open</a>
+    </div>
+  </div>
+  <div class="doc-card">
+    <h4>Resume PDF v1 — Dual Enrollment / NTHS / Tennis</h4>
+    <span class="badge badge-done">PDF</span>
+    <p>PDF resume highlighting dual enrollment at FTCC, NTHS membership, and tennis. Good for applications requiring a PDF attachment.</p>
+    <div class="actions">
+      <a href="../WISDOM/02-RESUMES/Resume_PDF_v1_8DualEnrollment_NTHS_Tennis.pdf" target="_blank" class="btn btn-outline">Open PDF</a>
+    </div>
+  </div>
+  <div class="doc-card">
+    <h4>Resume PDF v2 — Mechanical Engineering / Systems Thinking</h4>
+    <span class="badge badge-done">PDF</span>
+    <p>PDF resume framed around Mechanical Engineering and systems thinking. Strong engineering narrative for technical program applications.</p>
+    <div class="actions">
+      <a href="../WISDOM/02-RESUMES/Resume_PDF_v2_MechEngineering_SystemsThinking.pdf" target="_blank" class="btn btn-outline">Open PDF</a>
     </div>
   </div>
 </div>
@@ -161,17 +205,17 @@
 <div class="section-label">Previous Versions</div>
 <div class="grid-2">
   <div class="doc-card">
-    <h4>Resume v1 (Johnson_W)</h4>
-    <p>Original formatted resume. Clean single-page layout.</p>
+    <h4>Resume v1 (E-Scholars / NC A&T Engineering)</h4>
+    <p>Original formatted resume built for E-Scholars and NC A&T engineering applications.</p>
     <div class="actions">
-      <a href="WISDOM/02-RESUMES/Resume_v1_EScholars_NCAandT_Engineering.html" target="_blank" class="btn btn-outline">Open</a>
+      <a href="../WISDOM/02-RESUMES/Resume_v1_EScholars_NCAandT_Engineering.html" target="_blank" class="btn btn-outline">Open</a>
     </div>
   </div>
   <div class="doc-card">
-    <h4>Resume v2 (Wisdom's Resume)</h4>
-    <p>More detailed version with expanded entrepreneurship section.</p>
+    <h4>Resume v2 (Generic / Placeholder University)</h4>
+    <p>More detailed version with expanded entrepreneurship section. Generic template base.</p>
     <div class="actions">
-      <a href="WISDOM/02-RESUMES/Resume_v2_Generic_PlaceholderUniversity.html" target="_blank" class="btn btn-outline">Open</a>
+      <a href="../WISDOM/02-RESUMES/Resume_v2_Generic_PlaceholderUniversity.html" target="_blank" class="btn btn-outline">Open</a>
     </div>
   </div>
 </div>

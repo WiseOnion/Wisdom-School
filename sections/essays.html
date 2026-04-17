@@ -3,6 +3,7 @@
 <head>
  <meta charset="UTF-8"/>
  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+ <script src="../auth.js"></script>
  <title>Essays — Wisdom M. Johnson</title>
  <style>
  :root {
@@ -14,15 +15,30 @@
  --white: #ffffff; --sidebar-w: 240px;
  }
  [data-theme="dark"] {
- --gray-50: #0f172a; --gray-100: #1e293b; --gray-200: #334155;
- --gray-400: #64748b; --gray-600: #94a3b8; --gray-800: #f1f5f9; --white: #1e293b;
+ --gray-50: #0d1117; --gray-100: #161b22; --gray-200: #30363d;
+ --gray-400: #6e7681; --gray-600: #8b949e; --gray-800: #e6edf3; --white: #1c2128;
  }
+ [data-theme="dark"] .card,[data-theme="dark"] .stat-tile,[data-theme="dark"] .doc-card { box-shadow:0 2px 8px rgba(0,0,0,0.4); border-color:var(--gray-200); }
+ [data-theme="dark"] .badge-done { background:rgba(46,160,67,0.2); color:#3fb950; }
+ [data-theme="dark"] .badge-progress { background:rgba(187,128,9,0.2); color:#e3b341; }
+ [data-theme="dark"] .badge-missing { background:rgba(248,81,73,0.2); color:#f85149; }
+ [data-theme="dark"] .badge-upcoming { background:rgba(88,166,255,0.15); color:#58a6ff; }
+ [data-theme="dark"] .note-box { background:rgba(56,139,253,0.1); border-left-color:#58a6ff; color:#cdd9e5; }
+ [data-theme="dark"] .btn-outline { color:var(--gold-light); border-color:var(--gold-light); }
+ [data-theme="dark"] .btn-outline:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+ [data-theme="dark"] .score-bar-fill { background:var(--gold); }
+ [data-theme="dark"] .doc-card:hover { box-shadow:0 6px 20px rgba(0,0,0,0.5); }
+ [data-theme="dark"] .sync-bar { background:var(--white); border-color:var(--gray-200); }
+ [data-theme="dark"] #save-indicator { background:var(--gray-100); border:1px solid var(--gray-200); color:var(--gray-800); }
+ [data-theme="dark"] input,[data-theme="dark"] textarea,[data-theme="dark"] select { background:var(--gray-100); color:var(--gray-800); border-color:var(--gray-200); }
+ [data-theme="dark"] input::placeholder,[data-theme="dark"] textarea::placeholder { color:var(--gray-400); }
+ [data-theme="dark"] .modal-content { background:var(--white); border:1px solid var(--gray-200); }
  * { margin:0; padding:0; box-sizing:border-box; }
  body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--gray-50); color:var(--gray-800); display:flex; min-height:100vh; }
  .sidebar { width:var(--sidebar-w); background:var(--navy); min-height:100vh; position:fixed; top:0; left:0; display:flex; flex-direction:column; z-index:100; transition:transform 0.3s; }
  .sidebar-header { padding:24px 20px 20px; border-bottom:1px solid rgba(255,255,255,0.1); }
  .sidebar-header .initials { width:56px; height:56px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:800; color:var(--navy); margin-bottom:12px; }
- .sidebar-header h2 { color:var(--white); font-size:15px; font-weight:700; line-height:1.3; }
+ .sidebar-header h2 { color:#ffffff; font-size:15px; font-weight:700; line-height:1.3; }
  .sidebar-header p { color:var(--gold-light); font-size:11px; margin-top:3px; }
  .sidebar nav { flex:1; padding:12px 0; }
  .nav-item { display:flex; align-items:center; gap:10px; padding:11px 20px; color:rgba(255,255,255,0.7); font-size:13.5px; font-weight:500; border-left:3px solid transparent; transition:all 0.2s; text-decoration:none; }
@@ -134,42 +150,42 @@
     <h4>Why Engineering?</h4>
     <p><strong>Prompt:</strong> "Why do you want to study engineering?" — Covers WisdomLayers, Code Forward, systems thinking, NC A&T E-Scholars.</p>
     <div class="actions">
-      <a href="WISDOM/04-ESSAYS/Practice_WhyEngineering_AlwaysThoughtLikeOne_FirstClient.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/04-ESSAYS/Practice_WhyEngineering_AlwaysThoughtLikeOne_FirstClient.html" target="_blank" class="btn btn-primary">Open</a>
     </div>
   </div>
   <div class="doc-card">
     <h4>Entrepreneurial Spirit</h4>
     <p><strong>Prompt:</strong> "Describe a time you showed entrepreneurial spirit." — WisdomLayers founding story, first real client, business meets tech.</p>
     <div class="actions">
-      <a href="WISDOM/04-ESSAYS/Practice_Entrepreneurship_WisdomLayers_FirstRealClient.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/04-ESSAYS/Practice_Entrepreneurship_WisdomLayers_FirstRealClient.html" target="_blank" class="btn btn-primary">Open</a>
     </div>
   </div>
   <div class="doc-card">
     <h4>Challenge Overcome</h4>
     <p><strong>Prompt:</strong> "Describe a challenge you've overcome." — TRIO/first-gen path, financial need, persevering to 4.0 GPA.</p>
     <div class="actions">
-      <a href="WISDOM/04-ESSAYS/Practice_FirstGen_NoRoadmap_4YearsOfDecisions.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/04-ESSAYS/Practice_FirstGen_NoRoadmap_4YearsOfDecisions.html" target="_blank" class="btn btn-primary">Open</a>
     </div>
   </div>
   <div class="doc-card">
     <h4>Community Service</h4>
     <p><strong>Prompt:</strong> "How have you served your community?" — Library (50+ hrs), church childcare, Code Forward teaching, 100 Black Men.</p>
     <div class="actions">
-      <a href="WISDOM/04-ESSAYS/Practice_CommunityService_StMatthews_Library_100BlackMen.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/04-ESSAYS/Practice_CommunityService_StMatthews_Library_100BlackMen.html" target="_blank" class="btn btn-primary">Open</a>
     </div>
   </div>
   <div class="doc-card">
     <h4>Leadership Experience</h4>
     <p><strong>Prompt:</strong> "Describe your leadership experience." — NTHS Secretary, Code Forward camp leader, FBLA.</p>
     <div class="actions">
-      <a href="WISDOM/04-ESSAYS/Practice_Leadership_NTHS_Secretary_TitleVsActualWork.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/04-ESSAYS/Practice_Leadership_NTHS_Secretary_TitleVsActualWork.html" target="_blank" class="btn btn-primary">Open</a>
     </div>
   </div>
   <div class="doc-card">
     <h4>Diversity & HBCU Perspective</h4>
     <p><strong>Prompt:</strong> "How will you contribute to campus diversity?" — HBCU at NC A&T, first-gen, military city, Black male engineer.</p>
     <div class="actions">
-      <a href="WISDOM/04-ESSAYS/Practice_Diversity_FortLiberty_MilitaryCityRoots_WhatIBring.html" target="_blank" class="btn btn-primary">Open</a>
+      <a href="../WISDOM/04-ESSAYS/Practice_Diversity_FortLiberty_MilitaryCityRoots_WhatIBring.html" target="_blank" class="btn btn-primary">Open</a>
     </div>
   </div>
 </div>
@@ -179,57 +195,57 @@
   <div class="doc-card">
     <h4>Script: Core Values &amp; Community Change</h4>
     <p>Video script with timing cues. Spoken response on equity, innovation with purpose, and community impact. ~90 seconds.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/VideoScript_CoreValues_TalkNaturally_InnovationForEveryone.html" target="_blank" class="btn btn-gold">Open Script</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/VideoScript_CoreValues_TalkNaturally_InnovationForEveryone.html" target="_blank" class="btn btn-gold">Open Script</a></div>
   </div>
   <div class="doc-card">
     <h4>Script: McDonald's &mdash; Values Response</h4>
     <p>Video script. Same values theme tailored for the McDonald's prompt. Warm, direct, ~90 seconds to 2 minutes.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/VideoScript_McDonalds_90sec_WarmConversation_NotASpeech.html" target="_blank" class="btn btn-gold">Open Script</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/VideoScript_McDonalds_90sec_WarmConversation_NotASpeech.html" target="_blank" class="btn btn-gold">Open Script</a></div>
   </div>
   <div class="doc-card">
     <h4>Script: Golf Affiliation Response</h4>
     <p>Video script with timing cues. Honest about no current experience. Mentor quote story. Confident close. ~2 minutes.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/VideoScript_Golf_2min_HonestNoApology_NoExperienceYet.html" target="_blank" class="btn btn-gold">Open Script</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/VideoScript_Golf_2min_HonestNoApology_NoExperienceYet.html" target="_blank" class="btn btn-gold">Open Script</a></div>
   </div>
   <div class="doc-card">
     <h4>Alternative Learning Strategies</h4>
     <p>How Wisdom handles new and difficult academic material. Conversational, grounded in coding and self-teaching background.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/Essay_ERLY_HowILearn_SitWithIt_FigureItOut.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/Essay_ERLY_HowILearn_SitWithIt_FigureItOut.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
   <div class="doc-card">
     <h4>Ethnicity, STEM &amp; Giving Back</h4>
     <p>How being a Black man in STEM shaped Wisdom's path and what giving back looks like now and in the future.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/Essay_BlackInSTEM_GrowingUpWithNoRepresentation_GivingBack.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/Essay_BlackInSTEM_GrowingUpWithNoRepresentation_GivingBack.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
   <div class="doc-card">
     <h4>UNCF Video Script: Twenty Years From Now</h4>
     <p>60-second spoken script for UNCF STEM Scholars video prompt. Includes timing cues. Submit via YouTube (unlisted or public).</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/VideoScript_UNCF_STEM_60sec_TwentyYearsFromNow.html" target="_blank" class="btn btn-gold">Open Script</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/VideoScript_UNCF_STEM_60sec_TwentyYearsFromNow.html" target="_blank" class="btn btn-gold">Open Script</a></div>
   </div>
   <div class="doc-card">
     <h4>Core Values — Innovation Includes Everyone</h4>
     <p><strong>Prompt:</strong> "What core values are most essential to creating positive change?" — Innovation that never leaves people behind.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/Essay_CoreValues_InnovationShouldNeverLeavePeopleBehind.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/Essay_CoreValues_InnovationShouldNeverLeavePeopleBehind.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
   <div class="doc-card">
     <h4>McDonald's — Fayetteville Roots, Showing Up</h4>
     <p><strong>Prompt:</strong> "What values are most important for making a positive difference?" — Military city upbringing, showing up for people.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/Essay_McDonalds_FayettevilleRoots_ShowingUpForPeople.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/Essay_McDonalds_FayettevilleRoots_ShowingUpForPeople.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
   <div class="doc-card">
     <h4>Golf Affiliation — Mentor Story, Networking Lesson</h4>
     <p><strong>Prompt:</strong> "Do you have any affiliation to golf?" — No experience yet, but a mentor story about how real relationships are built.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/Essay_Golf_NoExperienceYet_MentorStory_NetworkingLesson.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/Essay_Golf_NoExperienceYet_MentorStory_NetworkingLesson.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
   <div class="doc-card">
     <h4>ERLY — All Three Prompts Combined</h4>
     <p>Full ERLY scholarship submission with all three prompts answered: learning strategies, leadership, and community.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/Essay_ERLY_AllThreePrompts_LearningLeadershipCommunity.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/Essay_ERLY_AllThreePrompts_LearningLeadershipCommunity.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
   <div class="doc-card">
     <h4>TMCF Essay — Community Values (Final PDF)</h4>
     <p>Submitted TMCF essay — Thurgood Marshall College Fund. Community values, coding roadmap, teaching others what clicked.</p>
-    <div class="actions"><a href="WISDOM/04-ESSAYS/Essay_TMCF_CommunityValues_Final.pdf" target="_blank" class="btn btn-gold">Open PDF</a></div>
+    <div class="actions"><a href="../WISDOM/04-ESSAYS/Essay_TMCF_CommunityValues_Final.pdf" target="_blank" class="btn btn-gold">Open PDF</a></div>
   </div>
 </div>
 

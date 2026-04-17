@@ -237,7 +237,7 @@ function setSyncStatus(state, msg) {
 async function scLoad() {
   setSyncStatus('loading', 'Loading from Google Sheets…');
   try {
-    var resp = await fetch(SCRIPT_URL);
+    var resp = await fetch(SCRIPT_URL, { redirect: 'follow', mode: 'cors' });
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     var text = await resp.text();
     var parsed = JSON.parse(text);

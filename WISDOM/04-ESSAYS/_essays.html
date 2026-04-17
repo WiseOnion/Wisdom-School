@@ -18,21 +18,12 @@
  --gray-50: #0d1117; --gray-100: #161b22; --gray-200: #30363d;
  --gray-400: #6e7681; --gray-600: #8b949e; --gray-800: #e6edf3; --white: #1c2128;
  }
- [data-theme="dark"] .card,[data-theme="dark"] .stat-tile,[data-theme="dark"] .doc-card { box-shadow:0 2px 8px rgba(0,0,0,0.4); border-color:var(--gray-200); }
- [data-theme="dark"] .badge-done { background:rgba(46,160,67,0.2); color:#3fb950; }
- [data-theme="dark"] .badge-progress { background:rgba(187,128,9,0.2); color:#e3b341; }
- [data-theme="dark"] .badge-missing { background:rgba(248,81,73,0.2); color:#f85149; }
- [data-theme="dark"] .badge-upcoming { background:rgba(88,166,255,0.15); color:#58a6ff; }
+ [data-theme="dark"] .card,[data-theme="dark"] .doc-card { box-shadow:0 2px 8px rgba(0,0,0,0.4); border-color:var(--gray-200); }
  [data-theme="dark"] .note-box { background:rgba(56,139,253,0.1); border-left-color:#58a6ff; color:#cdd9e5; }
  [data-theme="dark"] .btn-outline { color:var(--gold-light); border-color:var(--gold-light); }
  [data-theme="dark"] .btn-outline:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); }
- [data-theme="dark"] .score-bar-fill { background:var(--gold); }
  [data-theme="dark"] .doc-card:hover { box-shadow:0 6px 20px rgba(0,0,0,0.5); }
- [data-theme="dark"] .sync-bar { background:var(--white); border-color:var(--gray-200); }
- [data-theme="dark"] #save-indicator { background:var(--gray-100); border:1px solid var(--gray-200); color:var(--gray-800); }
- [data-theme="dark"] input,[data-theme="dark"] textarea,[data-theme="dark"] select { background:var(--gray-100); color:var(--gray-800); border-color:var(--gray-200); }
- [data-theme="dark"] input::placeholder,[data-theme="dark"] textarea::placeholder { color:var(--gray-400); }
- [data-theme="dark"] .modal-content { background:var(--white); border:1px solid var(--gray-200); }
+ [data-theme="dark"] .type-tag { opacity:0.85; }
  * { margin:0; padding:0; box-sizing:border-box; }
  body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--gray-50); color:var(--gray-800); display:flex; min-height:100vh; }
  .sidebar { width:var(--sidebar-w); background:var(--navy); min-height:100vh; position:fixed; top:0; left:0; display:flex; flex-direction:column; z-index:100; transition:transform 0.3s; }
@@ -50,27 +41,30 @@
  .page-title { font-size:26px; font-weight:800; color:var(--navy); margin-bottom:6px; }
  [data-theme="dark"] .page-title { color:var(--gold-light); }
  .page-subtitle { font-size:14px; color:var(--gray-600); margin-bottom:28px; }
- .card { background:var(--white); border-radius:12px; padding:24px; box-shadow:0 1px 4px rgba(0,0,0,0.08); border:1px solid var(--gray-200); margin-bottom:20px; }
- .card h3 { font-size:15px; font-weight:700; margin-bottom:14px; color:var(--navy); display:flex; align-items:center; gap:8px; }
- [data-theme="dark"] .card h3 { color:var(--gold-light); }
- .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
- .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
- .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
- .stat-tile { background:var(--white); border-radius:10px; padding:20px; text-align:center; border:1px solid var(--gray-200); box-shadow:0 1px 3px rgba(0,0,0,0.06); }
- .stat-tile .val { font-size:32px; font-weight:900; color:var(--navy); line-height:1; }
- [data-theme="dark"] .stat-tile .val { color:var(--gold-light); }
- .stat-tile .lbl { font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--gray-600); margin-top:6px; }
- .badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; }
- .badge-done { background:#dcfce7; color:#15803d; }
- .badge-progress { background:#fef9c3; color:#a16207; }
- .badge-missing { background:#fee2e2; color:#b91c1c; }
- .badge-upcoming { background:#dbeafe; color:#1d4ed8; }
- .doc-card { background:var(--white); border:1px solid var(--gray-200); border-radius:10px; padding:18px; display:flex; flex-direction:column; gap:10px; transition:box-shadow 0.2s,transform 0.2s; }
- .doc-card:hover { box-shadow:0 4px 16px rgba(30,58,138,0.12); transform:translateY(-2px); }
- .doc-card h4 { font-size:14px; font-weight:700; color:var(--navy); }
+
+ /* Section header */
+ .section-header { display:flex; align-items:center; gap:12px; margin:32px 0 14px; }
+ .section-header .section-line { flex:1; height:1px; background:var(--gray-200); }
+ .section-header .section-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gray-400); white-space:nowrap; }
+
+ /* Essay cards */
+ .essays-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+ .doc-card { background:var(--white); border:1px solid var(--gray-200); border-radius:12px; padding:20px; display:flex; flex-direction:column; gap:0; transition:box-shadow 0.2s,transform 0.2s; }
+ .doc-card:hover { box-shadow:0 4px 18px rgba(30,58,138,0.11); transform:translateY(-2px); }
+
+ .card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
+ .type-tag { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; padding:3px 9px; border-radius:20px; white-space:nowrap; flex-shrink:0; }
+ .tag-practice { background:#ede9fe; color:#6d28d9; }
+ .tag-essay { background:#dbeafe; color:#1d4ed8; }
+ .tag-script { background:#fef9c3; color:#a16207; }
+ .tag-pdf { background:#dcfce7; color:#15803d; }
+
+ .doc-card h4 { font-size:13.5px; font-weight:700; color:var(--navy); line-height:1.35; margin-bottom:8px; }
  [data-theme="dark"] .doc-card h4 { color:var(--gold-light); }
- .doc-card p { font-size:12px; color:var(--gray-600); line-height:1.5; }
- .doc-card .actions { display:flex; gap:8px; margin-top:4px; }
+ .doc-card .prompt-label { font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--gray-400); margin-bottom:4px; }
+ .doc-card p { font-size:12px; color:var(--gray-600); line-height:1.55; flex:1; }
+ .doc-card .actions { display:flex; gap:8px; margin-top:14px; }
+
  .btn { padding:7px 14px; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; border:none; text-decoration:none; display:inline-flex; align-items:center; gap:5px; transition:all 0.2s; }
  .btn-primary { background:var(--navy); color:#fff; }
  .btn-primary:hover { background:var(--navy-light); }
@@ -78,49 +72,19 @@
  .btn-gold:hover { background:var(--gold-dark); }
  .btn-outline { background:transparent; color:var(--navy); border:1.5px solid var(--navy); }
  .btn-outline:hover { background:var(--navy); color:#fff; }
- table { width:100%; border-collapse:collapse; font-size:13px; }
- th { background:var(--gray-100); color:var(--gray-600); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; padding:10px 14px; text-align:left; }
- td { padding:12px 14px; border-bottom:1px solid var(--gray-200); vertical-align:middle; }
- tr:last-child td { border-bottom:none; }
- tr:hover td { background:var(--gray-50); }
- .timeline { position:relative; padding-left:28px; }
- .timeline::before { content:''; position:absolute; left:9px; top:0; bottom:0; width:2px; background:var(--gray-200); }
- .timeline-item { position:relative; margin-bottom:20px; }
- .timeline-item::before { content:''; position:absolute; left:-23px; top:5px; width:10px; height:10px; border-radius:50%; background:var(--gold); border:2px solid var(--navy); }
- .timeline-item h4 { font-size:13.5px; font-weight:700; color:var(--navy); }
- [data-theme="dark"] .timeline-item h4 { color:var(--gold-light); }
- .timeline-item .tl-meta { font-size:11px; color:var(--gray-600); margin-top:2px; }
- .timeline-item .tl-desc { font-size:12px; color:var(--gray-600); margin-top:5px; line-height:1.5; }
- .score-bar-wrap { margin-bottom:14px; }
- .score-bar-label { display:flex; justify-content:space-between; font-size:12px; margin-bottom:5px; }
- .score-bar-track { height:8px; background:var(--gray-200); border-radius:4px; overflow:hidden; }
- .score-bar-fill { height:100%; border-radius:4px; background:var(--navy); transition:width 0.8s; }
- .profile-hero { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%); border-radius:14px; padding:28px; color:white; display:flex; align-items:center; gap:24px; margin-bottom:24px; }
- .profile-initials { width:80px; height:80px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; font-weight:900; color:var(--navy); flex-shrink:0; }
- .profile-info h1 { font-size:24px; font-weight:900; }
- .profile-info .sub { opacity:0.85; font-size:13px; margin-top:4px; }
- .profile-info .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
- .profile-tag { background:rgba(255,255,255,0.15); padding:4px 12px; border-radius:20px; font-size:11px; font-weight:600; }
- .section-label { font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray-400); font-weight:700; margin:24px 0 10px; }
- .note-box { background:#eff6ff; border-left:4px solid var(--navy); border-radius:0 8px 8px 0; padding:12px 16px; font-size:12.5px; color:var(--navy); margin-bottom:16px; }
+
  .hamburger { display:none; position:fixed; top:16px; left:16px; z-index:200; background:var(--navy); color:white; border:none; border-radius:8px; padding:8px 10px; cursor:pointer; font-size:18px; }
+ @media (max-width:900px) { .essays-grid { grid-template-columns:1fr 1fr; } }
  @media (max-width:768px) {
    .sidebar { transform:translateX(-100%); }
    .sidebar.open { transform:translateX(0); }
    .main { margin-left:0; padding:16px; padding-top:60px; }
-   .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; }
-   .profile-hero { flex-direction:column; text-align:center; }
+   .essays-grid { grid-template-columns:1fr; }
    .hamburger { display:block; }
-   .mobile-overlay { display:block; }
-   table { font-size:12px; }
-   th, td { padding:8px 10px; }
-   .btn { padding:8px 12px; font-size:13px; }
-   .stat-tile .val { font-size:26px; }
  }
  .mobile-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:99; }
  .mobile-overlay.active { display:block; }
-</style>
- 
+ </style>
 </head>
 <body>
 <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
@@ -147,115 +111,173 @@
    <button class="dark-toggle" onclick="toggleDark()">Toggle Dark Mode</button>
  </div>
 </aside>
+
 <main class="main">
 <h2 class="page-title">Essays</h2>
-<p class="page-subtitle"></p>
+<p class="page-subtitle">All written essays, scholarship submissions, and video scripts.</p>
 
-<div class="section-label">Practice Essays (Fully Written — Customize & Submit)</div>
-<div class="grid-2">
+<!-- PRACTICE ESSAYS -->
+<div class="section-header">
+  <span class="section-title">Practice Essays</span>
+  <div class="section-line"></div>
+</div>
+<div class="essays-grid">
+
   <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-practice">Practice</span></div>
     <h4>Why Engineering?</h4>
-    <p><strong>Prompt:</strong> "Why do you want to study engineering?" — Covers WisdomLayers, Code Forward, systems thinking, NC A&T E-Scholars.</p>
-    <div class="actions">
-      <a href="../04-ESSAYS/Practice_WhyEngineering_AlwaysThoughtLikeOne_FirstClient.html" target="_blank" class="btn btn-primary">Open</a>
-    </div>
+    <div class="prompt-label">Prompt</div>
+    <p>"Why do you want to study engineering?" — Systems thinking, self-teaching, NC A&T E-Scholars path.</p>
+    <div class="actions"><a href="Practice_WhyEngineering_AlwaysThoughtLikeOne_FirstClient.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-practice">Practice</span></div>
     <h4>Entrepreneurial Spirit</h4>
-    <p><strong>Prompt:</strong> "Describe a time you showed entrepreneurial spirit." — WisdomLayers founding story, first real client, business meets tech.</p>
-    <div class="actions">
-      <a href="../04-ESSAYS/Practice_Entrepreneurship_WisdomLayers_FirstRealClient.html" target="_blank" class="btn btn-primary">Open</a>
-    </div>
+    <div class="prompt-label">Prompt</div>
+    <p>"Describe a time you showed entrepreneurial spirit." — First real client, business meets tech.</p>
+    <div class="actions"><a href="Practice_Entrepreneurship_WisdomLayers_FirstRealClient.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-practice">Practice</span></div>
     <h4>Challenge Overcome</h4>
-    <p><strong>Prompt:</strong> "Describe a challenge you've overcome." — TRIO/first-gen path, financial need, persevering to 4.0 GPA.</p>
-    <div class="actions">
-      <a href="../04-ESSAYS/Practice_FirstGen_NoRoadmap_4YearsOfDecisions.html" target="_blank" class="btn btn-primary">Open</a>
-    </div>
+    <div class="prompt-label">Prompt</div>
+    <p>"Describe a challenge you've overcome." — First-gen, financial need, persevering to 4.0 GPA.</p>
+    <div class="actions"><a href="Practice_FirstGen_NoRoadmap_4YearsOfDecisions.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-practice">Practice</span></div>
     <h4>Community Service</h4>
-    <p><strong>Prompt:</strong> "How have you served your community?" — Library (50+ hrs), church childcare, Code Forward teaching, 100 Black Men.</p>
-    <div class="actions">
-      <a href="../04-ESSAYS/Practice_CommunityService_StMatthews_Library_100BlackMen.html" target="_blank" class="btn btn-primary">Open</a>
-    </div>
+    <div class="prompt-label">Prompt</div>
+    <p>"How have you served your community?" — Library (50+ hrs), church childcare, 100 Black Men.</p>
+    <div class="actions"><a href="Practice_CommunityService_StMatthews_Library_100BlackMen.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-practice">Practice</span></div>
     <h4>Leadership Experience</h4>
-    <p><strong>Prompt:</strong> "Describe your leadership experience." — NTHS Secretary, Code Forward camp leader, FBLA.</p>
-    <div class="actions">
-      <a href="../04-ESSAYS/Practice_Leadership_NTHS_Secretary_TitleVsActualWork.html" target="_blank" class="btn btn-primary">Open</a>
-    </div>
+    <div class="prompt-label">Prompt</div>
+    <p>"Describe your leadership experience." — NTHS Secretary, Code Forward camp leader, FBLA.</p>
+    <div class="actions"><a href="Practice_Leadership_NTHS_Secretary_TitleVsActualWork.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-practice">Practice</span></div>
     <h4>Diversity & HBCU Perspective</h4>
-    <p><strong>Prompt:</strong> "How will you contribute to campus diversity?" — HBCU at NC A&T, first-gen, military city, Black male engineer.</p>
-    <div class="actions">
-      <a href="../04-ESSAYS/Practice_Diversity_FortLiberty_MilitaryCityRoots_WhatIBring.html" target="_blank" class="btn btn-primary">Open</a>
-    </div>
+    <div class="prompt-label">Prompt</div>
+    <p>"How will you contribute to campus diversity?" — First-gen, military city, Black male in engineering.</p>
+    <div class="actions"><a href="Practice_Diversity_FortLiberty_MilitaryCityRoots_WhatIBring.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
 </div>
 
-<div class="section-label">Essays</div>
-<div class="grid-2">
+<!-- SCHOLARSHIP ESSAYS -->
+<div class="section-header">
+  <span class="section-title">Scholarship Essays</span>
+  <div class="section-line"></div>
+</div>
+<div class="essays-grid">
+
   <div class="doc-card">
-    <h4>Script: Core Values &amp; Community Change</h4>
-    <p>Video script with timing cues. Spoken response on equity, innovation with purpose, and community impact. ~90 seconds.</p>
-    <div class="actions"><a href="../04-ESSAYS/VideoScript_CoreValues_TalkNaturally_InnovationForEveryone.html" target="_blank" class="btn btn-gold">Open Script</a></div>
-  </div>
-  <div class="doc-card">
-    <h4>Script: McDonald's &mdash; Values Response</h4>
-    <p>Video script. Same values theme tailored for the McDonald's prompt. Warm, direct, ~90 seconds to 2 minutes.</p>
-    <div class="actions"><a href="../04-ESSAYS/VideoScript_McDonalds_90sec_WarmConversation_NotASpeech.html" target="_blank" class="btn btn-gold">Open Script</a></div>
-  </div>
-  <div class="doc-card">
-    <h4>Script: Golf Affiliation Response</h4>
-    <p>Video script with timing cues. Honest about no current experience. Mentor quote story. Confident close. ~2 minutes.</p>
-    <div class="actions"><a href="../04-ESSAYS/VideoScript_Golf_2min_HonestNoApology_NoExperienceYet.html" target="_blank" class="btn btn-gold">Open Script</a></div>
-  </div>
-  <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-essay">Essay</span></div>
     <h4>Alternative Learning Strategies</h4>
-    <p>How Wisdom handles new and difficult academic material. Conversational, grounded in coding and self-teaching background.</p>
-    <div class="actions"><a href="../04-ESSAYS/Essay_ERLY_HowILearn_SitWithIt_FigureItOut.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="prompt-label">ERLY Scholarship</div>
+    <p>How Wisdom handles new and difficult material. Conversational, grounded in coding and self-teaching.</p>
+    <div class="actions"><a href="Essay_ERLY_HowILearn_SitWithIt_FigureItOut.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
-    <h4>Ethnicity, STEM &amp; Giving Back</h4>
+    <div class="card-top"><span class="type-tag tag-essay">Essay</span></div>
+    <h4>ERLY — All Three Prompts</h4>
+    <div class="prompt-label">ERLY Scholarship</div>
+    <p>Full submission with all three prompts: learning strategies, leadership, and community.</p>
+    <div class="actions"><a href="Essay_ERLY_AllThreePrompts_LearningLeadershipCommunity.html" target="_blank" class="btn btn-primary">Open</a></div>
+  </div>
+
+  <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-essay">Essay</span></div>
+    <h4>Ethnicity, STEM & Giving Back</h4>
+    <div class="prompt-label">Scholarship Essay</div>
     <p>How being a Black man in STEM shaped Wisdom's path and what giving back looks like now and in the future.</p>
-    <div class="actions"><a href="../04-ESSAYS/Essay_BlackInSTEM_GrowingUpWithNoRepresentation_GivingBack.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="actions"><a href="Essay_BlackInSTEM_GrowingUpWithNoRepresentation_GivingBack.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
-    <h4>UNCF Video Script: Twenty Years From Now</h4>
-    <p>60-second spoken script for UNCF STEM Scholars video prompt. Includes timing cues. Submit via YouTube (unlisted or public).</p>
-    <div class="actions"><a href="../04-ESSAYS/VideoScript_UNCF_STEM_60sec_TwentyYearsFromNow.html" target="_blank" class="btn btn-gold">Open Script</a></div>
-  </div>
-  <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-essay">Essay</span></div>
     <h4>Core Values — Innovation Includes Everyone</h4>
-    <p><strong>Prompt:</strong> "What core values are most essential to creating positive change?" — Innovation that never leaves people behind.</p>
-    <div class="actions"><a href="../04-ESSAYS/Essay_CoreValues_InnovationShouldNeverLeavePeopleBehind.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="prompt-label">Scholarship Essay</div>
+    <p>"What core values are most essential to creating positive change?" — Innovation that never leaves people behind.</p>
+    <div class="actions"><a href="Essay_CoreValues_InnovationShouldNeverLeavePeopleBehind.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-essay">Essay</span></div>
     <h4>McDonald's — Fayetteville Roots, Showing Up</h4>
-    <p><strong>Prompt:</strong> "What values are most important for making a positive difference?" — Military city upbringing, showing up for people.</p>
-    <div class="actions"><a href="../04-ESSAYS/Essay_McDonalds_FayettevilleRoots_ShowingUpForPeople.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="prompt-label">McDonald's Scholarship</div>
+    <p>"What values are most important for making a positive difference?" — Military city upbringing, showing up for people.</p>
+    <div class="actions"><a href="Essay_McDonalds_FayettevilleRoots_ShowingUpForPeople.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
-    <h4>Golf Affiliation — Mentor Story, Networking Lesson</h4>
-    <p><strong>Prompt:</strong> "Do you have any affiliation to golf?" — No experience yet, but a mentor story about how real relationships are built.</p>
-    <div class="actions"><a href="../04-ESSAYS/Essay_Golf_NoExperienceYet_MentorStory_NetworkingLesson.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="card-top"><span class="type-tag tag-essay">Essay</span></div>
+    <h4>Golf Affiliation — Mentor Story</h4>
+    <div class="prompt-label">Golf Scholarship</div>
+    <p>"Do you have any affiliation to golf?" — No experience yet, but a mentor story about how real relationships are built.</p>
+    <div class="actions"><a href="Essay_Golf_NoExperienceYet_MentorStory_NetworkingLesson.html" target="_blank" class="btn btn-primary">Open</a></div>
   </div>
+
   <div class="doc-card">
-    <h4>ERLY — All Three Prompts Combined</h4>
-    <p>Full ERLY scholarship submission with all three prompts answered: learning strategies, leadership, and community.</p>
-    <div class="actions"><a href="../04-ESSAYS/Essay_ERLY_AllThreePrompts_LearningLeadershipCommunity.html" target="_blank" class="btn btn-primary">Open</a></div>
+    <div class="card-top"><span class="type-tag tag-pdf">PDF · Submitted</span></div>
+    <h4>TMCF — Community Values</h4>
+    <div class="prompt-label">Thurgood Marshall College Fund</div>
+    <p>Submitted essay. Community values, coding roadmap, teaching others what clicked.</p>
+    <div class="actions"><a href="Essay_TMCF_CommunityValues_Final.pdf" target="_blank" class="btn btn-gold">Open PDF</a></div>
   </div>
-  <div class="doc-card">
-    <h4>TMCF Essay — Community Values (Final PDF)</h4>
-    <p>Submitted TMCF essay — Thurgood Marshall College Fund. Community values, coding roadmap, teaching others what clicked.</p>
-    <div class="actions"><a href="../04-ESSAYS/Essay_TMCF_CommunityValues_Final.pdf" target="_blank" class="btn btn-gold">Open PDF</a></div>
-  </div>
+
 </div>
 
+<!-- VIDEO SCRIPTS -->
+<div class="section-header">
+  <span class="section-title">Video Scripts</span>
+  <div class="section-line"></div>
+</div>
+<div class="essays-grid">
+
+  <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-script">Script · ~90 sec</span></div>
+    <h4>Core Values & Community Change</h4>
+    <div class="prompt-label">Core Values Prompt</div>
+    <p>Equity, innovation with purpose, and community impact. Spoken with timing cues.</p>
+    <div class="actions"><a href="VideoScript_CoreValues_TalkNaturally_InnovationForEveryone.html" target="_blank" class="btn btn-gold">Open Script</a></div>
+  </div>
+
+  <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-script">Script · ~90 sec</span></div>
+    <h4>McDonald's — Values Response</h4>
+    <div class="prompt-label">McDonald's Scholarship</div>
+    <p>Same values theme tailored for the McDonald's prompt. Warm, direct, conversational.</p>
+    <div class="actions"><a href="VideoScript_McDonalds_90sec_WarmConversation_NotASpeech.html" target="_blank" class="btn btn-gold">Open Script</a></div>
+  </div>
+
+  <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-script">Script · ~2 min</span></div>
+    <h4>Golf Affiliation Response</h4>
+    <div class="prompt-label">Golf Scholarship</div>
+    <p>Honest about no current experience. Mentor quote story. Confident close. Includes timing cues.</p>
+    <div class="actions"><a href="VideoScript_Golf_2min_HonestNoApology_NoExperienceYet.html" target="_blank" class="btn btn-gold">Open Script</a></div>
+  </div>
+
+  <div class="doc-card">
+    <div class="card-top"><span class="type-tag tag-script">Script · 60 sec</span></div>
+    <h4>UNCF STEM — Twenty Years From Now</h4>
+    <div class="prompt-label">UNCF STEM Scholars</div>
+    <p>60-second spoken script for UNCF video prompt. Submit via YouTube (unlisted or public).</p>
+    <div class="actions"><a href="VideoScript_UNCF_STEM_60sec_TwentyYearsFromNow.html" target="_blank" class="btn btn-gold">Open Script</a></div>
+  </div>
+
+</div>
 
 </main>
 

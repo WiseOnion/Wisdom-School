@@ -83,66 +83,137 @@
 <div id="save-indicator">✓ Saved</div>
 <div id="sc-modal-overlay" onclick="scCloseModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:500"></div>
 
-<div id="sc-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:600;background:var(--white);border-radius:14px;padding:32px;width:540px;max-width:95vw;max-height:90vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,0.18)">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-    <h3 style="font-size:17px;font-weight:800;color:var(--navy)" id="sc-modal-title">Add Scholarship</h3>
-    <button onclick="scCloseModal()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray-400);line-height:1">&times;</button>
-  </div>
-  <div style="margin-bottom:14px">
-    <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Scholarship Name *</label>
-    <input id="sc-name" type="text" placeholder="e.g. TMCF Scholarship" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+<style>
+#sc-modal { font-family:'Segoe UI',system-ui,sans-serif; }
+.sc-field { margin-bottom:16px; }
+.sc-field label {
+  display:block; margin-bottom:6px;
+  font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--gray-400);
+}
+.sc-field input, .sc-field select {
+  width:100%; padding:10px 14px;
+  border:1.5px solid var(--gray-200); border-radius:8px;
+  font-size:13.5px; font-family:inherit;
+  background:var(--gray-50); color:var(--gray-800);
+  transition:border-color 0.15s, box-shadow 0.15s;
+  outline:none;
+}
+.sc-field input:focus, .sc-field select:focus {
+  border-color:var(--navy);
+  box-shadow:0 0 0 3px rgba(30,58,138,0.08);
+  background:var(--white);
+}
+.sc-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.sc-section {
+  background:var(--gray-50); border:1.5px solid var(--gray-200);
+  border-radius:10px; padding:16px 18px; margin-top:6px;
+}
+.sc-section-label {
+  font-size:10px; font-weight:800; text-transform:uppercase;
+  letter-spacing:.08em; color:var(--navy); margin-bottom:14px;
+  display:flex; align-items:center; gap:8px;
+}
+.sc-section-label::after {
+  content:''; flex:1; height:1px; background:var(--gray-200);
+}
+.pw-wrap { position:relative; }
+.pw-wrap input { padding-right:40px; }
+.pw-toggle {
+  position:absolute; right:12px; top:50%; transform:translateY(-50%);
+  background:none; border:none; cursor:pointer;
+  color:var(--gray-400); font-size:15px; line-height:1;
+  padding:0; display:flex; align-items:center;
+}
+.pw-toggle:hover { color:var(--navy); }
+</style>
+
+<div id="sc-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:600;background:var(--white);border-radius:16px;width:560px;max-width:96vw;max-height:92vh;overflow-y:auto;box-shadow:0 12px 48px rgba(0,0,0,0.22);">
+
+  <!-- Header -->
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:24px 28px 0;">
     <div>
-      <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Amount ($)</label>
-      <input id="sc-amount" type="text" placeholder="e.g. 3000" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+      <h3 id="sc-modal-title" style="font-size:18px;font-weight:800;color:var(--navy);margin:0">Add Scholarship</h3>
+      <p style="font-size:12px;color:var(--gray-400);margin:3px 0 0">Fill in what you know — you can edit later.</p>
     </div>
-    <div>
-      <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Date Applied</label>
-      <input id="sc-date" type="date" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+    <button onclick="scCloseModal()" style="background:var(--gray-100);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;color:var(--gray-600);font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">&times;</button>
+  </div>
+
+  <!-- Body -->
+  <div style="padding:20px 28px 24px;">
+
+    <!-- Name -->
+    <div class="sc-field">
+      <label>Scholarship Name <span style="color:var(--red)">*</span></label>
+      <input id="sc-name" type="text" placeholder="e.g. TMCF Scholarship">
     </div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-    <div>
-      <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Decision Date</label>
-      <input id="sc-decision" type="date" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-    </div>
-    <div>
-      <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Status</label>
-      <select id="sc-status" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-        <option value="pending">Pending</option>
-        <option value="awarded">Awarded</option>
-        <option value="not-selected">Not Selected</option>
-      </select>
-    </div>
-  </div>
-  <div style="margin-bottom:14px">
-    <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Notes</label>
-    <input id="sc-notes" type="text" placeholder="e.g. Essay submitted, waiting on response..." style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-  </div>
-  <div style="margin-bottom:14px">
-    <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Submission Link</label>
-    <input id="sc-link" type="url" placeholder="e.g. https://apply.scholarship.org/..." style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-  </div>
-  <div style="border-top:1px solid var(--gray-200);margin:18px 0 14px;padding-top:18px">
-    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-400);margin-bottom:12px">Portal Login — for reuse next year</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div>
-        <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Username / Email</label>
-        <input id="sc-username" type="text" placeholder="e.g. wisemoson@gmail.com" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+
+    <!-- Amount + Status -->
+    <div class="sc-grid-2">
+      <div class="sc-field">
+        <label>Amount ($)</label>
+        <input id="sc-amount" type="text" placeholder="e.g. 3000">
       </div>
-      <div>
-        <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Password</label>
-        <div style="position:relative">
-          <input id="sc-password" type="password" placeholder="••••••••" style="width:100%;padding:9px 36px 9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-          <button type="button" onclick="scTogglePw()" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:13px" title="Show/hide">&#128065;</button>
+      <div class="sc-field">
+        <label>Status</label>
+        <select id="sc-status">
+          <option value="pending">⏳ Pending</option>
+          <option value="awarded">✅ Awarded</option>
+          <option value="not-selected">❌ Not Selected</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Applied + Decision -->
+    <div class="sc-grid-2">
+      <div class="sc-field">
+        <label>Date Applied</label>
+        <input id="sc-date" type="date">
+      </div>
+      <div class="sc-field">
+        <label>Decision Date</label>
+        <input id="sc-decision" type="date">
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="sc-field">
+      <label>Notes</label>
+      <input id="sc-notes" type="text" placeholder="e.g. Essay submitted, waiting on response…">
+    </div>
+
+    <!-- Link -->
+    <div class="sc-field">
+      <label>Application / Portal Link</label>
+      <input id="sc-link" type="url" placeholder="e.g. https://apply.scholarship.org/…">
+    </div>
+
+    <!-- Login section -->
+    <div class="sc-section">
+      <div class="sc-section-label">Portal Login &nbsp;— save for next year</div>
+      <div class="sc-grid-2">
+        <div class="sc-field" style="margin-bottom:0">
+          <label>Username / Email</label>
+          <input id="sc-username" type="text" placeholder="e.g. wisemoson@gmail.com">
+        </div>
+        <div class="sc-field" style="margin-bottom:0">
+          <label>Password</label>
+          <div class="pw-wrap">
+            <input id="sc-password" type="password" placeholder="Enter password">
+            <button type="button" class="pw-toggle" onclick="scTogglePw()" title="Show/hide">
+              <svg id="pw-eye-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div style="display:flex;gap:10px;justify-content:flex-end">
-    <button onclick="scCloseModal()" class="btn btn-outline">Cancel</button>
-    <button onclick="scSave()" class="btn btn-primary" id="sc-save-btn">Add Entry</button>
+
+    <!-- Footer -->
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:22px;padding-top:18px;border-top:1px solid var(--gray-200);">
+      <button onclick="scCloseModal()" class="btn btn-outline" style="padding:10px 22px;font-size:13px;">Cancel</button>
+      <button onclick="scSave()" class="btn btn-primary" id="sc-save-btn" style="padding:10px 28px;font-size:13px;">Add Entry</button>
+    </div>
+
   </div>
 </div>
 
@@ -332,8 +403,13 @@ function scChangeStatus(id, val) {
 
 
 function scTogglePw() {
-  var inp = document.getElementById('sc-password');
-  inp.type = inp.type === 'password' ? 'text' : 'password';
+  var inp  = document.getElementById('sc-password');
+  var icon = document.getElementById('pw-eye-icon');
+  var show = inp.type === 'password';
+  inp.type = show ? 'text' : 'password';
+  icon.innerHTML = show
+    ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>'
+    : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
 }
 
 function loginCell(e) {

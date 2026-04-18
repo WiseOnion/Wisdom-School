@@ -243,8 +243,8 @@ function scWriteCache(data) {
 
 function applySeeds(data) {
   var seeds = [
-    { id: 'seed-erly-2026',   name: 'ERLY Scholarship',                    amount: '',     date: '2025-09-01', decision: '', status: 'pending', notes: 'All three prompts answered. Essay submitted.',                                         link: 'https://itserly.com/pages/erly-scholarship' },
-    { id: 'seed-ashrae-2026', name: 'ASHRAE High School Senior Scholarship', amount: '3000', date: '2026-04-17', decision: '', status: 'pending', notes: '$3,000. Pre-engineering / engineering focus. Applied April 2026.', link: 'https://www.ashrae.org/communities/student-zone/scholarships-and-grants/high-school-senior-scholarships' }
+    { id: 'seed-erly-2026',   name: 'ERLY Scholarship',                    amount: '',     date: '', decision: '', status: 'pending', notes: 'All three prompts answered. Essay submitted.',                                         link: 'https://itserly.com/pages/erly-scholarship' },
+    { id: 'seed-ashrae-2026', name: 'ASHRAE High School Senior Scholarship', amount: '3000', date: '', decision: '', status: 'pending', notes: '$3,000. Pre-engineering / engineering focus. Applied April 2026.', link: 'https://www.ashrae.org/communities/student-zone/scholarships-and-grants/high-school-senior-scholarships' }
   ];
   var existingIds = data.map(function(e){ return e.id; });
   var newSeeds = [];

@@ -133,50 +133,85 @@
 
 <script>
 var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDqb2bIFBdFkI7yLGbGUcWpSGXBxbfulxkFh9eJO-Ezqj12EV_6bV4a311Ehp2aKhrQA/exec';
+var CACHE_KEY  = 'wj_sc_cache';
 
-var scData = [];
+var scData  = [];
 var scEditId = null;
 
 function setSyncStatus(state, msg) {
-  var dot = document.getElementById('sync-dot');
-  var txt = document.getElementById('sync-status');
-  dot.className = 'sync-dot ' + state;
-  txt.textContent = msg;
+  document.getElementById('sync-dot').className = 'sync-dot ' + state;
+  document.getElementById('sync-status').textContent = msg;
+}
+
+function scReadCache() {
+  try {
+    var raw = localStorage.getItem(CACHE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch(e) { return null; }
+}
+
+function scWriteCache(data) {
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch(e) {}
+}
+
+function applySeeds(data) {
+  var seeds = [
+    { id: 'seed-erly-2026',   name: 'ERLY Scholarship',                    amount: '',     date: '2025-09-01', decision: '2025-09-15', status: 'pending', notes: 'All three prompts answered. Essay submitted.',                                         link: 'https://itserly.com/pages/erly-scholarship' },
+    { id: 'seed-ashrae-2026', name: 'ASHRAE High School Senior Scholarship', amount: '3000', date: '2026-04-17', decision: '2026-05-01', status: 'pending', notes: '$3,000. Pre-engineering / engineering focus. Applied April 2026.', link: 'https://www.ashrae.org/communities/student-zone/scholarships-and-grants/high-school-senior-scholarships' }
+  ];
+  var existingIds = data.map(function(e){ return e.id; });
+  var newSeeds = [];
+  seeds.forEach(function(s) {
+    if (!existingIds.includes(s.id)) { data.push(s); newSeeds.push(s); }
+  });
+  return newSeeds;
 }
 
 async function scLoad() {
-  setSyncStatus('loading', 'Loading from Google Sheets…');
+  // ── 1. Paint from cache instantly ────────────────────────────────────────
+  var cached = scReadCache();
+  if (cached && cached.length) {
+    scData = cached;
+    scRender();
+    setSyncStatus('loading', 'Syncing…');
+  } else {
+    setSyncStatus('loading', 'Loading…');
+  }
+
+  // ── 2. Fetch fresh data in the background ─────────────────────────────────
   try {
     var resp = await fetch(SCRIPT_URL, { redirect: 'follow', mode: 'cors' });
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    var text = await resp.text();
-    var parsed = JSON.parse(text);
-    scData = Array.isArray(parsed) ? parsed.filter(function(e){ return e && e.id; }) : [];
+    var fresh = JSON.parse(await resp.text());
+    fresh = Array.isArray(fresh) ? fresh.filter(function(e){ return e && e.id; }) : [];
 
-    var seedIds = ['seed-erly-2026', 'seed-ashrae-2026'];
-    var existingIds = scData.map(function(e){ return e.id; });
-    var seeds = [
-      { id: 'seed-erly-2026', name: 'ERLY Scholarship', amount: '', deadline: '2025-09-15', applied: '2025-09-01', status: 'pending', notes: 'All three prompts answered. Essay submitted.', link: 'https://itserly.com/pages/erly-scholarship' },
-      { id: 'seed-ashrae-2026', name: 'ASHRAE High School Senior Scholarship', amount: '3000', deadline: '2026-05-01', applied: '2026-04-17', status: 'pending', notes: '$3,000. Pre-engineering / engineering focus. Applied April 2026.', link: 'https://www.ashrae.org/communities/student-zone/scholarships-and-grants/high-school-senior-scholarships' }
-    ];
-    var newSeeds = [];
-    seeds.forEach(function(s) {
-      if (!existingIds.includes(s.id)) { scData.push(s); newSeeds.push(s); }
-    });
+    var newSeeds = applySeeds(fresh);
 
+    // Only re-render if data actually changed — no choppy flash if nothing changed
+    var changed = JSON.stringify(fresh) !== JSON.stringify(scData);
+    scData = fresh;
+    scWriteCache(scData);
+
+    if (changed) scRender();
     setSyncStatus('ok', 'Synced · ' + new Date().toLocaleTimeString());
-    scRender();
     if (newSeeds.length) scPush();
+
   } catch(err) {
-    setSyncStatus('err', 'Could not connect to Google Sheets');
-    document.getElementById('sc-body').innerHTML =
-      '<tr><td colspan="8" style="text-align:center;padding:28px;color:var(--red);font-size:13px">Could not load data. Check your internet connection and try refreshing.</td></tr>';
+    // Cache was already rendered — just show a soft warning, don't wipe the table
+    if (cached && cached.length) {
+      setSyncStatus('err', 'Offline — showing cached data');
+    } else {
+      setSyncStatus('err', 'Could not connect to Google Sheets');
+      document.getElementById('sc-body').innerHTML =
+        '<tr><td colspan="8" style="text-align:center;padding:28px;color:var(--red);font-size:13px">Could not load data. Check your connection and refresh.</td></tr>';
+    }
     console.error('Load error:', err);
   }
 }
 
 async function scPush() {
   setSyncStatus('loading', 'Saving…');
+  scWriteCache(scData);
   try {
     await fetch(SCRIPT_URL, {
       method: 'POST',

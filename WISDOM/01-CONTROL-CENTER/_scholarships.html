@@ -243,8 +243,8 @@ function scWriteCache(data) {
 
 function applySeeds(data) {
   var seeds = [
-    { id: 'seed-erly-2026',   name: 'ERLY Scholarship',                    amount: '',     date: '2025-09-01', decision: '2025-09-15', status: 'pending', notes: 'All three prompts answered. Essay submitted.',                                         link: 'https://itserly.com/pages/erly-scholarship' },
-    { id: 'seed-ashrae-2026', name: 'ASHRAE High School Senior Scholarship', amount: '3000', date: '2026-04-17', decision: '2026-05-01', status: 'pending', notes: '$3,000. Pre-engineering / engineering focus. Applied April 2026.', link: 'https://www.ashrae.org/communities/student-zone/scholarships-and-grants/high-school-senior-scholarships' }
+    { id: 'seed-erly-2026',   name: 'ERLY Scholarship',                    amount: '',     date: '2025-09-01', decision: '', status: 'pending', notes: 'All three prompts answered. Essay submitted.',                                         link: 'https://itserly.com/pages/erly-scholarship' },
+    { id: 'seed-ashrae-2026', name: 'ASHRAE High School Senior Scholarship', amount: '3000', date: '2026-04-17', decision: '', status: 'pending', notes: '$3,000. Pre-engineering / engineering focus. Applied April 2026.', link: 'https://www.ashrae.org/communities/student-zone/scholarships-and-grants/high-school-senior-scholarships' }
   ];
   var existingIds = data.map(function(e){ return e.id; });
   var newSeeds = [];
@@ -396,9 +396,14 @@ function scDelete(id) {
   scPush();
 }
 
-function scChangeStatus(id, val) {
-  var entry = scData.find(function(e){ return e.id === id; });
-  if (entry) { entry.status = val; scPush(); }
+function scCycleStatus(id) {
+  var order = ['pending', 'awarded', 'not-selected'];
+  var entry = scData.find(function(e){ return String(e.id) === String(id); });
+  if (!entry) return;
+  var next = order[(order.indexOf(entry.status) + 1) % order.length];
+  entry.status = next;
+  scRender();
+  scPush();
 }
 
 
@@ -455,7 +460,12 @@ function scRender() {
       ? '<a href="' + e.link + '" target="_blank" rel="noopener" style="color:var(--navy);font-size:12px;font-weight:600;text-decoration:none;border:1.5px solid var(--navy);border-radius:5px;padding:3px 8px;white-space:nowrap" title="' + e.link + '">View</a>'
       : '<span style="color:var(--gray-400);font-size:11px">—</span>';
 
-    var statusColor = e.status === 'awarded' ? 'var(--green)' : e.status === 'not-selected' ? 'var(--red)' : 'var(--yellow)';
+    var statusMeta = {
+      'awarded':      { bg:'#dcfce7', color:'#15803d', icon:'<circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/>', label:'Awarded' },
+      'not-selected': { bg:'#fee2e2', color:'#b91c1c', icon:'<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>', label:'Not Selected' },
+      'pending':      { bg:'#fef9c3', color:'#a16207', icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>', label:'Pending' }
+    };
+    var sm = statusMeta[e.status] || statusMeta['pending'];
 
     var tr = document.createElement('tr');
     tr.innerHTML =
@@ -463,11 +473,9 @@ function scRender() {
       '<td style="padding:12px 14px;color:#15803d;font-weight:700">' + amtDisplay + '</td>' +
       '<td style="padding:12px 14px">' + (e.date || '—') + '</td>' +
       '<td style="padding:12px 14px">' + decisionDisplay + '</td>' +
-      '<td style="padding:12px 14px"><select onchange="scChangeStatus(' + e.id + ',this.value)" style="font-size:12px;padding:3px 6px;border-radius:6px;border:1px solid var(--gray-200);background:var(--white);color:' + statusColor + ';font-weight:600">' +
-        '<option value="pending"'      + (e.status==='pending'      ? ' selected':'') + '>Pending</option>' +
-        '<option value="awarded"'      + (e.status==='awarded'      ? ' selected':'') + '>Awarded</option>' +
-        '<option value="not-selected"' + (e.status==='not-selected' ? ' selected':'') + '>Not Selected</option>' +
-      '</select></td>' +
+      '<td style="padding:12px 14px"><div onclick="scCycleStatus(\'' + e.id + '\')" style="cursor:pointer;display:inline-flex;align-items:center;gap:5px;background:' + sm.bg + ';color:' + sm.color + ';padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;user-select:none" title="Click to change">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">' + sm.icon + '</svg>' + sm.label +
+      '</div></td>' +
       '<td style="padding:12px 14px">' + loginCell(e) + '</td>' +
       '<td style="padding:12px 14px;color:var(--gray-600);font-size:12px">' + (e.notes || '—') + '</td>' +
       '<td style="padding:12px 14px;text-align:center">' + linkCell + '</td>' +

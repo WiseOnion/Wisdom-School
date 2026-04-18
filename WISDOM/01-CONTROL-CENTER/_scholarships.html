@@ -59,21 +59,22 @@
   </div>
 
   <div class="card" style="padding:0;overflow-x:auto;">
-    <table style="min-width:680px;">
+    <table style="min-width:780px;">
       <thead>
         <tr>
-          <th style="width:22%">Scholarship</th>
-          <th style="width:10%">Amount</th>
-          <th style="width:11%">Applied</th>
-          <th style="width:11%">Decision</th>
-          <th style="width:11%">Status</th>
-          <th style="width:20%">Notes</th>
-          <th style="width:8%">Link</th>
-          <th style="width:7%"></th>
+          <th style="width:20%">Scholarship</th>
+          <th style="width:9%">Amount</th>
+          <th style="width:10%">Applied</th>
+          <th style="width:10%">Decision</th>
+          <th style="width:10%">Status</th>
+          <th style="width:13%">Login</th>
+          <th style="width:16%">Notes</th>
+          <th style="width:6%">Link</th>
+          <th style="width:6%"></th>
         </tr>
       </thead>
       <tbody id="sc-body">
-        <tr><td colspan="8" style="text-align:center;padding:28px;color:var(--gray-400);font-size:13px">Loading…</td></tr>
+        <tr><td colspan="9" style="text-align:center;padding:28px;color:var(--gray-400);font-size:13px">Loading…</td></tr>
       </tbody>
     </table>
   </div>
@@ -119,10 +120,25 @@
     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Notes</label>
     <input id="sc-notes" type="text" placeholder="e.g. Essay submitted, waiting on response..." style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
   </div>
-  <div style="margin-bottom:20px">
+  <div style="margin-bottom:14px">
     <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Submission Link</label>
-    <input id="sc-link" type="url" placeholder="e.g. https://drive.google.com/..." style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
-    <p style="font-size:11px;color:var(--gray-400);margin-top:4px">Link to confirmation email, Drive folder, or screenshot</p>
+    <input id="sc-link" type="url" placeholder="e.g. https://apply.scholarship.org/..." style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+  </div>
+  <div style="border-top:1px solid var(--gray-200);margin:18px 0 14px;padding-top:18px">
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-400);margin-bottom:12px">Portal Login — for reuse next year</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div>
+        <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Username / Email</label>
+        <input id="sc-username" type="text" placeholder="e.g. wisemoson@gmail.com" style="width:100%;padding:9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--gray-600);display:block;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Password</label>
+        <div style="position:relative">
+          <input id="sc-password" type="password" placeholder="••••••••" style="width:100%;padding:9px 36px 9px 12px;border:1.5px solid var(--gray-200);border-radius:7px;font-size:13px;background:var(--white);color:var(--gray-800)">
+          <button type="button" onclick="scTogglePw()" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:13px" title="Show/hide">&#128065;</button>
+        </div>
+      </div>
+    </div>
   </div>
   <div style="display:flex;gap:10px;justify-content:flex-end">
     <button onclick="scCloseModal()" class="btn btn-outline">Cancel</button>
@@ -249,16 +265,17 @@ function scOpenModal(editId) {
     document.getElementById('sc-date').value = entry.date || '';
     document.getElementById('sc-decision').value = entry.decision || '';
     document.getElementById('sc-status').value = entry.status || 'pending';
-    document.getElementById('sc-notes').value = entry.notes || '';
-    document.getElementById('sc-link').value = entry.link || '';
+    document.getElementById('sc-notes').value    = entry.notes    || '';
+    document.getElementById('sc-link').value     = entry.link     || '';
+    document.getElementById('sc-username').value = entry.username || '';
+    document.getElementById('sc-password').value = entry.password || '';
   } else {
     titleEl.textContent = 'Add Scholarship';
     btnEl.textContent = 'Add Entry';
-    ['sc-name','sc-amount','sc-notes'].forEach(function(id){ document.getElementById(id).value=''; });
-    document.getElementById('sc-date').value = '';
+    ['sc-name','sc-amount','sc-notes','sc-link','sc-username','sc-password'].forEach(function(id){ document.getElementById(id).value=''; });
+    document.getElementById('sc-date').value     = '';
     document.getElementById('sc-decision').value = '';
-    document.getElementById('sc-status').value = 'pending';
-    document.getElementById('sc-link').value = '';
+    document.getElementById('sc-status').value   = 'pending';
   }
   document.getElementById('sc-modal').style.display = 'block';
   document.getElementById('sc-modal-overlay').style.display = 'block';
@@ -284,7 +301,9 @@ function scSave() {
     decision: document.getElementById('sc-decision').value,
     status:   document.getElementById('sc-status').value,
     notes:    document.getElementById('sc-notes').value.trim(),
-    link:     document.getElementById('sc-link').value.trim()
+    link:     document.getElementById('sc-link').value.trim(),
+    username: document.getElementById('sc-username').value.trim(),
+    password: document.getElementById('sc-password').value.trim()
   };
 
   if (scEditId) {
@@ -312,12 +331,25 @@ function scChangeStatus(id, val) {
 }
 
 
+function scTogglePw() {
+  var inp = document.getElementById('sc-password');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+}
+
+function loginCell(e) {
+  if (!e.username && !e.password) return '<span style="color:var(--gray-400);font-size:11px">—</span>';
+  var html = '';
+  if (e.username) html += '<div style="font-size:11px;color:var(--gray-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px" title="' + e.username + '">' + e.username + '</div>';
+  if (e.password) html += '<div style="font-size:11px;color:var(--gray-400);font-family:monospace;letter-spacing:0.1em">••••••••</div>';
+  return html;
+}
+
 function scRender() {
   var tbody = document.getElementById('sc-body');
   tbody.innerHTML = '';
 
   if (!scData.length) {
-    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:28px;color:var(--gray-400);font-size:13px">No scholarships yet. Hit <strong>+ Add</strong> to log your first one.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:28px;color:var(--gray-400);font-size:13px">No scholarships yet. Hit <strong>+ Add</strong> to log your first one.</td></tr>';
     document.getElementById('sc-total').textContent  = '0';
     document.getElementById('sc-pending').textContent = '0';
     document.getElementById('sc-awarded').textContent = '0';
@@ -360,11 +392,12 @@ function scRender() {
         '<option value="awarded"'      + (e.status==='awarded'      ? ' selected':'') + '>Awarded</option>' +
         '<option value="not-selected"' + (e.status==='not-selected' ? ' selected':'') + '>Not Selected</option>' +
       '</select></td>' +
+      '<td style="padding:12px 14px">' + loginCell(e) + '</td>' +
       '<td style="padding:12px 14px;color:var(--gray-600);font-size:12px">' + (e.notes || '—') + '</td>' +
       '<td style="padding:12px 14px;text-align:center">' + linkCell + '</td>' +
       '<td style="padding:12px 14px;text-align:center;white-space:nowrap">' +
-        '<button onclick="scOpenModal(' + e.id + ')" style="background:none;border:none;color:var(--navy);cursor:pointer;font-size:13px;margin-right:6px" title="Edit">&#9998;</button>' +
-        '<button onclick="scDelete(' + e.id + ')" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px" title="Remove">&#x2715;</button>' +
+        '<button onclick="scOpenModal(\'' + e.id + '\')" style="background:none;border:none;color:var(--navy);cursor:pointer;font-size:13px;margin-right:6px" title="Edit">&#9998;</button>' +
+        '<button onclick="scDelete(\'' + e.id + '\')" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px" title="Remove">&#x2715;</button>' +
       '</td>';
     tbody.appendChild(tr);
   });

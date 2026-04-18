@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 const SHEET_NAME = 'Sheet1';
-const COLS = ['ID', 'Name', 'Amount', 'Date Applied', 'Decision Date', 'Status', 'Notes', 'Link'];
+const COLS = ['ID', 'Name', 'Amount', 'Date Applied', 'Decision Date', 'Status', 'Notes', 'Link', 'Username', 'Password'];
 
 // Brand colors — match the website exactly
 const COLOR = {
@@ -31,7 +31,7 @@ const COLOR = {
 };
 
 // Column widths (px)
-const COL_WIDTHS = [70, 230, 100, 115, 120, 115, 270, 90];
+const COL_WIDTHS = [70, 220, 95, 110, 115, 110, 240, 85, 160, 140];
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -122,7 +122,9 @@ function doGet() {
         decision: fmtDate(row[4]),
         status:   row[5]  || 'pending',
         notes:    row[6]  || '',
-        link:     row[7]  || ''
+        link:     row[7]  || '',
+        username: row[8]  || '',
+        password: row[9]  || ''
       };
     });
 
@@ -151,7 +153,9 @@ function doPost(e) {
       entry.decision || '',
       entry.status   || 'pending',
       entry.notes    || '',
-      entry.link     || ''
+      entry.link     || '',
+      entry.username || '',
+      entry.password || ''
     ];
   });
 
@@ -234,16 +238,26 @@ function styleDataRows(sheet, count) {
       .setFontSize(9)
       .setWrap(true);
 
-    // Link col — navy, centered, underlined
+    // Link col — navy, centered
     var linkCell = sheet.getRange(rowNum, 8);
     var linkVal  = linkCell.getValue();
     linkCell.setHorizontalAlignment('center');
     if (linkVal) {
-      linkCell.setFontColor(COLOR.navyLight)
-               .setFontWeight('bold');
+      linkCell.setFontColor(COLOR.navyLight).setFontWeight('bold');
     } else {
       linkCell.setFontColor(COLOR.gray400);
     }
+
+    // Username col — muted, small
+    sheet.getRange(rowNum, 9)
+      .setFontColor(COLOR.gray600)
+      .setFontSize(9);
+
+    // Password col — monospace dots, muted
+    sheet.getRange(rowNum, 10)
+      .setFontColor(COLOR.gray400)
+      .setFontSize(9)
+      .setFontFamily('Courier New');
   }
 
   // ── Decision Date conditional: highlight upcoming within 14 days ──────
